@@ -22,7 +22,7 @@ module.exports = {
 		},
 		backgroundImage: {
 			login:
-				"url('https://images.unsplash.com/photo-1561758423-4a993d30afea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1732&q=80')",
+				"url('https://images.unsplash.com/photo-1581185050956-0e015a2a96cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80')",
 		},
 	},
 	plugins: [require('@tailwindcss/line-clamp')],

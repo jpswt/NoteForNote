@@ -1,6 +1,7 @@
 import React from 'react';
 import PostDetails from '../components/PostDetails';
 import Sidebar from '../components/Sidebar';
+import Navbar from '../components/Navbar';
 
 const SinglePostDetails = () => {
 	return (
