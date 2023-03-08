@@ -1,0 +1,26 @@
+const Reducer = (state, action) => {
+	switch (action.type) {
+		case 'LOGIN_START':
+			return {
+				user: null,
+				fetched: true,
+				error: false,
+			};
+		case 'LOGIN_SUCCESS':
+			return {
+				user: action.payload,
+				fetched: false,
+				error: false,
+			};
+		case 'LOGIN_FAIL':
+			return {
+				user: null,
+				fetched: true,
+				error: true,
+			};
+		default:
+			return state;
+	}
+};
+
+export default Reducer;

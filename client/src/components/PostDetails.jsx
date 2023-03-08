@@ -1,67 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
+import axios from 'axios';
 
 const PostDetails = () => {
+	const [post, setPost] = useState({});
+
+	const idPath = useLocation();
+	const id = idPath.pathname.split('/')[2];
+	useEffect(() => {
+		const getPost = async () => {
+			const response = await axios.get(`http://localhost:8000/posts/${id}`);
+			console.log(response.data);
+			setPost(response.data);
+		};
+		getPost();
+	}, []);
+
 	return (
 		<div className="flex-9 mt-1">
 			<div className=" p-2.5 pr-0">
-				<img
-					className=" w-full h-80 object-cover rounded-md"
-					src="https://images.unsplash.com/photo-1574767837650-4c92d5b25c7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1742&q=80"
-					alt=""
-				/>
+				{post.photo && (
+					<img
+						className=" w-full h-80 object-cover rounded-md"
+						src={post.photo}
+						alt=""
+					/>
+				)}
 				<div className="flex">
 					<h1 className="flex-2 text-3xl text-center font-body">
-						Lorem ipsum dolor sit amet.
+						{post.title}
 					</h1>
 					<div className="flex-1 text-2xl">
-						<i class="fa-solid fa-file-pen ml-2 cursor-pointer text-emerald-600  "></i>
-						<i class="fa-solid fa-trash ml-2 cursor-pointer text-red-600 "></i>
+						<i className="fa-solid fa-file-pen ml-2 cursor-pointer text-emerald-600  "></i>
+						<i className="fa-solid fa-trash ml-2 cursor-pointer text-red-600 "></i>
 					</div>
 				</div>
 				<div className="flex justify-between mb-4 text-red-500 font-body">
 					<span>
-						Author: <strong>John Doe</strong>
+						Author:
+						<Link to={`/?user=${post.username}`}>
+							<strong>{post.username}</strong>
+						</Link>
 					</span>
-					<span>Posted: 1 hours ago</span>
+					<span>
+						Posted on:{' '}
+						{new Date(post.createdAt).toLocaleDateString('en-US', {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric',
+						})}
+					</span>
 				</div>
-				<p className="text-stone-800 text-lg leading-8">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus
-					facere aspernatur eligendi sapiente ipsa esse, aut iusto deleniti hic
-					recusandae numquam non perspiciatis molestiae dolorem impedit
-					blanditiis tempora. Aliquam harum, explicabo eaque rem suscipit qui
-					assumenda voluptates tempora doloribus veniam culpa dolor, praesentium
-					earum nam sapiente modi quis corrupti quisquam laudantium optio
-					doloremque! Quis dolore reprehenderit magni, hic temporibus similique!
-					Consequuntur consequatur ea laboriosam, nesciunt dolore sit
-					consectetur natus eveniet blanditiis quam laudantium facere tempora
-					hic vitae beatae impedit maiores, rerum maxime, iusto magni voluptatem
-					non? Commodi nesciunt doloribus voluptas ab ducimus pariatur ex
-					repudiandae impedit iusto. Porro, quia alias! Lorem ipsum dolor sit
-					amet, consectetur adipisicing elit. Possimus facere aspernatur
-					eligendi sapiente ipsa esse, aut iusto deleniti hic recusandae numquam
-					non perspiciatis molestiae dolorem impedit blanditiis tempora. Aliquam
-					harum, explicabo eaque rem suscipit qui assumenda voluptates tempora
-					doloribus veniam culpa dolor, praesentium earum nam sapiente modi quis
-					corrupti quisquam laudantium optio doloremque! Quis dolore
-					reprehenderit magni, hic temporibus similique! Consequuntur
-					consequatur ea laboriosam, nesciunt dolore sit consectetur natus
-					eveniet blanditiis quam laudantium facere tempora hic vitae beatae
-					impedit maiores, rerum maxime, iusto magni voluptatem non? Commodi
-					nesciunt doloribus voluptas ab ducimus pariatur ex repudiandae impedit
-					iusto. Porro, quia alias! Lorem ipsum dolor sit amet, consectetur
-					adipisicing elit. Possimus facere aspernatur eligendi sapiente ipsa
-					esse, aut iusto deleniti hic recusandae numquam non perspiciatis
-					molestiae dolorem impedit blanditiis tempora. Aliquam harum, explicabo
-					eaque rem suscipit qui assumenda voluptates tempora doloribus veniam
-					culpa dolor, praesentium earum nam sapiente modi quis corrupti
-					quisquam laudantium optio doloremque! Quis dolore reprehenderit magni,
-					hic temporibus similique! Consequuntur consequatur ea laboriosam,
-					nesciunt dolore sit consectetur natus eveniet blanditiis quam
-					laudantium facere tempora hic vitae beatae impedit maiores, rerum
-					maxime, iusto magni voluptatem non? Commodi nesciunt doloribus
-					voluptas ab ducimus pariatur ex repudiandae impedit iusto. Porro, quia
-					alias!
-				</p>
+				<p className="text-stone-800 text-lg leading-8">{post.description}</p>
 			</div>
 		</div>
 	);

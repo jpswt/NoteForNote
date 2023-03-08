@@ -1,6 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Sidebar = () => {
+	const [categories, setCategories] = useState([]);
+
+	useEffect(() => {
+		const fetchCategories = async () => {
+			const response = await axios.get('http://localhost:8000/categories');
+			setCategories(response.data);
+		};
+		fetchCategories();
+	});
+
 	return (
 		<div className="flex-3 m-4 pb-8 rounded-md bg-[hsl(0,44%,95%)]  flex flex-col items-center font-body">
 			<div className="flex flex-col items-center">
@@ -23,13 +35,13 @@ const Sidebar = () => {
 				<span className="m-2 p-1 w-[80%] border-solid border-b-2 border-stone-300  font-semibold text-center">
 					CATEGORIES
 				</span>
-				<ul className=" text-center">
-					<li className=" inline-block w-1/2 cursor-pointer ">Guitar</li>
-					<li className=" inline-block w-1/2 cursor-pointer ">Bass</li>
-					<li className=" inline-block w-1/2 cursor-pointer ">Amps</li>
-					<li className=" inline-block w-1/2 cursor-pointer ">Pedals</li>
-					<li className=" inline-block w-1/2 cursor-pointer ">Tone</li>
-					<li className=" inline-block w-1/2 cursor-pointer ">Accessories</li>
+
+				<ul className=" text-center flex gap-8">
+					{categories.map((category, i) => (
+						<li key={i} className=" inline-block w-1/2 cursor-pointer ">
+							<Link to={`/?category=${category.name}`}>{category.name}</Link>
+						</li>
+					))}
 				</ul>
 			</div>
 		</div>
