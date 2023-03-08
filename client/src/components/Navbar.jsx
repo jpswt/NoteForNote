@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
-	let user = false;
+const Navbar = ({ user }) => {
 	return (
 		<div className=" w-full h-[50px] sticky top-0 z-10 flex items-center justify-between font-display bg-stone-200">
 			{/* <div className="flex content-center">logo</div> */}

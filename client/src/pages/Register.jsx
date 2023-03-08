@@ -27,6 +27,18 @@ const Register = () => {
 				console.log(error);
 			});
 		// response.data;
+
+		// try{
+		// 	await axios
+		// 	.post('http://localhost:8000/auth/register', {
+		// 		username,
+		// 		email,
+		// 		password,
+		// 	})
+		// 	navigate('/login')
+		// } catch(error){
+		// 	setError(true)
+		// }
 	};
 
 	return (

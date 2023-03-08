@@ -1,13 +1,27 @@
-import React, { useRef } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { Context } from '../context/Context';
+import axios from 'axios';
 
 const Login = () => {
-	const navigate = useNavigate();
+	// const navigate = useNavigate();
 	const userRef = useRef();
 	const passwordRef = useRef();
 
-	const handleSubmit = (e) => {
+	const { dispatch, fetched } = useContext(Context);
+
+	const handleSubmit = async (e) => {
 		e.preventDefault();
+		dispatch({ type: 'LOGIN_START' });
+		try {
+			let response = await axios.post('http://localhost:8000/auth/login', {
+				username: userRef.current.value,
+				password: passwordRef.current.value,
+			});
+			dispatch({ type: 'LOGIN_SUCCESS', payload: response.data });
+		} catch (err) {
+			dispatch({ type: 'LOGIN_FAIL' });
+		}
 	};
 
 	return (
@@ -32,7 +46,7 @@ const Login = () => {
 					className="text-white bg-red-500 w-fit py-1 px-10 rounded-md"
 					type="submit"
 				>
-					<Link to="/login">Login</Link>
+					Login
 				</button>
 			</form>
 			<div className="absolute top-4 right-2 text-white flex items-center">

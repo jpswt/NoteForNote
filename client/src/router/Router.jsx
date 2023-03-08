@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet, useNavigate } from 'react-router-dom';
+import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Compose from '../pages/Compose';
 import Home from '../pages/Home';
@@ -6,12 +6,15 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import SinglePostDetails from '../pages/SinglePostDetails';
 import Profile from '../pages/Profile';
+import { Context } from '../context/Context';
+import { useContext } from 'react';
 
 const PageLayout = () => {
+	const { user } = useContext(Context);
 	return (
 		<>
-			<Navbar />
-			<Outlet />
+			<Navbar user={user} />
+			{user ? <Outlet /> : <Navigate to="/register" />}
 		</>
 	);
 };

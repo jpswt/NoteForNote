@@ -15,7 +15,7 @@ const Reducer = (state, action) => {
 		case 'LOGIN_FAIL':
 			return {
 				user: null,
-				fetched: true,
+				fetched: false,
 				error: true,
 			};
 		default:

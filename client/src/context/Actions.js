@@ -1,4 +1,4 @@
-export const Login = (userCreds) => ({
+export const LoginStart = (userCreds) => ({
 	type: 'LOGIN_START',
 });
 
