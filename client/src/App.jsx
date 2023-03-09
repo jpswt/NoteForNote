@@ -1,5 +1,5 @@
-import { RouterProvider } from 'react-router-dom';
-import router from './router/Router';
+import { BrowserRouter } from 'react-router-dom';
+import Router from './router/Router';
 
 // import Navbar from './components/Navbar';
 // import Compose from './pages/Compose';
@@ -12,7 +12,9 @@ import router from './router/Router';
 function App() {
 	return (
 		<div className="">
-			<RouterProvider router={router} />
+			<BrowserRouter>
+				<Router />
+			</BrowserRouter>
 		</div>
 	);
 }

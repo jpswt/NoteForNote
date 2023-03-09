@@ -4,7 +4,7 @@ import { Context } from '../context/Context';
 import axios from 'axios';
 
 const Login = () => {
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 	const userRef = useRef();
 	const passwordRef = useRef();
 
@@ -13,15 +13,28 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		dispatch({ type: 'LOGIN_START' });
-		try {
-			let response = await axios.post('http://localhost:8000/auth/login', {
+
+		await axios
+			.post('http://localhost:8000/auth/login', {
 				username: userRef.current.value,
 				password: passwordRef.current.value,
+			})
+			.then((response) => {
+				dispatch({ type: 'LOGIN_SUCCESS', payload: response.data });
+			})
+			.catch((error) => {
+				dispatch({ type: 'LOGIN_FAIL' });
 			});
-			dispatch({ type: 'LOGIN_SUCCESS', payload: response.data });
-		} catch (err) {
-			dispatch({ type: 'LOGIN_FAIL' });
-		}
+
+		// try {
+		// 	let response = await axios.post('http://localhost:8000/auth/login', {
+		// 		username: userRef.current.value,
+		// 		password: passwordRef.current.value,
+		// 	});
+		// 	dispatch({ type: 'LOGIN_SUCCESS', payload: response.data });
+		// } catch (err) {
+		// 	dispatch({ type: 'LOGIN_FAIL' });
+		// }
 	};
 
 	return (
