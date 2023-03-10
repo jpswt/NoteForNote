@@ -8,12 +8,15 @@ const authRoute = require('./routes/auth');
 const userRoute = require('./routes/users');
 const postRoute = require('./routes/posts');
 const categoryRoute = require('./routes/categories');
+const path = require('path');
 
 const multer = require('multer');
 
 dotenv.config();
 app.use(express.json());
 app.use(cors());
+
+app.use('/assets', express.static(path.join(__dirname, '/assets')));
 
 mongoose
 	.connect(process.env.MONGO_URL)
@@ -25,7 +28,7 @@ const storage = multer.diskStorage({
 		cb(null, 'assets');
 	},
 	filename: (req, file, cb) => {
-		cb(null, 'hat.png');
+		cb(null, req.body.name);
 	},
 });
 

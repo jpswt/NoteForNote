@@ -11,7 +11,7 @@ const Sidebar = () => {
 			setCategories(response.data);
 		};
 		fetchCategories();
-	});
+	}, []);
 
 	return (
 		<div className="flex-3 m-4 pb-8 rounded-md bg-[hsl(0,44%,95%)]  flex flex-col items-center font-body">

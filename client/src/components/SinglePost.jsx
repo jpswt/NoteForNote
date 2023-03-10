@@ -2,12 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SingePost = ({ post }) => {
+	const publicFolder = 'http://localhost:8000/assets/';
+
 	return (
 		<div className="w-[400px] mx-8 mb-3 ">
 			{post.photo && (
 				<img
 					className="w-full h-[275px] object-cover rounded-sm"
-					src={post.photo}
+					src={publicFolder + post.photo}
 					alt=""
 				/>
 			)}
@@ -35,7 +37,7 @@ const SingePost = ({ post }) => {
 					})}
 				</span>
 			</div>
-			<p className="text-stone-800 mt-2 leading-6 line-clamp-4 text-ellipsis">
+			<p className="text-stone-800 mt-2 leading-6 line-clamp-3 text-ellipsis">
 				{post.description}
 			</p>
 		</div>
