@@ -1,9 +1,30 @@
 import axios from 'axios';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Context } from '../context/Context';
 
 const ComposePost = () => {
+	const modules = {
+		toolbar: [
+			[
+				{ header: [1, 2, 3, false] },
+				'bold',
+				'italic',
+				'underline',
+				'strike',
+				'link',
+				{ list: 'ordered' },
+				{ list: 'bullet' },
+				{ color: [] },
+				{ script: 'sub' },
+				{ script: 'super' },
+				{ indent: '-1' },
+				{ indent: '+1' },
+			],
+		],
+	};
 	const navigate = useNavigate();
 	const { user } = useContext(Context);
 
@@ -31,6 +52,7 @@ const ComposePost = () => {
 		try {
 			const res = await axios.post('http://localhost:8000/posts', newPost);
 			navigate(`/posts/${res.data._id}`);
+			console.log(newPost);
 		} catch (err) {}
 	};
 
@@ -57,26 +79,34 @@ const ComposePost = () => {
 						onChange={(e) => setImg(e.target.files[0])}
 					/>
 					<input
-						className=" outline-red-500 p-2 w-[80%] text-3xl text-stone-500"
+						className=" outline-red-700 p-2 w-[80%] text-3xl text-stone-500"
 						type="text"
 						placeholder="Title"
 						autoFocus={true}
 						onChange={(e) => setTitle(e.target.value)}
 					/>
 				</div>
-				<div className=" flex items-center justify-center">
-					<textarea
+				<div className=" flex items-center justify-center ">
+					{/* <textarea
 						className="outline-red-500 border-none p-2 ml-[36px] mt-2 w-[80%] text-stone-500"
 						placeholder="Hit Record..."
 						id=""
 						cols="30"
 						rows="10"
 						onChange={(e) => setDescription(e.target.value)}
-					></textarea>
+					></textarea> */}
+					<ReactQuill
+						className="outline-red-700 border-none ml-[36px] mt-4 w-[80%] bg-white text-stone-500 p-0 ql-container ql-editor"
+						placeholder="Enter your thoughts..."
+						theme="snow"
+						value={description}
+						onChange={setDescription}
+						modules={modules}
+					/>
 				</div>
-				<div className="flex items-center justify-center mt-4">
+				<div className="flex items-center justify-center mt-12">
 					<button
-						className=" bg-red-500  py-2 px-4 text-white rounded-md cursor-pointer"
+						className=" bg-red-700 py-2 px-4 text-white rounded-md cursor-pointer"
 						type="submit"
 					>
 						Save Recording

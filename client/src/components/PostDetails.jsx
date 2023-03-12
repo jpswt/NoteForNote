@@ -1,9 +1,32 @@
 import React, { useContext, useEffect, useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import DOMpurify from 'dompurify';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Context } from '../context/Context';
 
 const PostDetails = () => {
+	const modules = {
+		toolbar: [
+			[
+				{ header: [1, 2, 3, false] },
+				'bold',
+				'italic',
+				'underline',
+				'strike',
+				'link',
+				{ list: 'ordered' },
+				{ list: 'bullet' },
+				{ color: [] },
+				{ script: 'sub' },
+				{ script: 'super' },
+				{ indent: '-1' },
+				{ indent: '+1' },
+			],
+		],
+	};
+
 	const navigate = useNavigate();
 	const { user } = useContext(Context);
 	const [post, setPost] = useState({});
@@ -32,7 +55,8 @@ const PostDetails = () => {
 				title: title,
 				description: description,
 			});
-			setUpdateInfo(false);
+			// setUpdateInfo(false);
+			window.location.reload();
 		} catch (error) {}
 	};
 
@@ -45,9 +69,13 @@ const PostDetails = () => {
 		} catch (error) {}
 	};
 
+	const sanitizeData = () => ({
+		__html: DOMpurify.sanitize(post.description),
+	});
+
 	return (
-		<div className="flex-9 mt-1">
-			<div className=" p-2.5 pr-0">
+		<div className="flex-9 flex flex-col justify-center items-center mt-1">
+			<div className=" p-2.5 pr-0 w-[80%]">
 				{post.photo && (
 					<img
 						className=" w-full h-80 object-cover rounded-md"
@@ -70,7 +98,7 @@ const PostDetails = () => {
 						<h1 className="flex-2 text-3xl text-center font-body">{title}</h1>
 
 						{post.username === user?.username && (
-							<div className="flex-1 text-2xl">
+							<div className="flex-1 text-xl">
 								<i
 									className="fa-solid fa-file-pen ml-2 cursor-pointer text-white bg-teal-600 p-3 rounded-full "
 									onClick={() => setUpdateInfo(true)}
@@ -83,7 +111,7 @@ const PostDetails = () => {
 						)}
 					</div>
 				)}
-				<div className="flex justify-between mb-4 text-red-700 font-body">
+				<div className="flex justify-between mt-2 mb-4 text-red-700 font-body border-b-stone-400 border-b-2">
 					<span>
 						<span>Posted by: </span>
 						<Link to={`/?user=${post.username}`}>
@@ -100,13 +128,18 @@ const PostDetails = () => {
 					</span>
 				</div>
 				{updateInfo ? (
-					<textarea
-						className="text-stone-500 text-lg leading-8 w-full h-40 pl-4 pt-2 outline-teal-600"
+					<ReactQuill
+						className="outline-red-700 border-none mt-2 w-full text-stone-500 bg-white p-0 ql-editor ql-container"
+						theme="snow"
 						value={description}
-						onChange={(e) => setDescription(e.target.value)}
+						onChange={setDescription}
+						modules={modules}
 					/>
 				) : (
-					<p className="text-stone-800 text-lg leading-8">{description}</p>
+					<div
+						className="mb-10 text-inherit blog-link"
+						dangerouslySetInnerHTML={sanitizeData()}
+					/>
 				)}
 				{updateInfo ? (
 					<div className="flex items-center justify-center mt-4">

@@ -10,13 +10,13 @@ const Home = () => {
 
 	const idPath = useLocation();
 	const id = idPath.search;
-	console.log(idPath);
+	// console.log(idPath);
 
 	useEffect(() => {
 		const fetchPosts = async () => {
 			const response = await axios.get(`http://localhost:8000/posts/${id}`);
 			setPosts(response.data);
-			console.log(response);
+			// console.log(response);
 		};
 		fetchPosts();
 	}, [id]);

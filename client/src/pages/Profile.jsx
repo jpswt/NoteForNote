@@ -7,7 +7,7 @@ const Profile = () => {
 		<div>
 			<div className="flex">
 				<Settings />
-				<Sidebar />
+				{/* <Sidebar /> */}
 			</div>
 		</div>
 	);

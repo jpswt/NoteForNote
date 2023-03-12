@@ -9,7 +9,7 @@ const Navbar = () => {
 		dispatch({ type: 'LOGOUT' });
 	};
 	return (
-		<div className=" w-full h-[50px] sticky top-0 z-10 flex items-center justify-between font-display bg-stone-200">
+		<div className=" w-full h-[50px] sticky top-0 z-10 flex items-center justify-between font-display bg-stone-50">
 			{/* <div className="flex content-center">logo</div> */}
 			<div className="flex items-center content-center mx-8">
 				<ul className="flex gap-8 text-lg font-light text-stone-800 cursor-pointer">

@@ -14,7 +14,7 @@ const Sidebar = () => {
 	}, []);
 
 	return (
-		<div className="flex-3 m-4 pb-8 rounded-md bg-[hsl(0,44%,95%)]  flex flex-col items-center font-body">
+		<div className="flex-3 mx-4 rounded-md bg-stone-100 flex flex-col items-center font-body h-[800px] sticky top-0">
 			<div className="flex flex-col items-center">
 				<span className="m-2 p-1 w-[80%] border-solid border-b-2 border-stone-300  font-semibold text-center">
 					ABOUT ME
@@ -32,11 +32,11 @@ const Sidebar = () => {
 				</p>
 			</div>
 			<div className="flex flex-col items-center w-full">
-				<span className="m-2 p-1 w-[80%] border-solid border-b-2 border-stone-300  font-semibold text-center">
+				<span className="m-2 p-1 w-[80%] border-solid border-b-2 border-stone-300 font-semibold text-center">
 					CATEGORIES
 				</span>
 
-				<ul className=" text-center flex gap-8">
+				<ul className=" text-center flex gap-8 mb-8">
 					{categories.map((category, i) => (
 						<li key={i} className=" inline-block w-1/2 cursor-pointer ">
 							<Link to={`/?category=${category.name}`}>{category.name}</Link>
