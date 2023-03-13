@@ -7,7 +7,7 @@ const Header = () => {
 				Guitar Blog
 			</div>
 			<img
-				className="w-full h-[450px] object-cover"
+				className="w-full h-[350px] object-cover"
 				src="https://images.unsplash.com/photo-1650733334625-fbe755c09aa3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2062&q=80"
 				alt=""
 			/>

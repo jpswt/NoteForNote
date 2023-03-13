@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import DOMpurify from 'dompurify';
-import { useLocation, Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Context } from '../context/Context';
+import { useLocation } from 'react-router';
 
 const PostDetails = () => {
 	const modules = {
@@ -34,6 +35,7 @@ const PostDetails = () => {
 	const [description, setDescription] = useState('');
 	const [updateInfo, setUpdateInfo] = useState(false);
 	const idPath = useLocation();
+	console.log(idPath);
 	const id = idPath.pathname.split('/')[2];
 	const publicFolder = 'http://localhost:8000/assets/';
 
@@ -65,7 +67,7 @@ const PostDetails = () => {
 			await axios.delete(`http://localhost:8000/posts/${post._id}`, {
 				data: { username: user.username },
 			});
-			navigate('/dashboard');
+			navigate('/home');
 		} catch (error) {}
 	};
 
@@ -74,7 +76,7 @@ const PostDetails = () => {
 	});
 
 	return (
-		<div className="flex-9 flex flex-col justify-center items-center mt-1">
+		<div className="flex-9 flex flex-col items-center mt-1 ">
 			<div className=" p-2.5 pr-0 w-[80%]">
 				{post.photo && (
 					<img
@@ -114,7 +116,7 @@ const PostDetails = () => {
 				<div className="flex justify-between mt-2 mb-4 text-red-700 font-body border-b-stone-400 border-b-2">
 					<span>
 						<span>Posted by: </span>
-						<Link to={`/?user=${post.username}`}>
+						<Link to={`/home?user=${post.username}`}>
 							<strong>{post.username}</strong>
 						</Link>
 					</span>

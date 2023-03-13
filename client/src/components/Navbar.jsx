@@ -14,7 +14,7 @@ const Navbar = () => {
 			<div className="flex items-center content-center mx-8">
 				<ul className="flex gap-8 text-lg font-light text-stone-800 cursor-pointer">
 					<li>
-						<Link to="/dashboard">HOME</Link>
+						<Link to="/home">HOME</Link>
 					</li>
 					<li>
 						<Link to="">ABOUT</Link>
@@ -35,7 +35,7 @@ const Navbar = () => {
 								'https://images.pexels.com/photos/165971/pexels-photo-165971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 							}
 							alt=""
-							className="w-[40px] h-[40px] rounded-full object-cover"
+							className="w-[40px] h-[40px] rounded-full object-cover cursor-pointer"
 						/>
 					</Link>
 				) : (

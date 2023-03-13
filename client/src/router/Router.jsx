@@ -27,7 +27,7 @@ const Router = () => {
 					element={user ? <Home /> : <Register />}
 				></Route>
 				<Route element={<ProtectedRoutes />}>
-					<Route exact path="/dashboard" element={<Home />}></Route>
+					<Route exact path="/home" element={<Home />}></Route>
 					<Route path="/compose" element={<Compose />}></Route>
 					<Route path="/posts/:id" element={<SinglePostDetails />}></Route>
 					<Route path="/profile" element={<Profile />}></Route>

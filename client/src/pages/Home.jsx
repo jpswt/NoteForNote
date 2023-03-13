@@ -3,23 +3,24 @@ import Header from '../components/Header';
 import Posts from '../components/Posts';
 import Sidebar from '../components/Sidebar';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router';
 
 const Home = () => {
 	const [posts, setPosts] = useState([]);
 
-	const idPath = useLocation();
-	const id = idPath.search;
-	// console.log(idPath);
+	const { search } = useLocation();
+	console.log(location);
 
 	useEffect(() => {
 		const fetchPosts = async () => {
-			const response = await axios.get(`http://localhost:8000/posts/${id}`);
+			const response = await axios.get(
+				`http://localhost:8000/posts/home${search}`
+			);
 			setPosts(response.data);
 			// console.log(response);
 		};
 		fetchPosts();
-	}, [id]);
+	}, [search]);
 
 	return (
 		<>

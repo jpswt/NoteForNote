@@ -5,6 +5,14 @@ import axios from 'axios';
 const Sidebar = () => {
 	const [categories, setCategories] = useState([]);
 
+	const handleScroll = () => {
+		window.scrollTo(0, 370);
+	};
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [window]);
+
 	useEffect(() => {
 		const fetchCategories = async () => {
 			const response = await axios.get('http://localhost:8000/categories');
@@ -38,8 +46,14 @@ const Sidebar = () => {
 
 				<ul className=" text-center flex gap-8 mb-8">
 					{categories.map((category, i) => (
-						<li key={i} className=" inline-block w-1/2 cursor-pointer ">
-							<Link to={`/?category=${category.name}`}>{category.name}</Link>
+						<li
+							key={i}
+							className=" inline-block w-1/2 cursor-pointer "
+							onClick={handleScroll}
+						>
+							<Link to={`/home?category=${category.name}`}>
+								{category.name}
+							</Link>
 						</li>
 					))}
 				</ul>
