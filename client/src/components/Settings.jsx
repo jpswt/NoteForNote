@@ -3,18 +3,20 @@ import { Context } from '../context/Context';
 import axios from 'axios';
 
 const Settings = () => {
-	const { user } = useContext(Context);
+	const { user, dispatch } = useContext(Context);
+	const publicFolder = 'http://localhost:8000/assets/';
 	const [img, setImg] = useState(null);
-	const [username, setUsername] = useState('');
+	// const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [successMsg, setSuccessMsg] = useState(false);
 
 	const handleUpdate = async (e) => {
 		e.preventDefault();
+		dispatch({ type: 'UPDATE_START' });
 		const updateUser = {
 			userId: user._id,
-			username: username,
+			// username: username,
 			email: email,
 			password: password,
 		};
@@ -29,10 +31,16 @@ const Settings = () => {
 			} catch (err) {}
 		}
 		try {
-			await axios.put(`http://localhost:8000/users/${user._id}`, updateUser);
+			const response = await axios.put(
+				`http://localhost:8000/users/${user._id}`,
+				updateUser
+			);
 			setSuccessMsg(true);
+			dispatch({ type: 'UPDATE_SUCCESS', payload: response.data });
 			console.log(updateUser);
-		} catch (err) {}
+		} catch (err) {
+			dispatch({ type: 'UPDATE_FAIL' });
+		}
 	};
 
 	return (
@@ -47,34 +55,40 @@ const Settings = () => {
 				className="flex flex-col justify-center items-center relative"
 				onSubmit={handleUpdate}
 			>
-				<p className="absolute top-[-24px] left-[45%]">Profile Pic</p>
 				<div className="flex items-center justify-center mb-6">
 					<img
 						className="w-40 h-40 object-cover rounded-full "
-						src={user.profilePic}
+						src={
+							img ? URL.createObjectURL(img) : publicFolder + user.profilePic
+						}
 						alt=""
 					/>
-					<label htmlFor="imgInput">
-						<i className="fa-solid fa-user cursor-pointer text-3xl ml-4 text-red-500 "></i>
-					</label>
-					<input
-						type="file"
-						id="imgInput"
-						className="hidden"
-						onChange={(e) => setImg(e.target.files[0])}
-					/>
 				</div>
+				<label htmlFor="imgInput">
+					<i className="fa-solid fa-user cursor-pointer text-3xl ml-4 text-red-500 ">
+						{' '}
+						Update Photo
+					</i>
+				</label>
 				<input
+					type="file"
+					id="imgInput"
+					className="hidden"
+					onChange={(e) => setImg(e.target.files[0])}
+				/>
+				{/* <input
 					type="text"
 					placeholder={user.username}
 					className="p-4 my-2 w-[40%]"
 					onChange={(e) => setUsername(e.target.value)}
-				/>
+					required
+				/> */}
 				<input
 					type="text"
 					placeholder={user.email}
 					className="p-4 my-2 w-[40%]"
 					onChange={(e) => setEmail(e.target.value)}
+					required
 				/>
 				<input
 					type="text"

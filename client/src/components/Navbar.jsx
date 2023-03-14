@@ -4,6 +4,7 @@ import { Context } from '../context/Context';
 
 const Navbar = () => {
 	const { user, dispatch } = useContext(Context);
+	const publicFolder = 'http://localhost:8000/assets/';
 
 	const handleLogout = () => {
 		dispatch({ type: 'LOGOUT' });
@@ -31,7 +32,7 @@ const Navbar = () => {
 					<Link to="/profile">
 						<img
 							src={
-								user.profilePic ||
+								publicFolder + user.profilePic ||
 								'https://images.pexels.com/photos/165971/pexels-photo-165971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
 							}
 							alt=""
