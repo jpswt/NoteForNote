@@ -17,7 +17,7 @@ const Login = () => {
 
 		await axios
 			.post('http://localhost:8000/auth/login', {
-				username: userRef.current.value,
+				email: userRef.current.value,
 				password: passwordRef.current.value,
 			})
 			.then((response) => {
@@ -25,7 +25,7 @@ const Login = () => {
 			})
 			.catch((error) => {
 				dispatch({ type: 'LOGIN_FAIL' });
-				setError('Username or Password are incorrect.  Please try again');
+				setError('Email or Password are incorrect.  Please try again');
 			});
 	};
 
@@ -36,8 +36,8 @@ const Login = () => {
 				onSubmit={handleSubmit}
 			>
 				<input
-					type="Username"
-					placeholder="Username"
+					type="text"
+					placeholder="Email"
 					className="py-2 px-4 mb-4 w-full "
 					ref={userRef}
 				/>
