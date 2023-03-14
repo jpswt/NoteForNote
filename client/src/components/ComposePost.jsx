@@ -1,7 +1,7 @@
 import axios from 'axios';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { Context } from '../context/Context';
 
@@ -32,15 +32,24 @@ const ComposePost = () => {
 	const [description, setDescription] = useState('');
 	const [img, setImg] = useState(null);
 	const [checked, setChecked] = useState([]);
-	const cats = [
-		'Electric',
-		'Acoustic',
-		'Bass',
-		'Amps',
-		'Pedals',
-		'Tone',
-		'Accessories',
-	];
+	const [categories, setCategories] = useState([]);
+	// const cats = [
+	// 	'Electric',
+	// 	'Acoustic',
+	// 	'Bass',
+	// 	'Amps',
+	// 	'Pedals',
+	// 	'Tone',
+	// 	'Accessories',
+	// ];
+
+	useEffect(() => {
+		const fetchCategories = async () => {
+			const response = await axios.get('http://localhost:8000/categories');
+			setCategories(response.data);
+		};
+		fetchCategories();
+	}, []);
 
 	const handleToggle = (cat) => () => {
 		const clickedCategory = checked.indexOf(cat);
@@ -122,14 +131,14 @@ const ComposePost = () => {
 				<div className="flex flex-col items-center justify-center  text-stone-700">
 					<h3 className="my-4">Select Categories: </h3>
 					<div className="w-full items-center justify-center flex flex-wrap gap-6">
-						{cats.map((cat, i) => (
+						{categories.map((cat, i) => (
 							<li key={i} className=" list-none ">
 								<input
 									className="accent-red-700 mr-2"
-									onChange={handleToggle(cat)}
+									onChange={handleToggle(cat.name)}
 									type="checkbox"
 								/>
-								<label className="form-check-label">{cat}</label>
+								<label className="form-check-label">{cat.name}</label>
 							</li>
 						))}
 					</div>

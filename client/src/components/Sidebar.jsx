@@ -44,7 +44,7 @@ const Sidebar = () => {
 					CATEGORIES
 				</span>
 
-				<ul className=" text-center flex gap-8 mb-8">
+				<ul className=" text-center flex flex-wrap mb-8">
 					{categories.map((category, i) => (
 						<li
 							key={i}
