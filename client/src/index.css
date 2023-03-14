@@ -10,10 +10,10 @@
 		@apply text-lg;
 	}
 	.ql-container {
-		height: 400px;
+		height: 300px;
 	}
 	.ql-editor {
-		height: 400px;
+		height: 300px;
 		padding-bottom: 3rem;
 	}
 

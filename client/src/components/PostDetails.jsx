@@ -48,7 +48,7 @@ const PostDetails = () => {
 			setDescription(response.data.description);
 		};
 		getPost();
-	}, []);
+	}, [id]);
 
 	const handleUpdate = async () => {
 		try {

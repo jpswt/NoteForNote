@@ -31,6 +31,28 @@ const ComposePost = () => {
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [img, setImg] = useState(null);
+	const [checked, setChecked] = useState([]);
+	const cats = [
+		'Electric',
+		'Acoustic',
+		'Bass',
+		'Amps',
+		'Pedals',
+		'Tone',
+		'Accessories',
+	];
+
+	const handleToggle = (cat) => () => {
+		const clickedCategory = checked.indexOf(cat);
+		const all = [...checked];
+
+		if (clickedCategory === -1) {
+			all.push(cat);
+		} else {
+			all.splice(clickedCategory, 1);
+		}
+		setChecked(all);
+	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -38,6 +60,7 @@ const ComposePost = () => {
 			username: user.username,
 			title,
 			description,
+			categories: checked,
 		};
 		if (img) {
 			const data = new FormData();
@@ -57,9 +80,9 @@ const ComposePost = () => {
 	};
 
 	return (
-		<div className="flex-9 flex flex-col mt-4">
+		<div className="flex-9 flex flex-col mt-4 text-stone-500 text-md">
 			{img && (
-				<div className="flex items-center justify-center ml-[36px]">
+				<div className="flex items-center justify-center">
 					<img
 						className="w-[82.5%] h-[275px] object-cover rounded-md mb-2"
 						src={URL.createObjectURL(img)}
@@ -79,7 +102,7 @@ const ComposePost = () => {
 						onChange={(e) => setImg(e.target.files[0])}
 					/>
 					<input
-						className=" outline-red-700 p-2 w-[80%] text-3xl text-stone-500"
+						className=" outline-red-700 p-2 w-[80%] text-3xl"
 						type="text"
 						placeholder="Title"
 						autoFocus={true}
@@ -87,14 +110,6 @@ const ComposePost = () => {
 					/>
 				</div>
 				<div className=" flex items-center justify-center ">
-					{/* <textarea
-						className="outline-red-500 border-none p-2 ml-[36px] mt-2 w-[80%] text-stone-500"
-						placeholder="Hit Record..."
-						id=""
-						cols="30"
-						rows="10"
-						onChange={(e) => setDescription(e.target.value)}
-					></textarea> */}
 					<ReactQuill
 						className="outline-red-700 border-none ml-[36px] mt-4 w-[80%] bg-white text-stone-500 p-0 ql-container ql-editor"
 						placeholder="Enter your thoughts..."
@@ -104,12 +119,27 @@ const ComposePost = () => {
 						modules={modules}
 					/>
 				</div>
+				<div className="flex flex-col items-center justify-center  text-stone-700">
+					<h3 className="my-4">Select Categories: </h3>
+					<div className="w-full items-center justify-center flex flex-wrap gap-6">
+						{cats.map((cat, i) => (
+							<li key={i} className=" list-none ">
+								<input
+									className="accent-red-700 mr-2"
+									onChange={handleToggle(cat)}
+									type="checkbox"
+								/>
+								<label className="form-check-label">{cat}</label>
+							</li>
+						))}
+					</div>
+				</div>
 				<div className="flex items-center justify-center mt-12">
 					<button
-						className=" bg-red-700 py-2 px-4 text-white rounded-md cursor-pointer"
+						className=" bg-red-700 py-2 px-16 text-white text-lg rounded-md cursor-pointer"
 						type="submit"
 					>
-						Save Recording
+						Submit
 					</button>
 				</div>
 			</form>
