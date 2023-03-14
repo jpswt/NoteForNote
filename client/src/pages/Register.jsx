@@ -50,36 +50,37 @@ const Register = () => {
 				<input
 					type="text"
 					placeholder="Username "
-					className="py-2 px-4 mb-4 w-full outline-red-500 "
+					className="py-2 px-4 mb-4 w-full outline-teal-600 "
+					autoFocus={true}
 					onChange={(e) => setUsername(e.target.value)}
 				/>
 				<input
 					type="email"
 					placeholder="Email"
-					className="py-2 px-4 mb-4 w-full outline-red-500 "
+					className="py-2 px-4 mb-4 w-full outline-teal-600 "
 					onChange={(e) => setEmail(e.target.value)}
 				/>
 				<input
 					type="password"
 					placeholder="Password"
-					className="py-2 px-4 mb-4 w-full  outline-red-500"
+					className="py-2 px-4 mb-4 w-full  outline-teal-600"
 					onChange={(e) => setPassword(e.target.value)}
 				/>
 				<button
-					className="text-white bg-red-500 w-fit py-1 px-10 rounded-md"
+					className="text-white text-lg bg-teal-700 w-fit py-1 px-10 rounded-md"
 					type="submit"
 				>
 					Register
 				</button>
 			</form>
-			<div className="absolute top-4 right-2 text-white flex items-center">
+			{/* <div className="absolute top-4 right-2 text-white flex items-center">
 				<p>Already a Member?</p>
 				<button className="mx-2 bg-emerald-600 px-4 py-1 rounded-lg">
 					<Link to="/login">Login</Link>
 				</button>
-			</div>
+			</div> */}
 			{error ? (
-				<p className="text-white mt-2 bg-red-500 px-1 py-1">
+				<p className="text-white mt-2 bg-teal-700 px-1 py-1">
 					Username/Email already exists. Please try again or sign in.
 				</p>
 			) : null}
