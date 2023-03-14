@@ -31,7 +31,6 @@ const PostDetails = () => {
 	const navigate = useNavigate();
 	const { user } = useContext(Context);
 	const [post, setPost] = useState({});
-	const [search, setSearch] = useState([]);
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [updateInfo, setUpdateInfo] = useState(false);
