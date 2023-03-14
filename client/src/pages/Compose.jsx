@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 const Compose = () => {
 	return (
 		<div>
+			<Navbar />
 			<div className="flex">
 				<ComposePost />
 				<Sidebar />

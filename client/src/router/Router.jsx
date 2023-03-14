@@ -18,7 +18,7 @@ const Router = () => {
 	const { user, dispatch } = useContext(Context);
 	return (
 		<>
-			<Navbar user={{ user, dispatch }} />
+			{/* <Navbar user={{ user, dispatch }} /> */}
 			<Routes>
 				{/* <Route exact path="/" element={user ? <Home /> : <Login />}></Route> */}
 				<Route path="/login" element={user ? <Home /> : <Login />}></Route>

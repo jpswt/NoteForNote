@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 const SinglePostDetails = () => {
 	return (
 		<div>
+			<Navbar />
 			<div className="flex">
 				<PostDetails />
 				<Sidebar />
