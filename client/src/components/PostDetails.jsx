@@ -31,6 +31,7 @@ const PostDetails = () => {
 	const navigate = useNavigate();
 	const { user } = useContext(Context);
 	const [post, setPost] = useState({});
+	const [search, setSearch] = useState([]);
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [updateInfo, setUpdateInfo] = useState(false);
@@ -121,7 +122,6 @@ const PostDetails = () => {
 						</Link>
 					</span>
 					<span>
-						Posted on:{' '}
 						{new Date(post.createdAt).toLocaleDateString('en-US', {
 							year: 'numeric',
 							month: 'long',
@@ -139,7 +139,7 @@ const PostDetails = () => {
 					/>
 				) : (
 					<div
-						className="mb-10 text-inherit blog-link"
+						className="mb-10 text-inherit blog-link text-xl"
 						dangerouslySetInnerHTML={sanitizeData()}
 					/>
 				)}
