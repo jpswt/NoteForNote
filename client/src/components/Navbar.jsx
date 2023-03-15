@@ -72,11 +72,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 					{user ? (
 						<Link to="/profile">
 							<img
-								src={
-									publicFolder + user.profilePic
-									// ? publicFolder + user.profilePic
-									// : publicFolder + 'default.jpeg'
-								}
+								src={publicFolder + user.profilePic}
 								alt=""
 								className="w-[40px] h-[40px] rounded-full object-cover cursor-pointer"
 							/>

@@ -6,24 +6,21 @@ const Settings = () => {
 	const { user, dispatch } = useContext(Context);
 	const publicFolder = 'http://localhost:8000/assets/';
 	const [img, setImg] = useState(null);
-	// const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [successMsg, setSuccessMsg] = useState(false);
-	// const ext = img.split('.').pop();
+	console.log(user);
 
 	const handleUpdate = async (e) => {
 		e.preventDefault();
 		dispatch({ type: 'UPDATE_START' });
 		const updateUser = {
 			userId: user._id,
-			// username: username,
 			email: email,
 			password: password,
 		};
 		if (img) {
 			const data = new FormData();
-			// const imgName = `${user.username}.${img.name.split('.').pop()}`;
 			const imgName = `${user.username}.jpeg`;
 			data.append('name', imgName);
 			data.append('file', img);
