@@ -10,6 +10,7 @@ import { Context } from '../context/Context';
 const Home = () => {
 	const { user, dispatch } = useContext(Context);
 	const [posts, setPosts] = useState([]);
+	const [searchResult, setSearchResult] = useState([]);
 
 	const { search } = useLocation();
 	console.log(location);
@@ -20,6 +21,7 @@ const Home = () => {
 				`http://localhost:8000/posts/home${search}`
 			);
 			setPosts(response.data);
+			setSearchResult(response.data);
 			// console.log(response);
 		};
 		fetchPosts();
@@ -27,10 +29,14 @@ const Home = () => {
 
 	return (
 		<>
-			<Navbar user={{ user, dispatch }} />
+			<Navbar
+				user={{ user, dispatch }}
+				posts={posts}
+				setSearchResult={setSearchResult}
+			/>
 			<Header />
 			<div className="flex">
-				<Posts posts={posts} />
+				<Posts posts={posts} searchResult={searchResult} />
 				<Sidebar />
 			</div>
 		</>

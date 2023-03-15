@@ -95,6 +95,7 @@ const Settings = () => {
 					placeholder="*************"
 					className="p-4 my-2 w-[40%]"
 					onChange={(e) => setPassword(e.target.value)}
+					required
 				/>
 				<button
 					type="submit"

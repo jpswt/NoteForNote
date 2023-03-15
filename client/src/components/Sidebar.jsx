@@ -6,12 +6,12 @@ const Sidebar = () => {
 	const [categories, setCategories] = useState([]);
 
 	const handleScroll = () => {
-		window.scrollTo(0, 370);
+		window.scrollTo(0, 360);
 	};
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-	}, [window]);
+	}, []);
 
 	useEffect(() => {
 		const fetchCategories = async () => {

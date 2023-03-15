@@ -33,15 +33,6 @@ const ComposePost = () => {
 	const [img, setImg] = useState(null);
 	const [checked, setChecked] = useState([]);
 	const [categories, setCategories] = useState([]);
-	// const cats = [
-	// 	'Electric',
-	// 	'Acoustic',
-	// 	'Bass',
-	// 	'Amps',
-	// 	'Pedals',
-	// 	'Tone',
-	// 	'Accessories',
-	// ];
 
 	useEffect(() => {
 		const fetchCategories = async () => {

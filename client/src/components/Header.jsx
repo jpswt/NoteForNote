@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
 	return (
-		<div className="mt-5 relative">
+		<div className="relative">
 			<div className=" w-full text-6xl text-gray-200 absolute top-10 text-center font-title ">
 				Guitar Blog
 			</div>
