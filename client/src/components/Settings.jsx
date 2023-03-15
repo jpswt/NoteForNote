@@ -10,6 +10,7 @@ const Settings = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [successMsg, setSuccessMsg] = useState(false);
+	// const ext = img.split('.').pop();
 
 	const handleUpdate = async (e) => {
 		e.preventDefault();
@@ -22,7 +23,8 @@ const Settings = () => {
 		};
 		if (img) {
 			const data = new FormData();
-			const imgName = Date.now() + img.name;
+			// const imgName = `${user.username}.${img.name.split('.').pop()}`;
+			const imgName = `${user.username}.jpeg`;
 			data.append('name', imgName);
 			data.append('file', img);
 			updateUser.profilePic = imgName;

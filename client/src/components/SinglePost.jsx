@@ -18,7 +18,14 @@ const SingePost = ({ post }) => {
 						{post.title}
 					</span>
 				</Link>
-				<div className="my-2">
+				<div className="my-2 flex items-center">
+					<span className="mr-4">
+						<img
+							className="w-[40px] h-[40px] rounded-full"
+							src={publicFolder + post.profilePic}
+							alt=""
+						/>
+					</span>
 					<span className="font-body text-base text-stone-600">
 						{post.username} •{' '}
 					</span>

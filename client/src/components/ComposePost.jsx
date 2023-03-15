@@ -54,6 +54,10 @@ const ComposePost = () => {
 		setChecked(all);
 	};
 
+	// const loadProfile = () => {
+	// 	setProfPic(user.profilePic)
+	// }
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const newPost = {
@@ -61,6 +65,7 @@ const ComposePost = () => {
 			title,
 			description,
 			categories: checked,
+			profilePic: user.profilePic,
 		};
 		if (img) {
 			const data = new FormData();

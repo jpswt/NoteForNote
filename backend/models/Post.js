@@ -23,6 +23,10 @@ const PostSchema = new mongoose.Schema(
 			type: Array,
 			required: false,
 		},
+		profilePic: {
+			type: String,
+			required: false,
+		},
 	},
 	{ timestamps: true }
 );

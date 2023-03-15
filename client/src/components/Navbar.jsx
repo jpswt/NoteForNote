@@ -73,9 +73,9 @@ const Navbar = ({ posts, setSearchResult }) => {
 						<Link to="/profile">
 							<img
 								src={
-									user.profilePic
-										? publicFolder + user.profilePic
-										: 'https://images.pexels.com/photos/165971/pexels-photo-165971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+									publicFolder + user.profilePic
+									// ? publicFolder + user.profilePic
+									// : publicFolder + 'default.jpeg'
 								}
 								alt=""
 								className="w-[40px] h-[40px] rounded-full object-cover cursor-pointer"
