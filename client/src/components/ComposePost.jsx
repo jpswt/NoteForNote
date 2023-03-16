@@ -27,6 +27,7 @@ const ComposePost = () => {
 	};
 	const navigate = useNavigate();
 	const { user } = useContext(Context);
+	console.log(user);
 
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
@@ -65,6 +66,7 @@ const ComposePost = () => {
 			description,
 			categories: checked,
 			profilePic,
+			about: user.about,
 		};
 
 		if (profilePic) {

@@ -96,6 +96,7 @@ const Settings = () => {
 					placeholder={user.about}
 					className="p-4 my-2 w-[40%]"
 					onChange={(e) => setAbout(e.target.value)}
+					max="300"
 					required
 				/>
 				<input

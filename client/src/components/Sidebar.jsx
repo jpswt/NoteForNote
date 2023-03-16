@@ -14,7 +14,7 @@ const Sidebar = ({ posts, post }) => {
 	console.log(user);
 
 	const handleScroll = () => {
-		window.scrollTo(0, 360);
+		window.scrollTo(0, 200);
 	};
 
 	useEffect(() => {
@@ -35,27 +35,33 @@ const Sidebar = ({ posts, post }) => {
 
 	return (
 		<div className="flex-3 mx-4 rounded-md bg-stone-100 flex flex-col items-center font-body h-[800px] sticky top-0">
-			<div className="flex flex-col items-center">
+			<div className="flex flex-col items-center pb-6">
 				<span className="m-2 p-1 w-[80%] border-solid border-b-2 border-stone-300  font-semibold text-center">
 					ABOUT ME
 				</span>
 				{!post ? (
-					<img
-						className="w-[125px] h-[125px] rounded-full mt-2 "
-						src={publicFolder + user.profilePic}
-						alt=""
-						onError={setDefault}
-					/>
+					<>
+						<img
+							className="w-[125px] h-[125px] rounded-full my-2 "
+							src={publicFolder + user.profilePic}
+							alt=""
+							onError={setDefault}
+						/>
+						<p className="px-12 py-6">{user.about}</p>
+					</>
 				) : (
-					<img
-						className="w-[125px] h-[125px] rounded-full mt-2 "
-						src={publicFolder + post.profilePic}
-						alt=""
-						onError={setDefault}
-					/>
+					<>
+						<img
+							className="w-[125px] h-[125px] rounded-full my-2 "
+							src={publicFolder + post.profilePic}
+							alt=""
+							onError={setDefault}
+						/>
+						<p> </p>
+						<p className="">{post.username}</p>
+						<p className="">{post.about}</p>
+					</>
 				)}
-
-				<p className="px-12 py-6">{user.about}</p>
 			</div>
 			<div className="flex flex-col items-center w-full">
 				<span className="m-2 p-1 w-[80%] border-solid border-b-2 border-stone-300 font-semibold text-center">

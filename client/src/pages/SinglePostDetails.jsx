@@ -7,8 +7,6 @@ import axios from 'axios';
 
 const SinglePostDetails = () => {
 	const [post, setPost] = useState({});
-	const [title, setTitle] = useState('');
-	const [description, setDescription] = useState('');
 	const [profilePic, setProfilePic] = useState(null);
 	const idPath = useLocation();
 	console.log(idPath);
@@ -22,6 +20,7 @@ const SinglePostDetails = () => {
 		};
 		getPost();
 	}, [id]);
+	console.log(post);
 	//
 	return (
 		<div>
@@ -29,8 +28,8 @@ const SinglePostDetails = () => {
 			<div className="flex">
 				<PostDetails
 					post={post}
-					title={title}
-					description={description}
+					// title={title}
+					// description={description}
 					profilePic={profilePic}
 				/>
 				<Sidebar post={post} />

@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Header';
 import SinglePost from './SinglePost';
 
 const Posts = ({ posts, searchResult }) => {
