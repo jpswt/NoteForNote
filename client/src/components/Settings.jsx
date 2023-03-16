@@ -9,6 +9,7 @@ const Settings = () => {
 	const [img, setImg] = useState(null);
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const [about, setAbout] = useState('');
 	const [successMsg, setSuccessMsg] = useState(false);
 	console.log(user);
 
@@ -19,6 +20,7 @@ const Settings = () => {
 			userId: user._id,
 			email: email,
 			password: password,
+			about: about,
 		};
 		if (img) {
 			const data = new FormData();
@@ -82,18 +84,18 @@ const Settings = () => {
 					className="hidden"
 					onChange={(e) => setImg(e.target.files[0])}
 				/>
-				{/* <input
-					type="text"
-					placeholder={user.username}
-					className="p-4 my-2 w-[40%]"
-					onChange={(e) => setUsername(e.target.value)}
-					required
-				/> */}
 				<input
 					type="text"
 					placeholder={user.email}
 					className="p-4 my-2 w-[40%]"
 					onChange={(e) => setEmail(e.target.value)}
+					required
+				/>
+				<input
+					type="text"
+					placeholder={user.about}
+					className="p-4 my-2 w-[40%]"
+					onChange={(e) => setAbout(e.target.value)}
 					required
 				/>
 				<input

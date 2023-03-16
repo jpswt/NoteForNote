@@ -42,29 +42,20 @@ const Sidebar = ({ posts, post }) => {
 				{!post ? (
 					<img
 						className="w-[125px] h-[125px] rounded-full mt-2 "
-						src={user.profilePic}
+						src={publicFolder + user.profilePic}
 						alt=""
 						onError={setDefault}
 					/>
 				) : (
 					<img
 						className="w-[125px] h-[125px] rounded-full mt-2 "
-						src={
-							user.username === post.username
-								? user.profilePic
-								: publicFolder + post.profilePic
-						}
+						src={publicFolder + post.profilePic}
 						alt=""
 						onError={setDefault}
 					/>
 				)}
 
-				<p className="px-12 py-6">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quam
-					eligendi rerum exercitationem doloribus veritatis iste dolor amet illo
-					alias quibusdam veniam numquam, harum, obcaecati minima at tenetur
-					eius labore ipsam, id molestias voluptatibus vero!
-				</p>
+				<p className="px-12 py-6">{user.about}</p>
 			</div>
 			<div className="flex flex-col items-center w-full">
 				<span className="m-2 p-1 w-[80%] border-solid border-b-2 border-stone-300 font-semibold text-center">
