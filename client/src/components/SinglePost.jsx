@@ -1,6 +1,7 @@
 import React from 'react';
 import DOMpurify from 'dompurify';
 import { Link } from 'react-router-dom';
+import defaultPic from '../assets/default.jpeg';
 
 const SingePost = ({ post }) => {
 	const publicFolder = 'http://localhost:8000/assets/';
@@ -9,6 +10,10 @@ const SingePost = ({ post }) => {
 	const sanitizeData = () => ({
 		__html: DOMpurify.sanitize(post.description),
 	});
+
+	const setDefault = (e) => {
+		e.target.src = defaultPic;
+	};
 
 	return (
 		<div className="w-[70%] mx-10 flex items-center border-b-2 border-gray-300 ">
@@ -24,6 +29,7 @@ const SingePost = ({ post }) => {
 							className="w-[40px] h-[40px] rounded-full"
 							src={publicFolder + post.profilePic}
 							alt=""
+							onError={setDefault}
 						/>
 					</span>
 					<span className="font-body text-base text-stone-600">

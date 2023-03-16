@@ -31,6 +31,9 @@ const ComposePost = () => {
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
 	const [img, setImg] = useState(null);
+	const [profilePic, setProfilePic] = useState(
+		'http://localhost:8000/assets/default.jpeg'
+	);
 	const [checked, setChecked] = useState([]);
 	const [categories, setCategories] = useState([]);
 
@@ -61,8 +64,22 @@ const ComposePost = () => {
 			title,
 			description,
 			categories: checked,
-			profilePic: user.profilePic,
+			profilePic,
 		};
+
+		if (profilePic) {
+			const data = new FormData();
+			const imgName = `${user.username}.jpeg`;
+			data.append('name', imgName);
+			data.append('file', img);
+			newPost.profilePic = imgName;
+			try {
+				await axios.post('http://localhost:8000/upload', data);
+			} catch (err) {
+				console.error(err);
+			}
+		}
+
 		if (img) {
 			const data = new FormData();
 			const imgName = Date.now() + img.name;
