@@ -47,7 +47,19 @@ const Sidebar = ({ posts, post }) => {
 							alt=""
 							onError={setDefault}
 						/>
-						<p className="px-12 py-6">{user.about}</p>
+						{user.about ? (
+							<p className="px-12 py-6">{user.about}</p>
+						) : (
+							// <p className="px-12 py-6">Add a Bio</p>
+							<Link to="/profile">
+								<button
+									className="bg-teal-600 text-white px-4 py-2 rounded-md"
+									onclick
+								>
+									Add a Bio
+								</button>
+							</Link>
+						)}
 					</>
 				) : (
 					<>
