@@ -33,6 +33,7 @@ const PostDetails = () => {
 	const [post, setPost] = useState({});
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
+	const [profilePic, setProfilePic] = useState(null);
 	const [updateInfo, setUpdateInfo] = useState(false);
 	const idPath = useLocation();
 	console.log(idPath);
@@ -46,6 +47,7 @@ const PostDetails = () => {
 			setPost(response.data);
 			setTitle(response.data.title);
 			setDescription(response.data.description);
+			setProfilePic(response.data.profilePic);
 		};
 		getPost();
 	}, [id]);

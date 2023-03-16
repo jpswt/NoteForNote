@@ -1,9 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import defaultPic from '../assets/default.jpeg';
+import { Context } from '../context/Context';
 
-const Sidebar = () => {
+const Sidebar = ({ posts, post }) => {
+	const { user } = useContext(Context);
+	const publicFolder = 'http://localhost:8000/assets/';
+
 	const [categories, setCategories] = useState([]);
+	console.log(posts);
+	console.log(post);
+	console.log(user);
 
 	const handleScroll = () => {
 		window.scrollTo(0, 360);
@@ -21,17 +29,36 @@ const Sidebar = () => {
 		fetchCategories();
 	}, []);
 
+	const setDefault = (e) => {
+		e.target.src = defaultPic;
+	};
+
 	return (
 		<div className="flex-3 mx-4 rounded-md bg-stone-100 flex flex-col items-center font-body h-[800px] sticky top-0">
 			<div className="flex flex-col items-center">
 				<span className="m-2 p-1 w-[80%] border-solid border-b-2 border-stone-300  font-semibold text-center">
 					ABOUT ME
 				</span>
-				<img
-					className="w-[70%] mt-2"
-					src="https://images.unsplash.com/photo-1629055871644-7867e4b11f14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
-					alt=""
-				/>
+				{!post ? (
+					<img
+						className="w-[125px] h-[125px] rounded-full mt-2 "
+						src={user.profilePic}
+						alt=""
+						onError={setDefault}
+					/>
+				) : (
+					<img
+						className="w-[125px] h-[125px] rounded-full mt-2 "
+						src={
+							user.username === post.username
+								? user.profilePic
+								: publicFolder + post.profilePic
+						}
+						alt=""
+						onError={setDefault}
+					/>
+				)}
+
 				<p className="px-12 py-6">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quam
 					eligendi rerum exercitationem doloribus veritatis iste dolor amet illo

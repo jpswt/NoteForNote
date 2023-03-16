@@ -63,10 +63,6 @@ const Navbar = ({ posts, setSearchResult }) => {
 							<Link to="/home">HOME</Link>
 						</li>
 						<li>
-							<Link to="">ABOUT</Link>
-						</li>
-						<li>CONTACT</li>
-						<li>
 							<Link to="/compose">COMPOSE</Link>
 						</li>
 						<li onClick={handleLogout}>{user && 'LOGOUT'}</li>

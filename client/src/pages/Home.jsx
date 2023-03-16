@@ -37,7 +37,7 @@ const Home = () => {
 			<Header />
 			<div className="flex">
 				<Posts posts={posts} searchResult={searchResult} />
-				<Sidebar />
+				<Sidebar posts={posts} />
 			</div>
 		</>
 	);

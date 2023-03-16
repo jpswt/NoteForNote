@@ -21,7 +21,7 @@ app.use('/assets', express.static(path.join(__dirname, '/assets')));
 mongoose
 	.connect(process.env.MONGO_URL)
 	.then(console.log('Connected to MongoDB'))
-	.catch((err) => console.err(err));
+	.catch((err) => console.error(err));
 
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {

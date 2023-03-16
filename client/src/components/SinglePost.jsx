@@ -34,8 +34,6 @@ const SingePost = ({ post }) => {
 					</span>
 					<span className="font-body text-base text-stone-600">
 						{post.username} •{' '}
-					</span>
-					<span className="font-body italic text-base text-stone-600">
 						{new Date(post.createdAt).toLocaleDateString('en-US', {
 							year: 'numeric',
 							month: 'long',
