@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Context } from '../context/Context';
 import axios from 'axios';
+import defaultPic from '../assets/default.jpeg';
 
 const Settings = () => {
 	const { user, dispatch } = useContext(Context);
@@ -34,19 +35,24 @@ const Settings = () => {
 				`http://localhost:8000/users/${user._id}`,
 				updateUser
 			);
-			setSuccessMsg(true);
 			dispatch({ type: 'UPDATE_SUCCESS', payload: response.data });
+			window.location.reload();
+			setSuccessMsg(false);
 			console.log(updateUser);
 		} catch (err) {
 			dispatch({ type: 'UPDATE_FAIL' });
 		}
 	};
 
+	const setDefault = (e) => {
+		e.target.src = defaultPic;
+	};
+
 	return (
 		<div className="flex-9 mt-1">
 			<div className="flex items-center justify-between mb-6 px-8">
-				<span className="text-3xl mb-4 text-emerald-600 ">Update Profile</span>
-				<span className="text-sm bg-red-600 text-white px-2 py-1 rounded-sm">
+				<span className="text-3xl mb-4 text-teal-700 ">Update Profile</span>
+				<span className="text-sm bg-red-700 text-white px-2 py-1 rounded-sm">
 					Delete Account
 				</span>
 			</div>
@@ -61,10 +67,11 @@ const Settings = () => {
 							img ? URL.createObjectURL(img) : publicFolder + user.profilePic
 						}
 						alt=""
+						onError={setDefault}
 					/>
 				</div>
 				<label htmlFor="imgInput">
-					<i className="fa-solid fa-user cursor-pointer text-3xl ml-4 text-red-500 ">
+					<i className="fa-solid fa-user cursor-pointer text-3xl ml-4 text-red-700 ">
 						{' '}
 						Update Photo
 					</i>
@@ -98,7 +105,7 @@ const Settings = () => {
 				/>
 				<button
 					type="submit"
-					className="w-40 bg-emerald-500 text-white py-2 rounded-md mt-2 cursor-pointer"
+					className="w-40 bg-teal-700 text-white py-2 rounded-md mt-2 cursor-pointer"
 				>
 					Update Profile
 				</button>

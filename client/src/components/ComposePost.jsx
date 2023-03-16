@@ -54,10 +54,6 @@ const ComposePost = () => {
 		setChecked(all);
 	};
 
-	// const loadProfile = () => {
-	// 	setProfPic(user.profilePic)
-	// }
-
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const newPost = {

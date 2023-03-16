@@ -21,13 +21,16 @@ const Router = () => {
 			{/* <Navbar user={{ user, dispatch }} /> */}
 			<Routes>
 				{/* <Route exact path="/" element={user ? <Home /> : <Login />}></Route> */}
-				<Route path="/login" element={user ? <Home /> : <Login />}></Route>
+				<Route
+					path="/login"
+					element={user ? <Navigate to="/home" /> : <Login />}
+				></Route>
 				<Route
 					path="/register"
 					element={user ? <Home /> : <Register />}
 				></Route>
 				<Route element={<ProtectedRoutes />}>
-					<Route exact path="/home" element={<Home />}></Route>
+					<Route path="/home" element={<Home />}></Route>
 					<Route path="/compose" element={<Compose />}></Route>
 					<Route path="/posts/:id" element={<SinglePostDetails />}></Route>
 					<Route path="/profile" element={<Profile />}></Route>

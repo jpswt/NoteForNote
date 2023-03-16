@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Context } from '../context/Context';
 import logo from '../assets/logo.png';
+import defaultPic from '../assets/default.jpeg';
 
 const Navbar = ({ posts, setSearchResult }) => {
 	const { user, dispatch } = useContext(Context);
 	const publicFolder = 'http://localhost:8000/assets/';
 
 	const { home } = useLocation();
-	console.log(location.pathname);
 
 	const handleLogout = () => {
 		dispatch({ type: 'LOGOUT' });
@@ -26,6 +26,10 @@ const Navbar = ({ posts, setSearchResult }) => {
 				post.description.includes(target.toUpperCase())
 		);
 		setSearchResult(results);
+	};
+
+	const setDefault = (e) => {
+		e.target.src = defaultPic;
 	};
 
 	return (
@@ -75,6 +79,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 								src={publicFolder + user.profilePic}
 								alt=""
 								className="w-[40px] h-[40px] rounded-full object-cover cursor-pointer"
+								onError={setDefault}
 							/>
 						</Link>
 					) : (

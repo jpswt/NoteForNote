@@ -10,7 +10,7 @@ const Posts = ({ posts, searchResult }) => {
 		results
 	) : (
 		<div>
-			<p>No Matching Posts</p>
+			<h2>No Posts Available</h2>
 		</div>
 	);
 
