@@ -33,7 +33,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 	};
 
 	return (
-		<div className=" w-full h-[70px] sticky top-0 z-10 flex items-center justify-between font-display bg-stone-50">
+		<div className=" w-full h-[70px] sticky top-0 z-10 flex items-center justify-between font-display bg-stone-50 border-b-2 border-stone-100">
 			{/* <div className="flex content-center">logo</div> */}
 			<div className="flex items-center justify-center">
 				<div className="flex items-center gap-2 mr-4">

@@ -89,7 +89,6 @@ const Settings = () => {
 					placeholder={user.email}
 					className="p-4 my-2 w-[40%]"
 					onChange={(e) => setEmail(e.target.value)}
-					required
 				/>
 				<input
 					type="text"
@@ -97,7 +96,6 @@ const Settings = () => {
 					className="p-4 my-2 w-[40%]"
 					onChange={(e) => setAbout(e.target.value)}
 					max="300"
-					required
 				/>
 				<input
 					type="text"

@@ -34,7 +34,7 @@ const Sidebar = ({ posts, post }) => {
 	};
 
 	return (
-		<div className="flex-3 mx-4 rounded-md bg-stone-100 flex flex-col items-center font-body h-[800px] sticky top-0">
+		<div className="flex-4 mx-4 rounded-md bg-stone-50 flex flex-col items-center font-body h-[800px] sticky top-0 border-l-2 border-stone-100">
 			<div className="flex flex-col items-center pb-6">
 				<span className="m-2 p-1 w-[80%] border-solid border-b-2 border-stone-300  font-semibold text-center">
 					ABOUT ME
