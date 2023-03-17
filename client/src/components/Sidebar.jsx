@@ -14,7 +14,7 @@ const Sidebar = ({ posts, post }) => {
 	console.log(user);
 
 	const handleScroll = () => {
-		window.scrollTo(0, 200);
+		window.scrollTo(0, 0);
 	};
 
 	useEffect(() => {
@@ -36,13 +36,13 @@ const Sidebar = ({ posts, post }) => {
 	return (
 		<div className="flex-4 mx-4 rounded-md bg-stone-50 flex flex-col items-center font-body h-[800px] sticky top-0 border-l-2 border-stone-100">
 			<div className="flex flex-col items-center pb-6">
-				<span className="m-2 p-1 w-[80%] border-solid border-b-2 border-stone-300  font-semibold text-center">
+				<span className="m-2 p-1 w-[100%] border-solid border-b-2 border-stone-300  font-semibold text-center">
 					ABOUT ME
 				</span>
 				{!post ? (
 					<>
 						<img
-							className="w-[125px] h-[125px] rounded-full my-2 "
+							className="w-[125px] h-[125px] rounded-full mt-6 "
 							src={publicFolder + user.profilePic}
 							alt=""
 							onError={setDefault}
@@ -53,7 +53,7 @@ const Sidebar = ({ posts, post }) => {
 							// <p className="px-12 py-6">Add a Bio</p>
 							<Link to="/profile">
 								<button
-									className="bg-teal-600 text-white px-4 py-2 rounded-md"
+									className="bg-teal-600 text-white px-4 py-2 rounded-md mt-6"
 									onclick
 								>
 									Add a Bio
@@ -75,8 +75,8 @@ const Sidebar = ({ posts, post }) => {
 					</>
 				)}
 			</div>
-			<div className="flex flex-col items-center w-full">
-				<span className="m-2 p-1 w-[80%] border-solid border-b-2 border-stone-300 font-semibold text-center">
+			<div className="flex flex-col items-center w-full mt-8">
+				<span className="m-2 p-1 w-[60%] border-solid border-b-2 border-stone-300 font-semibold text-center">
 					CATEGORIES
 				</span>
 

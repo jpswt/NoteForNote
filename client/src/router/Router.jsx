@@ -1,4 +1,5 @@
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import cookie from 'cookie';
 import Navbar from '../components/Navbar';
 import Compose from '../pages/Compose';
 import Home from '../pages/Home';
@@ -9,9 +10,14 @@ import Profile from '../pages/Profile';
 import { Context } from '../context/Context';
 import { useContext } from 'react';
 
+const checkAuth = () => {
+	const cookies = cookie.parse(document.cookie);
+	return cookies['loggedIn'] ? true : false;
+};
+
 const ProtectedRoutes = () => {
 	const { user } = useContext(Context);
-	return user ? <Outlet /> : <Navigate to="/login" />;
+	return checkAuth() && user ? <Outlet /> : <Navigate to="/login" />;
 };
 
 const Router = () => {

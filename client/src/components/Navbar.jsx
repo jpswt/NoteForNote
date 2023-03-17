@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import cookie from 'cookie';
 import { Link, useLocation } from 'react-router-dom';
 import { Context } from '../context/Context';
 import logo from '../assets/logo.png';
@@ -11,6 +12,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 	const { home } = useLocation();
 
 	const handleLogout = () => {
+		document.cookie = cookie.serialize('loggedIn', null, { maxAge: 0 });
 		dispatch({ type: 'LOGOUT' });
 	};
 

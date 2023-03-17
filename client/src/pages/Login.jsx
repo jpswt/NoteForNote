@@ -22,6 +22,7 @@ const Login = () => {
 			})
 			.then((response) => {
 				dispatch({ type: 'LOGIN_SUCCESS', payload: response.data });
+				document.cookie = `loggedIn=true;max-age=60*1000`;
 			})
 			.catch((error) => {
 				dispatch({ type: 'LOGIN_FAIL' });
