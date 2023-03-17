@@ -54,7 +54,7 @@ const Settings = () => {
 		<div className="flex-9 mt-1">
 			<div className="flex items-center justify-between mb-6 px-8">
 				<span className="text-3xl mb-4 text-teal-700 ">Update Profile</span>
-				<span className="text-sm bg-red-700 text-white px-2 py-1 rounded-sm">
+				<span className="text-sm bg-red-700 text-white px-2 py-1 rounded-md">
 					Delete Account
 				</span>
 			</div>

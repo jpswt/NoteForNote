@@ -78,7 +78,7 @@ const PostDetails = () => {
 	});
 
 	return (
-		<div className="flex-9 flex flex-col items-center mt-1 ">
+		<div className="flex-9 flex flex-col items-center mt-1 bg-gray-600 text-gray-100 ">
 			<div className=" p-2.5 pr-0 w-[80%]">
 				{post.photo && (
 					<img
@@ -94,7 +94,7 @@ const PostDetails = () => {
 							value={title}
 							onChange={(e) => setTitle(e.target.value)}
 							autoFocus={true}
-							className="w-full py-2 text-center text-3xl text-stone-500 outline-teal-600"
+							className="w-full py-2 text-center text-3xl bg-gray-600 outline-none"
 						/>
 					</div>
 				) : (
@@ -115,14 +115,14 @@ const PostDetails = () => {
 						)}
 					</div>
 				)}
-				<div className="flex justify-between mt-2 mb-4 pb-1 text-red-700 font-body border-b-stone-300 border-b-2">
+				<div className="flex justify-between mt-2 mb-4 pb-1 font-body border-b-gray-200 border-b-2">
 					<span>
 						<span>Posted by: </span>
 						<Link to={`/home?user=${post.username}`}>
 							<strong>{post.username}</strong>
 						</Link>
 					</span>
-					<span>
+					<span className="text-white">
 						{new Date(post.createdAt).toLocaleDateString('en-US', {
 							year: 'numeric',
 							month: 'long',
@@ -132,7 +132,7 @@ const PostDetails = () => {
 				</div>
 				{updateInfo ? (
 					<ReactQuill
-						className="outline-red-700 border-none mt-2 w-full text-stone-500 bg-white p-0 ql-editor ql-container"
+						className="border-none mt-2 w-full text-gray-600 bg-white p-0 ql-editor ql-container"
 						theme="snow"
 						value={description}
 						onChange={setDescription}

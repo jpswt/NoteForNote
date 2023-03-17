@@ -9,13 +9,18 @@
 	h3 {
 		@apply text-lg;
 	}
+	.quill {
+		border: none;
+	}
+
 	.ql-container {
-		height: 300px;
-		font-size: 20px;
+		border-left: hidden;
 	}
 	.ql-editor {
-		height: 300px;
-		padding-bottom: 3rem;
+		background-color: rgb(75 85 99);
+		font-size: 20px;
+		border: none;
+		color: white;
 	}
 
 	.blog-link a {
@@ -24,6 +29,10 @@
 
 	.blog-link a:hover {
 		@apply text-red-500 underline;
+	}
+	body {
+		background-color: rgb(75 85 99);
+		min-height: 100vh;
 	}
 }
 @tailwind components;

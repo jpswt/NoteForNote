@@ -16,14 +16,12 @@ const SingePost = ({ post }) => {
 	};
 
 	return (
-		<div className="w-[70%] mx-10 flex items-center border-b-2 border-gray-300 ">
+		<div className="w-[70%] mx-10 flex items-center border-b-2 border-gray-400 text-gray-100 ">
 			<div className="flex flex-col w-full my-6">
 				<Link to={`/posts/${post._id}`}>
-					<span className=" text-3xl text-stone-900  font-semibold ">
-						{post.title}
-					</span>
+					<span className=" text-3xl font-semibold ">{post.title}</span>
 				</Link>
-				<div className="my-2 flex items-center">
+				<div className="mb-2 mt-4 flex items-center">
 					<span className="mr-4">
 						<img
 							className="w-[40px] h-[40px] rounded-full"
@@ -32,7 +30,7 @@ const SingePost = ({ post }) => {
 							onError={setDefault}
 						/>
 					</span>
-					<span className="font-body text-base text-stone-600">
+					<span className="font-body text-base">
 						{post.username} •{' '}
 						{new Date(post.createdAt).toLocaleDateString('en-US', {
 							year: 'numeric',
@@ -49,9 +47,10 @@ const SingePost = ({ post }) => {
 					{post.categories.map((category, i) => (
 						<span
 							key={i}
-							className="font-body text-white bg-red-700 py-[3px] px-[8px] rounded-xl font-medium text-small mr-2 cursor-pointer hover:bg-red-600"
+							className="font-body text-white bg-teal-600 py-[3px] px-[8px] rounded-xl font-medium text-small mr-2 cursor-pointer"
 						>
-							{category}
+							{/* {category} */}
+							<Link to={`/home?category=${category}`}>{category}</Link>
 						</span>
 					))}
 				</div>

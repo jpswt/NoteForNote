@@ -34,9 +34,9 @@ const Sidebar = ({ posts, post }) => {
 	};
 
 	return (
-		<div className="flex-4 mx-4 rounded-md bg-stone-50 flex flex-col items-center font-body h-[800px] sticky top-0 border-l-2 border-stone-100">
+		<div className="flex-4 bg-gray-600 flex flex-col items-center font-body h-[800px] sticky top-0 border-l-2 border-stone-100 border-opacity-20 text-gray-100">
 			<div className="flex flex-col items-center pb-6">
-				<span className="m-2 p-1 w-[100%] border-solid border-b-2 border-stone-300  font-semibold text-center">
+				<span className="m-2 p-1 w-[100%] border-solid border-b-2 border-gray-400  font-semibold text-center">
 					ABOUT ME
 				</span>
 				{!post ? (
@@ -76,11 +76,11 @@ const Sidebar = ({ posts, post }) => {
 				)}
 			</div>
 			<div className="flex flex-col items-center w-full mt-8">
-				<span className="m-2 p-1 w-[60%] border-solid border-b-2 border-stone-300 font-semibold text-center">
+				<span className="m-2 p-1 w-[60%] border-solid border-b-2 border-gray-400 font-semibold text-center">
 					CATEGORIES
 				</span>
 
-				<ul className=" text-center flex flex-wrap mb-8">
+				<ul className=" text-center flex flex-wrap mb-8 font-semibold">
 					{categories.map((category, i) => (
 						<li
 							key={i}

@@ -100,7 +100,7 @@ const ComposePost = () => {
 	};
 
 	return (
-		<div className="flex-9 flex flex-col mt-4 text-stone-500 text-md">
+		<div className="flex-9 flex flex-col mt-4 bg-gray-600 text-gray-100 text-md">
 			{img && (
 				<div className="flex items-center justify-center">
 					<img
@@ -113,7 +113,7 @@ const ComposePost = () => {
 			<form onSubmit={handleSubmit}>
 				<div className="flex items-center justify-center w-full ">
 					<label htmlFor="fileInput">
-						<i className="fa-solid fa-folder-plus text-xl cursor-pointer text-stone-600 p-2"></i>
+						<i className="fa-solid fa-folder-plus text-xl cursor-pointer text-gray-100 p-2"></i>
 					</label>
 					<input
 						type="file"
@@ -122,7 +122,7 @@ const ComposePost = () => {
 						onChange={(e) => setImg(e.target.files[0])}
 					/>
 					<input
-						className=" outline-red-700 p-2 w-[80%] text-3xl"
+						className=" bg-gray-600 border-b-2 border-gray-400 outline-none p-2 w-[80%] text-3xl mb-2"
 						type="text"
 						placeholder="Title"
 						autoFocus={true}
@@ -131,7 +131,8 @@ const ComposePost = () => {
 				</div>
 				<div className=" flex items-center justify-center ">
 					<ReactQuill
-						className="outline-red-700 border-none ml-[36px] mt-4 w-[80%] bg-white text-stone-500 p-0 ql-container ql-editor"
+						// className="border-none ml-[36px] mt-4 mb-4 w-[80%] text-gray-600 p-0 ql-container ql-editor "
+						className="border-none ml-[36px] h-[300px] mt-2 w-[80%] text-gray-600 bg-white p-0 ql-editor ql-container"
 						placeholder="Enter your thoughts..."
 						theme="snow"
 						value={description}
@@ -139,27 +140,27 @@ const ComposePost = () => {
 						modules={modules}
 					/>
 				</div>
-				<div className="flex flex-col items-center justify-center  text-stone-700">
-					<h3 className="my-4">Select Categories: </h3>
+				<div className="flex flex-col items-center justify-center">
+					<h3 className="my-4 text-xl">Select Categories: </h3>
 					<div className="w-full items-center justify-center flex flex-wrap gap-6">
 						{categories.map((cat, i) => (
 							<li key={i} className=" list-none ">
 								<input
-									className="accent-red-700 mr-2"
+									className="accent-teal-600 mr-2"
 									onChange={handleToggle(cat.name)}
 									type="checkbox"
 								/>
-								<label className="form-check-label">{cat.name}</label>
+								<label className="form-check-label text-xl">{cat.name}</label>
 							</li>
 						))}
 					</div>
 				</div>
 				<div className="flex items-center justify-center mt-12">
 					<button
-						className=" bg-red-700 py-2 px-16 text-white text-lg rounded-md cursor-pointer"
+						className=" bg-teal-600 py-2 px-10 text-white text-lg rounded-md cursor-pointer"
 						type="submit"
 					>
-						Submit
+						Publish
 					</button>
 				</div>
 			</form>

@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
-import cookie from 'cookie';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Context } from '../context/Context';
 import logo from '../assets/logo.png';
 import defaultPic from '../assets/default.jpeg';
+import Dropdown from './Dropdown';
 
 const Navbar = ({ posts, setSearchResult }) => {
 	const { user, dispatch } = useContext(Context);
 	const publicFolder = 'http://localhost:8000/assets/';
+	const [openProfile, setOpenProfile] = useState(false);
 
 	const { home } = useLocation();
 
-	const handleLogout = () => {
-		document.cookie = cookie.serialize('loggedIn', null, { maxAge: 0 });
-		dispatch({ type: 'LOGOUT' });
+	const handleOpenProfile = (e) => {
+		setOpenProfile(!openProfile);
 	};
 
 	const handleSearch = (e) => {
@@ -35,43 +35,59 @@ const Navbar = ({ posts, setSearchResult }) => {
 	};
 
 	return (
-		<div className=" w-full h-[70px] sticky top-0 z-10 flex items-center justify-between font-display bg-stone-50 border-b-2 border-stone-100">
+		<div className=" w-full h-[70px] sticky top-0 z-10 flex items-center justify-between font-display bg-gray-600 border-b-2 border-gray-100 border-opacity-30 ">
 			{/* <div className="flex content-center">logo</div> */}
-			<div className="flex items-center justify-center">
+			<div className="flex items-center justify-center ml-6">
 				<div className="flex items-center gap-2 mr-4">
 					<img src={logo} alt="" className="w-[40px] h-[40px]" />
-					<p className=" font-title text-lg">Guitar Blog</p>
+					<p className=" font-title text-lg text-gray-100">Guitar Blog</p>
 				</div>
 				{location.pathname === '/home' ? (
 					<div className="flex">
 						<div className="w-full relative">
 							<input
-								className=" border-gray-300 border-2 py-1 rounded-full px-4 outline-none"
+								className=" border-gray-400 border-2 py-1 rounded-full px-4 outline-none"
 								type="text"
 								id="search"
 								placeholder="Search Blogs..."
 								autoFocus={true}
 								onChange={handleSearch}
 							/>
-							<i className="fa-solid fa-magnifying-glass text-lg text-stone-300 ml-8 absolute top-1 right-4"></i>
+							<i className="fa-solid fa-magnifying-glass text-lg text-gray-400 ml-8 absolute top-1 right-4"></i>
 						</div>
 					</div>
 				) : null}
 			</div>
-			<div className="flex items-center gap-6 mr-4">
+			<div className="flex items-center gap-6 mr-6">
 				<div>
-					<ul className="flex gap-8 text-lg font-light text-stone-800 cursor-pointer">
+					<ul className="flex gap-8 text-lg font-light cursor-pointer">
 						<li>
-							<Link to="/home">HOME</Link>
+							{/* <Link to="/home">HOME</Link> */}
+							<Link to="/home">
+								<i className="fa-solid fa-house text-gray-100 text-3xl"></i>
+							</Link>
 						</li>
 						<li>
-							<Link to="/compose">COMPOSE</Link>
+							<Link to="/compose">
+								<i className="fa-solid fa-pen-to-square  text-gray-100 text-3xl "></i>
+							</Link>
+							{/* <Link to="/compose">COMPOSE</Link> */}
 						</li>
-						<li onClick={handleLogout}>{user && 'LOGOUT'}</li>
+						{/* <li onClick={handleLogout}>{user && 'LOGOUT'}</li> */}
 					</ul>
+					{openProfile && <Dropdown user={user} />}
 				</div>
 				<div className="">
-					{user ? (
+					{user && (
+						<img
+							src={publicFolder + user.profilePic}
+							alt=""
+							className="w-[40px] h-[40px] rounded-full object-cover cursor-pointer"
+							onError={setDefault}
+							onClick={handleOpenProfile}
+						/>
+					)}
+					{/* {user ? (
 						<Link to="/profile">
 							<img
 								src={publicFolder + user.profilePic}
@@ -89,7 +105,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 								<Link to="/register">REGISTER</Link>{' '}
 							</li>
 						</ul>
-					)}
+					)} */}
 				</div>
 			</div>
 		</div>
