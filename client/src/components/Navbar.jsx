@@ -75,7 +75,15 @@ const Navbar = ({ posts, setSearchResult }) => {
 						</li>
 						{/* <li onClick={handleLogout}>{user && 'LOGOUT'}</li> */}
 					</ul>
-					{openProfile && <Dropdown user={user} />}
+					{openProfile && (
+						<>
+							<button
+								onClick={() => setOpenProfile(false)}
+								className=" bg-gray-600 w-full h-full fixed top-0 left-0 opacity-80 cursor-default"
+							></button>
+							<Dropdown user={user} />
+						</>
+					)}
 				</div>
 				<div className="">
 					{user && (

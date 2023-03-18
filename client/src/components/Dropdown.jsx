@@ -13,7 +13,7 @@ const Dropdown = () => {
 
 	return (
 		<div>
-			<ul className="flex flex-col items-center w-[15%] bg-gray-500 text-white px-4 py-4 gap-4 absolute top-16 right-6 ">
+			<ul className="flex flex-col items-center w-[15%] bg-gray-500 text-white px-4 py-4 gap-4 absolute top-16 right-6 z-100 shadow-xl transition ease-in-out delay-300 ">
 				<Link to="/profile">
 					<li className=" hover:text-gray-200">Profile</li>
 				</Link>
