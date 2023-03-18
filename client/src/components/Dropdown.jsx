@@ -12,8 +12,8 @@ const Dropdown = () => {
 	};
 
 	return (
-		<div>
-			<ul className="flex flex-col items-center w-[15%] bg-gray-500 text-white px-4 py-4 gap-4 absolute top-16 right-6 z-100 shadow-xl transition ease-in-out delay-300 ">
+		<>
+			<ul className="flex flex-col items-center w-[15%] bg-gray-500 rounded-md text-white mt-1 px-4 py-4 gap-4 absolute top-16 right-4 z-100 shadow-xl before:content-[''] before:absolute before:-top-1 before:right-[12px] before:w-8 before:h-8 before:bg-gray-500 before:rotate-45">
 				<Link to="/profile">
 					<li className=" hover:text-gray-200">Profile</li>
 				</Link>
@@ -27,7 +27,7 @@ const Dropdown = () => {
 					<li className="text-sm">{user.email}</li>
 				</div>
 			</ul>
-		</div>
+		</>
 	);
 };
 

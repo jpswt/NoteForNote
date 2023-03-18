@@ -9,6 +9,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 	const { user, dispatch } = useContext(Context);
 	const publicFolder = 'http://localhost:8000/assets/';
 	const [openProfile, setOpenProfile] = useState(false);
+	console.log(posts);
 
 	const { home } = useLocation();
 
@@ -24,6 +25,8 @@ const Navbar = ({ posts, setSearchResult }) => {
 			(post) =>
 				post.title.includes(target) ||
 				post.title.includes(target.toUpperCase()) ||
+				post.username.includes(target) ||
+				post.username.includes(target.toUpperCase()) ||
 				post.description.includes(target) ||
 				post.description.includes(target.toUpperCase())
 		);

@@ -51,10 +51,9 @@ const Settings = () => {
 	};
 
 	return (
-		<div className="flex-9 mt-1">
-			<div className="flex items-center justify-between mb-6 px-8">
-				<span className="text-3xl mb-4 text-teal-700 ">Update Profile</span>
-				<span className="text-sm bg-red-700 text-white px-2 py-1 rounded-md">
+		<div className="flex-9 mt-1 font-body">
+			<div className="flex items-center justify-between mb-2 px-8">
+				<span className="text-md mt-2 bg-red-700 text-white px-2 py-1 rounded-md">
 					Delete Account
 				</span>
 			</div>
@@ -62,7 +61,7 @@ const Settings = () => {
 				className="flex flex-col justify-center items-center relative"
 				onSubmit={handleUpdate}
 			>
-				<div className="flex items-center justify-center mb-6">
+				<div className="flex items-center justify-center mb-2">
 					<img
 						className="w-40 h-40 object-cover rounded-full "
 						src={
@@ -73,9 +72,12 @@ const Settings = () => {
 					/>
 				</div>
 				<label htmlFor="imgInput">
-					<i className="fa-solid fa-user cursor-pointer text-3xl ml-4 text-red-700 ">
+					{/* <i className="fa-solid fa-user cursor-pointer text-3xl ml-4 text-red-700 ">
 						{' '}
 						Update Photo
+					</i> */}
+					<i class="fa-solid fa-camera text-white bg-gray-500 py-2 px-4 rounded-md mb-4">
+						<span className="font-body ml-2">Update Photo</span>
 					</i>
 				</label>
 				<input
