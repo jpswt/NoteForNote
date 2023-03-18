@@ -70,13 +70,13 @@ const ComposePost = () => {
 		};
 
 		if (profilePic) {
-			const data = new FormData();
-			const imgName = `${user.username}.jpeg`;
-			data.append('name', imgName);
-			data.append('file', img);
-			newPost.profilePic = imgName;
+			const profileData = new FormData();
+			const profileName = `${user.username}.jpeg`;
+			profileData.append('name', profileName);
+			profileData.append('file', profilePic);
+			newPost.profilePic = profileName;
 			try {
-				await axios.post('http://localhost:8000/upload', data);
+				await axios.post('http://localhost:8000/upload', profileData);
 			} catch (err) {
 				console.error(err);
 			}
