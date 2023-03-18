@@ -90,7 +90,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 						<img
 							src={publicFolder + user.profilePic}
 							alt=""
-							className="w-[40px] h-[40px] rounded-full object-cover cursor-pointer"
+							className="w-[40px] h-[40px] rounded-full object-cover cursor-pointer relative z-20"
 							onError={setDefault}
 							onClick={handleOpenProfile}
 						/>
