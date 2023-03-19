@@ -108,7 +108,7 @@ const Settings = () => {
 				/>
 				<button
 					type="submit"
-					className="w-40 bg-teal-700 text-white py-2 rounded-md mt-2 cursor-pointer"
+					className="w-40 bg-accent text-white py-2 rounded-md mt-2 cursor-pointer"
 				>
 					Update Profile
 				</button>

@@ -78,7 +78,7 @@ const PostDetails = () => {
 	});
 
 	return (
-		<div className="flex-9 flex flex-col items-center mt-1 bg-gray-600 text-gray-100 ">
+		<div className="flex-9 flex flex-col items-center mt-1 bg-[#2a3d53] text-gray-100 ">
 			<div className=" p-2.5 pr-0 w-[80%]">
 				{post.photo && (
 					<img
@@ -104,7 +104,7 @@ const PostDetails = () => {
 						{post.username === user?.username && (
 							<div className="flex-1 text-xl">
 								<i
-									className="fa-solid fa-file-pen ml-2 cursor-pointer text-white bg-teal-600 p-3 rounded-full "
+									className="fa-solid fa-file-pen ml-2 cursor-pointer text-white bg-accent p-3 rounded-full "
 									onClick={() => setUpdateInfo(true)}
 								></i>
 								<i
@@ -147,7 +147,7 @@ const PostDetails = () => {
 				{updateInfo ? (
 					<div className="flex items-center justify-center mt-4">
 						<button
-							className="bg-teal-600 text-white px-20 py-2 rounded-md cursor-pointer"
+							className="bg-accent text-white px-20 py-2 rounded-md cursor-pointer"
 							onClick={handleUpdate}
 						>
 							Update

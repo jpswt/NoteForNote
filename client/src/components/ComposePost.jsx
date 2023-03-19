@@ -120,7 +120,7 @@ const ComposePost = () => {
 								onChange={(e) => setPostImg(e.target.files[0])}
 							/>
 							<input
-								className=" bg-gray-600 border-b-2 border-gray-400 w-[90%] outline-none p-2 text-3xl mb-2"
+								className=" bg-primary border-b-2 border-gray-400 w-[90%] outline-none p-2 text-3xl mb-2 text-gray-600 bg-opacity-50"
 								type="text"
 								placeholder="Title"
 								autoFocus={true}
@@ -128,7 +128,7 @@ const ComposePost = () => {
 							/>
 						</div>
 						<button
-							className=" bg-teal-600 py-1 px-2 text-white text-lg rounded-md cursor-pointer"
+							className=" bg-accent py-1 px-2 text-white text-lg rounded-md cursor-pointer"
 							type="submit"
 						>
 							Publish
@@ -152,7 +152,7 @@ const ComposePost = () => {
 						{categories.map((cat, i) => (
 							<li key={i} className=" list-none ">
 								<input
-									className="accent-teal-600 mr-2"
+									className="bg-accent mr-2"
 									onChange={handleToggle(cat.name)}
 									type="checkbox"
 								/>
