@@ -42,7 +42,7 @@ const Register = () => {
 	};
 
 	return (
-		<div className="flex flex-col justify-center items-center h-[100vh] bg-login bg-cover relative ">
+		<div className="flex flex-col justify-center items-center h-[100vh] bg-gray-600 bg-cover relative ">
 			<form
 				className="flex flex-col w-[20%] items-center"
 				onSubmit={handleSubmit}

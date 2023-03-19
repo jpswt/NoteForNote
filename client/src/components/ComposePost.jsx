@@ -1,8 +1,7 @@
+import { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import React, { useContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router';
 import { Context } from '../context/Context';
 
 const ComposePost = () => {
@@ -25,26 +24,15 @@ const ComposePost = () => {
 			],
 		],
 	};
-	const navigate = useNavigate();
 	const { user } = useContext(Context);
-	console.log(user);
-
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
-	const [img, setImg] = useState(null);
-	const [profilePic, setProfilePic] = useState(
-		'http://localhost:8000/assets/default.jpeg'
-	);
+	const [postImg, setPostImg] = useState(null);
 	const [checked, setChecked] = useState([]);
 	const [categories, setCategories] = useState([]);
-
-	useEffect(() => {
-		const fetchCategories = async () => {
-			const response = await axios.get('http://localhost:8000/categories');
-			setCategories(response.data);
-		};
-		fetchCategories();
-	}, []);
+	// const [profilePic, setProfilePic] = useState(
+	// 	'http://localhost:8000/assets/default.jpeg'
+	// );
 
 	const handleToggle = (cat) => () => {
 		const clickedCategory = checked.indexOf(cat);
@@ -65,74 +53,92 @@ const ComposePost = () => {
 			title,
 			description,
 			categories: checked,
-			profilePic,
+			profilePic: user.profilePic,
 			about: user.about,
 		};
 
-		if (profilePic) {
-			const profileData = new FormData();
-			const profileName = `${user.username}.jpeg`;
-			profileData.append('name', profileName);
-			profileData.append('file', profilePic);
-			newPost.profilePic = profileName;
-			try {
-				await axios.post('http://localhost:8000/upload', profileData);
-			} catch (err) {
-				console.error(err);
-			}
-		}
+		// if (profilePic) {
+		// 	const data = new FormData();
+		// 	const imgName = `${user.username}.jpeg`;
+		// 	data.append('name', imgName);
+		// 	data.append('file', img);
+		// 	newPost.profilePic = imgName;
+		// 	try {
+		// 		await axios.post('http://localhost:8000/upload', data);
+		// 	} catch (err) {
+		// 		console.error(err);
+		// 	}
+		// }
 
-		if (img) {
-			const data = new FormData();
-			const imgName = Date.now() + img.name;
-			data.append('name', imgName);
-			data.append('file', img);
-			newPost.photo = imgName;
+		if (postImg) {
+			const postData = new FormData();
+			const postImgName = Date.now() + postImg.name;
+			postData.append('name', postImgName);
+			postData.append('file', postImg);
+			newPost.photo = postImgName;
 			try {
-				await axios.post('http://localhost:8000/upload', data);
+				await axios.post('http://localhost:8000/upload', postData);
 			} catch (err) {}
 		}
 		try {
 			const res = await axios.post('http://localhost:8000/posts', newPost);
-			navigate(`/posts/${res.data._id}`);
+			window.location.replace('/posts/' + res.data._id);
 			console.log(newPost);
 		} catch (err) {}
 	};
 
+	useEffect(() => {
+		const fetchCategories = async () => {
+			const response = await axios.get('http://localhost:8000/categories');
+			setCategories(response.data);
+		};
+		fetchCategories();
+	}, []);
+
 	return (
 		<div className="flex-9 flex flex-col mt-4 bg-gray-600 text-gray-100 text-md">
-			{img && (
+			{postImg && (
 				<div className="flex items-center justify-center">
 					<img
-						className="w-[82.5%] h-[275px] object-cover rounded-md mb-2"
-						src={URL.createObjectURL(img)}
+						className="w-[350px] h-[175px] object-cover rounded-md mb-2"
+						src={URL.createObjectURL(postImg)}
 						alt=""
 					/>
 				</div>
 			)}
 			<form onSubmit={handleSubmit}>
 				<div className="flex items-center justify-center w-full ">
-					<label htmlFor="fileInput">
-						<i className="fa-solid fa-folder-plus text-xl cursor-pointer text-gray-100 p-2"></i>
-					</label>
-					<input
-						type="file"
-						id="fileInput"
-						className="hidden"
-						onChange={(e) => setImg(e.target.files[0])}
-					/>
-					<input
-						className=" bg-gray-600 border-b-2 border-gray-400 outline-none p-2 w-[80%] text-3xl mb-2"
-						type="text"
-						placeholder="Title"
-						autoFocus={true}
-						onChange={(e) => setTitle(e.target.value)}
-					/>
+					<div className="flex items-center justify-between w-[80%]">
+						<div className="w-full">
+							<label htmlFor="imgInput">
+								<i className="fa-solid fa-folder-plus text-xl cursor-pointer text-gray-100 p-2"></i>
+							</label>
+							<input
+								type="file"
+								id="imgInput"
+								className="hidden"
+								onChange={(e) => setPostImg(e.target.files[0])}
+							/>
+							<input
+								className=" bg-gray-600 border-b-2 border-gray-400 w-[90%] outline-none p-2 text-3xl mb-2"
+								type="text"
+								placeholder="Title"
+								autoFocus={true}
+								onChange={(e) => setTitle(e.target.value)}
+							/>
+						</div>
+						<button
+							className=" bg-teal-600 py-1 px-2 text-white text-lg rounded-md cursor-pointer"
+							type="submit"
+						>
+							Publish
+						</button>
+					</div>
 				</div>
 				<div className=" flex items-center justify-center ">
 					<ReactQuill
 						// className="border-none ml-[36px] mt-4 mb-4 w-[80%] text-gray-600 p-0 ql-container ql-editor "
-						className="border-none ml-[36px] h-[300px] mt-2 w-[80%] text-gray-600 bg-white p-0 ql-editor ql-container"
+						className="border-none  mt-2 w-[80%] text-gray-600 bg-white p-0 ql-snow ql-editor ql-container"
 						placeholder="Enter your thoughts..."
 						theme="snow"
 						value={description}
@@ -155,14 +161,14 @@ const ComposePost = () => {
 						))}
 					</div>
 				</div>
-				<div className="flex items-center justify-center mt-12">
+				{/* <div className="flex items-center justify-center mt-12">
 					<button
 						className=" bg-teal-600 py-2 px-10 text-white text-lg rounded-md cursor-pointer"
 						type="submit"
 					>
 						Publish
 					</button>
-				</div>
+				</div> */}
 			</form>
 		</div>
 	);

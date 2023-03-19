@@ -43,7 +43,7 @@ const Sidebar = ({ posts, post }) => {
 					{!post ? (
 						<>
 							<img
-								className="w-[125px] h-[125px] rounded-full mt-6 shadow-lg "
+								className="w-[125px] h-[125px] rounded-full mt-6 shadow-lg object-cover "
 								src={publicFolder + user.profilePic}
 								alt=""
 								onError={setDefault}
@@ -53,10 +53,7 @@ const Sidebar = ({ posts, post }) => {
 							) : (
 								// <p className="px-12 py-6">Add a Bio</p>
 								<Link to="/profile">
-									<button
-										className="bg-teal-600 text-white px-4 py-2 rounded-md mt-6"
-										onclick
-									>
+									<button className="bg-teal-600 text-white px-4 py-2 rounded-md mt-6 ">
 										Add a Bio
 									</button>
 								</Link>
@@ -65,14 +62,14 @@ const Sidebar = ({ posts, post }) => {
 					) : (
 						<>
 							<img
-								className="w-[125px] h-[125px] rounded-full my-2 "
+								className="w-[125px] h-[125px] rounded-full mt-6 shadow-lg object-cover "
 								src={publicFolder + post.profilePic}
 								alt=""
 								onError={setDefault}
 							/>
 							<p> </p>
 							<p className="">{post.username}</p>
-							<p className="">{post.about}</p>
+							<p className="px-12 py-4">{post.about}</p>
 						</>
 					)}
 				</div>

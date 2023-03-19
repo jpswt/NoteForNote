@@ -13,14 +13,20 @@
 		border: none;
 	}
 
+	.ql-snow {
+		height: auto;
+	}
 	.ql-container {
-		border-left: hidden;
+		height: auto;
 	}
 	.ql-editor {
 		background-color: rgb(75 85 99);
 		font-size: 20px;
 		border: none;
 		color: white;
+		height: 200px;
+		padding-bottom: 2rem;
+		overflow-y: scroll;
 	}
 
 	.blog-link a {

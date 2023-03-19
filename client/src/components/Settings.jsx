@@ -39,7 +39,7 @@ const Settings = () => {
 			);
 			dispatch({ type: 'UPDATE_SUCCESS', payload: response.data });
 			window.location.reload();
-			setSuccessMsg(false);
+			setSuccessMsg(true);
 			console.log(updateUser);
 		} catch (err) {
 			dispatch({ type: 'UPDATE_FAIL' });
