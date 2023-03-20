@@ -38,7 +38,7 @@ const Login = () => {
 					onSubmit={handleSubmit}
 				>
 					<label htmlFor="" className="">
-						<i class="fa-solid fa-user text-xl text-gray-400 absolute top-2 left-14"></i>
+						<i className="fa-solid fa-user text-xl text-gray-400 absolute top-2 left-14"></i>
 					</label>
 					<input
 						type="text"
@@ -48,7 +48,7 @@ const Login = () => {
 						ref={userRef}
 					/>
 					<label htmlFor="">
-						<i class="fa-solid fa-lock text-xl text-gray-400 absolute left-14"></i>
+						<i className="fa-solid fa-lock text-xl text-gray-400 absolute left-14"></i>
 					</label>
 					<input
 						type="password"

@@ -93,10 +93,10 @@ const ComposePost = () => {
 			setCategories(response.data);
 		};
 		fetchCategories();
-	}, []);
+	}, [categories]);
 
 	return (
-		<div className="flex-9 flex flex-col mt-4 bg-gray-600 text-gray-100 text-md">
+		<div className="flex-9 flex flex-col mt-4 bg-primary text-gray-100 text-md">
 			{postImg && (
 				<div className="flex items-center justify-center">
 					<img

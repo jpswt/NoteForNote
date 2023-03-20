@@ -34,8 +34,8 @@ const Sidebar = ({ posts, post }) => {
 	};
 
 	return (
-		<div className="font-body border-l-2 border-gray-500 text-gray-100 min-h-full">
-			<div className="flex-4 bg-[#2a3d53] flex flex-col items-center sticky w-full ">
+		<div className="flex-4 font-body border-l-2 border-gray-500 text-gray-100 min-h-screen">
+			<div className=" bg-[#2a3d53] flex flex-col items-center sticky w-full">
 				<div className="flex flex-col items-center pb-2 mt-10 mb-10 w-[70%] border-2 border-gray-400">
 					<span className="m-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 bg-accent font-semibold text-center">
 						ABOUT ME
@@ -73,34 +73,15 @@ const Sidebar = ({ posts, post }) => {
 						</>
 					)}
 				</div>
-				<div className="flex flex-col items-center w-[70%] mt-10 border-2 border-gray-400 ">
+				<div className="flex flex-col items-center w-[70%]">
 					<span className="m-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center bg-accent">
 						CATEGORIES
 					</span>
 
-					<ul className=" text-center text-lg flex flex-wrap mb-8 items-center justify-center ">
+					<ul className=" text- text-lg flex flex-wrap justify-center items-center mb-8 ">
 						{categories.map((category, i) => (
 							<li
-								key={i}
-								className=" inline-block w-[40%] cursor-pointer "
-								onClick={handleScroll}
-							>
-								<Link to={`/home?category=${category.name}`}>
-									{category.name}
-								</Link>
-							</li>
-						))}
-					</ul>
-				</div>
-				<div className="flex flex-col items-center w-[70%] mt-10 border-2 border-gray-400 ">
-					<span className="m-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center bg-accent">
-						CATEGORIES
-					</span>
-
-					<ul className=" text-center text-lg flex flex-wrap mb-8 items-center justify-center ">
-						{categories.map((category, i) => (
-							<li
-								key={i}
+								key={category._id}
 								className=" inline-block w-[40%] cursor-pointer "
 								onClick={handleScroll}
 							>
