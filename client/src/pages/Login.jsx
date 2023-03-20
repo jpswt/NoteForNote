@@ -57,7 +57,7 @@ const Login = () => {
 					<input
 						type="password"
 						placeholder="Password"
-						className="py-2.5 pl-10 w-[17rem] border-b-2 border-gray-500 bg-primary outline-none caret-gray-200 text-gray-200 w-[75%] accent-input"
+						className="py-2.5 pl-10 w-[17rem] border-b-2 border-gray-500 bg-primary outline-none caret-gray-200 text-gray-200 accent-input"
 						ref={passwordRef}
 					/>
 					<button
