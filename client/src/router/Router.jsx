@@ -17,14 +17,13 @@ const checkAuth = () => {
 
 const ProtectedRoutes = () => {
 	const { user } = useContext(Context);
-	return checkAuth() && user ? <Outlet /> : <Navigate to="/login" />;
+	return checkAuth() && user ? <Outlet /> : <Login />;
 };
 
 const Router = () => {
 	const { user, dispatch } = useContext(Context);
 	return (
 		<>
-			{/* <Navbar user={{ user, dispatch }} /> */}
 			<Routes>
 				<Route exact path="/" element={<Home />}></Route>
 				<Route
@@ -37,7 +36,6 @@ const Router = () => {
 				></Route>
 				<Route path="/posts/:id" element={<SinglePostDetails />}></Route>
 				<Route element={<ProtectedRoutes />}>
-					{/* <Route path="/home" element={<Home />}></Route> */}
 					<Route path="/compose" element={<Compose />}></Route>
 					<Route path="/profile" element={<Profile />}></Route>
 				</Route>

@@ -8,13 +8,13 @@ router.get('/', async (req, res) => {
 	try {
 		let posts;
 		if (username) {
-			posts = await Post.find({ username: username });
+			posts = await Post.find({ username: username }).sort({ createdAt: -1 });
 		} else if (category) {
 			posts = await Post.find({
 				categories: {
 					$in: [category],
 				},
-			});
+			}).sort({ createdAt: -1 });
 		} else {
 			posts = await Post.find().sort({ createdAt: -1 });
 		}
