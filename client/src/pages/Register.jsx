@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import guitarPick from '../assets/guitar-pick.png';
-import logo from '../assets/n4n.png';
+import logo from '../assets/nfn2.png';
 
 const Register = () => {
 	const navigate = useNavigate();
@@ -67,7 +67,7 @@ const Register = () => {
 						onChange={(e) => setPassword(e.target.value)}
 					/>
 					<button
-						className="mt-6 text-gray-200 bg-[#339a9a] w-fit py-1 px-[5.5rem] rounded-md mb-4 text-lg "
+						className="w-fit mt-6 pt-1 px-[5.5rem] text-gray-200 text-lg font-title accent rounded-md  "
 						type="submit"
 					>
 						REGISTER

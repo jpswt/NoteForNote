@@ -6,7 +6,7 @@ module.exports = {
 		extend: {},
 		fontFamily: {
 			display: ['Noto Sans'],
-			title: ['Kaushan Script'],
+			title: ['Josefin Sans'],
 			body: ['Noto Sans'],
 		},
 		flex: {

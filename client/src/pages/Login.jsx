@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../context/Context';
 import axios from 'axios';
 import guitarPick from '../assets/guitar-pick.png';
-import logo from '../assets/n4n.png';
+import logo from '../assets/nfn2.png';
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -61,7 +61,7 @@ const Login = () => {
 						ref={passwordRef}
 					/>
 					<button
-						className="mt-6 text-gray-200 bg-[#339a9a] w-fit py-1 px-[6.5rem] rounded-md mb-4 text-lg "
+						className="mt-6 text-gray-200 accent w-fit pt-1 px-[6.5rem] rounded-md mb-4 text-lg font-title "
 						type="submit"
 					>
 						LOGIN
