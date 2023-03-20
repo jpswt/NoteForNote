@@ -26,12 +26,7 @@ const SinglePostDetails = () => {
 		<div>
 			<Navbar />
 			<div className="flex">
-				<PostDetails
-					post={post}
-					// title={title}
-					// description={description}
-					profilePic={profilePic}
-				/>
+				<PostDetails post={post} profilePic={profilePic} />
 				<Sidebar post={post} />
 			</div>
 		</div>

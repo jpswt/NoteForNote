@@ -4,7 +4,7 @@ import axios from 'axios';
 import defaultPic from '../assets/default.jpeg';
 import { Context } from '../context/Context';
 
-const Sidebar = ({ posts, post }) => {
+const Sidebar = ({ post }) => {
 	const { user } = useContext(Context);
 	const publicFolder = 'http://localhost:8000/assets/';
 
@@ -43,10 +43,10 @@ const Sidebar = ({ posts, post }) => {
 					{!post ? (
 						<>
 							<img
-								className="w-[125px] h-[125px] rounded-full border-opacity-0 mt-6 shadow-lg object-cover "
+								className="w-[125px] h-[125px] rounded-full border-opacity-0 mt-6 shadow-lg object-cover overflow-hidden "
 								src={publicFolder + user.profilePic}
 								alt=""
-								onError={setDefault}
+								// onError={setDefault}
 							/>
 							{user.about ? (
 								<p className="px-12 py-6">{user.about}</p>

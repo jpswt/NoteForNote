@@ -46,6 +46,9 @@
 	.accent {
 		background-color: hsl(180, 50%, 40%);
 	}
+	.accent-input {
+		background-color: hsl(212, 33%, 35%);
+	}
 }
 @tailwind components;
 @tailwind utilities;
