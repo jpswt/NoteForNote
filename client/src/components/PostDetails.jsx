@@ -108,7 +108,7 @@ const PostDetails = () => {
 									onClick={() => setUpdateInfo(true)}
 								></i>
 								<i
-									className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-secondary p-3 rounded-full "
+									className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-red-700 p-3 rounded-full "
 									onClick={handleDelete}
 								></i>
 							</div>

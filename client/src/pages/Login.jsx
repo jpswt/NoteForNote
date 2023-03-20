@@ -38,22 +38,22 @@ const Login = () => {
 					onSubmit={handleSubmit}
 				>
 					<label htmlFor="" className="">
-						<i className="fa-solid fa-user text-xl text-gray-400 absolute top-2 left-14"></i>
+						<i className="fa-solid fa-user text-xl text-gray-400 absolute top-3 left-14"></i>
 					</label>
 					<input
 						type="text"
 						placeholder="Email"
-						className="py-3 pl-10 mb-2 border-y-2 border-gray-400 bg-primary outline-none caret-gray-100 text-gray-100 w-[75%]"
+						className="py-3 pl-10 mb-4 border-y-2 border-gray-400 bg-primary outline-none caret-gray-600 text-gray-600 w-[75%]"
 						autoFocus={true}
 						ref={userRef}
 					/>
 					<label htmlFor="">
-						<i className="fa-solid fa-lock text-xl text-gray-400 absolute left-14"></i>
+						<i className="fa-solid fa-lock text-xl text-gray-400 absolute top-20 left-14"></i>
 					</label>
 					<input
 						type="password"
 						placeholder="Password"
-						className="pb-3 pt-1 pl-10 mb-8 border-b-2 border-gray-400 bg-primary outline-none caret-gray-100 text-gray-100 w-[75%]"
+						className="py-3 pl-10 mb-8 border-y-2 border-gray-400 bg-primary outline-none caret-gray-600 text-gray-600 w-[75%]"
 						ref={passwordRef}
 					/>
 					<button
