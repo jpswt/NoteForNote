@@ -9,17 +9,10 @@ const Sidebar = ({ post }) => {
 	const publicFolder = 'http://localhost:8000/assets/';
 
 	const [categories, setCategories] = useState([]);
-	// console.log(posts);
-	// console.log(post);
-	// console.log(user);
 
 	const handleScroll = () => {
 		window.scrollTo(0, 0);
 	};
-
-	// useEffect(() => {
-	// 	window.scrollTo(0, 0);
-	// }, []);
 
 	useEffect(() => {
 		const fetchCategories = async () => {
@@ -27,7 +20,7 @@ const Sidebar = ({ post }) => {
 			setCategories(response.data);
 		};
 		fetchCategories();
-	}, []);
+	}, [categories]);
 
 	const setDefault = (e) => {
 		e.target.src = defaultPic;
@@ -61,6 +54,9 @@ const Sidebar = ({ post }) => {
 						</>
 					) : (
 						<>
+							<span className="m-2 mt-10 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
+								ABOUT ME
+							</span>
 							<img
 								className="w-[125px] h-[125px] rounded-full mt-6 object-cover "
 								src={publicFolder + post.profilePic}
@@ -68,8 +64,8 @@ const Sidebar = ({ post }) => {
 								onError={setDefault}
 							/>
 							<p> </p>
-							<p className="">{post.username}</p>
-							<p className="px-12 py-4">{post.about}</p>
+							<p className="mt-2">{post.username}</p>
+							<p className="px-12 py-6">{post.about}</p>
 						</>
 					)}
 				</div>
@@ -85,9 +81,7 @@ const Sidebar = ({ post }) => {
 								className=" inline-block w-[50%] px-8 cursor-pointer mt-2 "
 								onClick={handleScroll}
 							>
-								<Link to={`/home?category=${category.name}`}>
-									{category.name}
-								</Link>
+								<Link to={`/?category=${category.name}`}>{category.name}</Link>
 							</li>
 						))}
 					</ul>
