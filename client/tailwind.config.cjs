@@ -22,11 +22,12 @@ module.exports = {
 			6: '6',
 			9: '9',
 		},
-		backgroundColor: {
-			primary: 'hsl(212,0,0)',
-			accent: 'hsl(180,50%,40%)',
-			secondary: 'rgb(185 28 28)',
-		},
+		// backgroundColor: {
+		// 	primary: 'hsl(212,0,0)',
+		// 	accent: 'hsl(180,50%,40%)',
+		// 	secondary: 'rgb(185 28 28)',
+		// 	fade: 'gray',
+		// },
 		backgroundImage: {
 			login:
 				"url('https://images.unsplash.com/photo-1581185050956-0e015a2a96cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80')",

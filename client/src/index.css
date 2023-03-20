@@ -40,6 +40,12 @@
 		background-color: #2a3d53;
 		min-height: 100vh;
 	}
+	.primary {
+		background-color: hsl(212, 33%, 25%);
+	}
+	.accent {
+		background-color: hsl(180, 50%, 40%);
+	}
 }
 @tailwind components;
 @tailwind utilities;

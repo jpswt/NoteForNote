@@ -104,7 +104,7 @@ const PostDetails = () => {
 						{post.username === user?.username && (
 							<div className="flex-1 text-xl">
 								<i
-									className="fa-solid fa-file-pen ml-2 cursor-pointer text-white bg-accent p-3 rounded-full "
+									className="fa-solid fa-file-pen ml-2 cursor-pointer text-white accent p-3 rounded-full "
 									onClick={() => setUpdateInfo(true)}
 								></i>
 								<i
@@ -147,7 +147,7 @@ const PostDetails = () => {
 				{updateInfo ? (
 					<div className="flex items-center justify-center mt-4">
 						<button
-							className="bg-accent text-white px-20 py-2 rounded-md cursor-pointer"
+							className="accent text-white px-20 py-2 rounded-md cursor-pointer"
 							onClick={handleUpdate}
 						>
 							Update

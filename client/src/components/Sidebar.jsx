@@ -53,7 +53,7 @@ const Sidebar = ({ posts, post }) => {
 							) : (
 								// <p className="px-12 py-6">Add a Bio</p>
 								<Link to="/profile">
-									<button className="bg-accent text-white px-4 py-2 rounded-md mt-6 ">
+									<button className="accent text-white px-4 py-2 rounded-md mt-6 ">
 										Add a Bio
 									</button>
 								</Link>

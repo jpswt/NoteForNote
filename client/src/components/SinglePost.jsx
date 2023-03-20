@@ -47,7 +47,7 @@ const SingePost = ({ post }) => {
 					{post.categories.map((category, i) => (
 						<span
 							key={i}
-							className="font-body text-white bg-accent py-[3px] px-[8px] rounded-xl font-medium text-small mr-2 cursor-pointer"
+							className="font-body text-white accent py-[3px] px-[8px] rounded-xl font-medium text-small mr-2 cursor-pointer"
 						>
 							{/* {category} */}
 							<Link to={`/home?category=${category}`}>{category}</Link>

@@ -82,7 +82,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 						<>
 							<button
 								onClick={() => setOpenProfile(false)}
-								className=" bg-gray-600 w-full h-full fixed top-0 left-0 opacity-80 cursor-default"
+								className=" bg-slate-600 w-full h-full fixed top-0 left-0 opacity-80 cursor-default"
 							></button>
 							<Dropdown user={user} />
 						</>
