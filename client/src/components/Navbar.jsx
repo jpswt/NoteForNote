@@ -46,7 +46,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 					<img src={guitarPick} alt="" className="w-[40px] h-[40px]" />
 					<img src={logo} alt="" className="w-[80px]" />
 				</div>
-				{location.pathname === '/home' ? (
+				{location.pathname === '/' ? (
 					<div className="flex">
 						<div className="w-full relative">
 							<input
@@ -67,7 +67,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 					<ul className="flex gap-8 text-lg font-light cursor-pointer">
 						<li>
 							{/* <Link to="/home">HOME</Link> */}
-							<Link to="/home">
+							<Link to="/">
 								<i className="fa-solid fa-house text-gray-100 text-3xl"></i>
 							</Link>
 						</li>
@@ -89,8 +89,8 @@ const Navbar = ({ posts, setSearchResult }) => {
 						</>
 					)}
 				</div>
-				<div className="">
-					{user && (
+				<div className="flex items-center">
+					{user ? (
 						<img
 							src={publicFolder + user.profilePic}
 							alt=""
@@ -98,26 +98,16 @@ const Navbar = ({ posts, setSearchResult }) => {
 							onError={setDefault}
 							onClick={handleOpenProfile}
 						/>
-					)}
-					{/* {user ? (
-						<Link to="/profile">
-							<img
-								src={publicFolder + user.profilePic}
-								alt=""
-								className="w-[40px] h-[40px] rounded-full object-cover cursor-pointer"
-								onError={setDefault}
-							/>
-						</Link>
 					) : (
-						<ul className="flex gap-8 text-lg font-light text-stone-800 cursor-pointer">
-							<li>
-								<Link to="/login">LOGIN</Link>{' '}
+						<ul className="flex gap-6 text-lg font-light text-gray-100 font-body cursor-pointer">
+							<li className="accent px-3 py-1 rounded-md">
+								<Link to="/login">Login</Link>{' '}
 							</li>
-							<li>
-								<Link to="/register">REGISTER</Link>{' '}
+							<li className="accent px-3 py-1 rounded-md">
+								<Link to="/register">Register</Link>{' '}
 							</li>
 						</ul>
-					)} */}
+					)}
 				</div>
 			</div>
 		</div>

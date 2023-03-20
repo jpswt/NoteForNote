@@ -24,7 +24,7 @@ const SingePost = ({ post }) => {
 				<div className="mb-2 mt-4 flex items-center">
 					<span className="mr-4">
 						<img
-							className="w-[40px] h-[40px] rounded-full"
+							className="w-[40px] h-[40px] rounded-full object-cover"
 							src={publicFolder + post.profilePic}
 							alt=""
 							onError={setDefault}
@@ -50,7 +50,7 @@ const SingePost = ({ post }) => {
 							className="font-body text-white accent py-[3px] px-[8px] rounded-xl font-medium text-small mr-2 cursor-pointer"
 						>
 							{/* {category} */}
-							<Link to={`/home?category=${category}`}>{category}</Link>
+							<Link to={`/?category=${category}`}>{category}</Link>
 						</span>
 					))}
 				</div>

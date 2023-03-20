@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { Context } from '../context/Context';
 import cookie from 'cookie';
 
@@ -9,6 +9,7 @@ const Dropdown = () => {
 	const handleLogout = () => {
 		document.cookie = cookie.serialize('loggedIn', null, { maxAge: 0 });
 		dispatch({ type: 'LOGOUT' });
+		window.location.reload('/');
 	};
 
 	return (
@@ -24,9 +25,11 @@ const Dropdown = () => {
 					>
 						Sign Out
 					</li>
-					<li className="text-sm mt-1 text-gray-100 text-opacity-60 ">
-						{user.email}
-					</li>
+					{user ? (
+						<li className="text-sm mt-1 text-gray-100 text-opacity-60 ">
+							{user.email}
+						</li>
+					) : null}
 				</div>
 			</ul>
 		</>

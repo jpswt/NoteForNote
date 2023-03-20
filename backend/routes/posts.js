@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Post = require('../models/Post');
 
 // Get All Posts
-router.get('/home', async (req, res) => {
+router.get('/', async (req, res) => {
 	const username = req.query.user;
 	const category = req.query.category;
 	try {
