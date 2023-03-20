@@ -42,6 +42,7 @@
 	}
 	.primary {
 		background-color: hsl(212, 33%, 25%);
+		opacity: 98%;
 	}
 	.accent {
 		background-color: hsl(180, 50%, 40%);

@@ -46,7 +46,7 @@ const Sidebar = ({ post }) => {
 								className="w-[125px] h-[125px] rounded-full border-opacity-0 mt-6 shadow-lg object-cover overflow-hidden "
 								src={publicFolder + user.profilePic}
 								alt=""
-								// onError={setDefault}
+								onError={setDefault}
 							/>
 							{user.about ? (
 								<p className="px-12 py-6">{user.about}</p>

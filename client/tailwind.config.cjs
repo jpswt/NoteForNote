@@ -30,7 +30,7 @@ module.exports = {
 		// },
 		backgroundImage: {
 			login:
-				"url('https://images.unsplash.com/photo-1581185050956-0e015a2a96cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80')",
+				"url('https://img.freepik.com/free-vector/music-notes-stave-staff_1284-44373.jpg?w=996&t=st=1679327868~exp=1679328468~hmac=3ac1da87f88ccc169b7c1f2a9f3977b517b57f24753ddde78608c6360cd4cecf')",
 		},
 	},
 	plugins: [require('@tailwindcss/line-clamp')],

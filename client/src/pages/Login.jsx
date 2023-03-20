@@ -41,17 +41,17 @@ const Login = () => {
 					className="flex flex-col w-full items-center relative mt-14"
 					onSubmit={handleSubmit}
 				>
-					<label htmlFor="" className="">
+					<label htmlFor="email">
 						<i className="fa-solid fa-user text-xl text-gray-400 absolute top-[.5rem] left-3"></i>
 					</label>
 					<input
-						type="text"
+						type="email"
 						placeholder="Email"
 						className="py-2.5 pl-10 w-[17rem] mb-4 border-b-2  border-gray-500 bg-primary outline-none caret-gray-200 text-gray-200 accent-input"
 						autoFocus={true}
 						ref={userRef}
 					/>
-					<label htmlFor="">
+					<label htmlFor="password">
 						<i className="fa-solid fa-lock text-xl text-gray-400 absolute top-[4.4rem] left-3"></i>
 					</label>
 					<input
