@@ -69,7 +69,7 @@ const PostDetails = () => {
 			await axios.delete(`http://localhost:8000/posts/${post._id}`, {
 				data: { username: user.username },
 			});
-			navigate('/home');
+			navigate('/');
 		} catch (error) {}
 	};
 

@@ -46,27 +46,26 @@ const Navbar = ({ posts, setSearchResult }) => {
 					<img src={guitarPick} alt="" className="w-[40px] h-[40px]" />
 					<img src={logo} alt="" className="w-[80px]" />
 				</div>
-				{location.pathname === '/' ? (
-					<div className="flex">
-						<div className="w-full relative">
-							<input
-								className=" border-gray-400 border-2 py-1 rounded-full px-4 outline-none"
-								type="text"
-								id="search"
-								placeholder="Search Blogs..."
-								autoFocus={true}
-								onChange={handleSearch}
-							/>
-							<i className="fa-solid fa-magnifying-glass text-lg text-gray-400 ml-8 absolute top-1 right-4"></i>
-						</div>
-					</div>
-				) : null}
 			</div>
 			<div className="flex items-center gap-6 mr-6">
-				<div>
+				<div className="flex">
+					{location.pathname === '/' && user ? (
+						<div className="flex mr-16">
+							<div className="w-full relative">
+								<input
+									className=" border-gray-400 border-2 py-1 rounded-full px-4 outline-none"
+									type="text"
+									id="search"
+									placeholder="Search Blogs..."
+									autoFocus={true}
+									onChange={handleSearch}
+								/>
+								<i className="fa-solid fa-magnifying-glass text-lg text-gray-400 ml-8 absolute top-1 right-4"></i>
+							</div>
+						</div>
+					) : null}
 					<ul className="flex gap-8 text-lg font-light cursor-pointer">
 						<li>
-							{/* <Link to="/home">HOME</Link> */}
 							<Link to="/">
 								<i className="fa-solid fa-house text-gray-100 text-3xl"></i>
 							</Link>
@@ -75,10 +74,9 @@ const Navbar = ({ posts, setSearchResult }) => {
 							<Link to="/compose">
 								<i className="fa-solid fa-pen-to-square  text-gray-100 text-3xl "></i>
 							</Link>
-							{/* <Link to="/compose">COMPOSE</Link> */}
 						</li>
-						{/* <li onClick={handleLogout}>{user && 'LOGOUT'}</li> */}
 					</ul>
+
 					{openProfile && (
 						<>
 							<button

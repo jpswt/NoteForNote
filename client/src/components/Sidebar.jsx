@@ -36,12 +36,12 @@ const Sidebar = ({ post }) => {
 	return (
 		<div className="flex-4 font-body border-l-2 border-gray-500 text-gray-100 min-h-screen">
 			<div className=" bg-[#2a3d53] flex flex-col items-center sticky w-full">
-				<div className="flex flex-col items-center pb-2 mt-10 mb-10 w-[60%]">
-					<span className="m-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
-						ABOUT ME
-					</span>
+				<div className="flex flex-col items-center pb-2 mb-10 w-[60%]">
 					{!user ? null : !post ? (
 						<>
+							<span className="m-2 mt-10 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
+								ABOUT ME
+							</span>
 							<img
 								className="w-[125px] h-[125px] rounded-full border-opacity-0 mt-6 shadow-lg object-cover overflow-hidden "
 								src={publicFolder + user.profilePic}
@@ -75,7 +75,7 @@ const Sidebar = ({ post }) => {
 				</div>
 				<div className="flex flex-col items-center w-[60%]">
 					<span className="m-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
-						Discover what interests you
+						DISCOVER YOUR INTERESTS
 					</span>
 
 					<ul className=" text-lg flex-2 mb-8 mt-2 ">
