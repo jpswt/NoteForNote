@@ -17,9 +17,7 @@ const Home = () => {
 
 	useEffect(() => {
 		const fetchPosts = async () => {
-			const response = await axios.get(
-				`http://localhost:8000/posts/home${search}`
-			);
+			const response = await axios.get(`http://localhost:8000/posts/${search}`);
 			setPosts(response.data);
 			setSearchResult(response.data);
 			// console.log(response);
@@ -34,6 +32,7 @@ const Home = () => {
 				posts={posts}
 				setSearchResult={setSearchResult}
 			/>
+			{!user && <Header />}
 			{/* <Header /> */}
 			<div className="flex">
 				<Posts posts={posts} searchResult={searchResult} />

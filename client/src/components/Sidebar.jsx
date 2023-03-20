@@ -40,7 +40,7 @@ const Sidebar = ({ post }) => {
 					<span className="m-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
 						ABOUT ME
 					</span>
-					{!post ? (
+					{!user ? null : !post ? (
 						<>
 							<img
 								className="w-[125px] h-[125px] rounded-full border-opacity-0 mt-6 shadow-lg object-cover overflow-hidden "
@@ -75,7 +75,7 @@ const Sidebar = ({ post }) => {
 				</div>
 				<div className="flex flex-col items-center w-[60%]">
 					<span className="m-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
-						CATEGORIES
+						Discover what interests you
 					</span>
 
 					<ul className=" text-lg flex-2 mb-8 mt-2 ">
