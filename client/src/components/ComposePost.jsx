@@ -100,7 +100,7 @@ const ComposePost = () => {
 			{postImg && (
 				<div className="flex items-center justify-center">
 					<img
-						className="w-[350px] h-[175px] object-cover rounded-md mb-2"
+						className="w-[450px] h-[175px] object-cover rounded-md mb-2"
 						src={URL.createObjectURL(postImg)}
 						alt=""
 					/>

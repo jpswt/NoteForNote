@@ -1,6 +1,6 @@
 import React from 'react';
 import DOMpurify from 'dompurify';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import defaultPic from '../assets/default.jpeg';
 
 const SingePost = ({ post }) => {

@@ -36,14 +36,14 @@ const Sidebar = ({ posts, post }) => {
 	return (
 		<div className="flex-4 font-body border-l-2 border-gray-500 text-gray-100 min-h-screen">
 			<div className=" bg-[#2a3d53] flex flex-col items-center sticky w-full">
-				<div className="flex flex-col items-center pb-2 mt-10 mb-10 w-[70%] border-2 border-gray-400">
-					<span className="m-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 bg-accent font-semibold text-center">
+				<div className="flex flex-col items-center pb-2 mt-10 mb-10 w-[60%]">
+					<span className="m-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
 						ABOUT ME
 					</span>
 					{!post ? (
 						<>
 							<img
-								className="w-[125px] h-[125px] rounded-full mt-6 shadow-lg object-cover "
+								className="w-[125px] h-[125px] rounded-full border-opacity-0 mt-6 shadow-lg object-cover "
 								src={publicFolder + user.profilePic}
 								alt=""
 								onError={setDefault}
@@ -62,7 +62,7 @@ const Sidebar = ({ posts, post }) => {
 					) : (
 						<>
 							<img
-								className="w-[125px] h-[125px] rounded-full mt-6 shadow-lg object-cover "
+								className="w-[125px] h-[125px] rounded-full mt-6 object-cover "
 								src={publicFolder + post.profilePic}
 								alt=""
 								onError={setDefault}
@@ -73,16 +73,16 @@ const Sidebar = ({ posts, post }) => {
 						</>
 					)}
 				</div>
-				<div className="flex flex-col items-center w-[70%]">
-					<span className="m-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center bg-accent">
+				<div className="flex flex-col items-center w-[60%]">
+					<span className="m-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
 						CATEGORIES
 					</span>
 
-					<ul className=" text- text-lg flex flex-wrap justify-center items-center mb-8 ">
+					<ul className=" text-lg flex-2 mb-8 mt-2 ">
 						{categories.map((category, i) => (
 							<li
 								key={category._id}
-								className=" inline-block w-[40%] cursor-pointer "
+								className=" inline-block w-[50%] px-8 cursor-pointer mt-2 "
 								onClick={handleScroll}
 							>
 								<Link to={`/home?category=${category.name}`}>

@@ -82,7 +82,7 @@ const PostDetails = () => {
 			<div className=" p-2.5 pr-0 w-[80%]">
 				{post.photo && (
 					<img
-						className=" w-full h-80 object-cover rounded-md"
+						className=" w-[450px] h-[180px] object-cover rounded-md my-2 mx-auto mb-4"
 						src={publicFolder + post.photo}
 						alt=""
 					/>
@@ -108,7 +108,7 @@ const PostDetails = () => {
 									onClick={() => setUpdateInfo(true)}
 								></i>
 								<i
-									className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-red-700  p-3 rounded-full "
+									className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-secondary p-3 rounded-full "
 									onClick={handleDelete}
 								></i>
 							</div>

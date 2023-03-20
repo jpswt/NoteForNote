@@ -25,6 +25,7 @@ module.exports = {
 		backgroundColor: {
 			primary: 'hsl(212,0,0)',
 			accent: 'hsl(180,50%,40%)',
+			secondary: 'rgb(185 28 28)',
 		},
 		backgroundImage: {
 			login:
