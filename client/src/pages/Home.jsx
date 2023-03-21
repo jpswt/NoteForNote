@@ -38,7 +38,7 @@ const Home = () => {
 					<h1>Posts by {search.split('=')[1]}</h1>
 				</div>
 			) : null}
-			<div className="flex">
+			<div className="flex w-screen">
 				<Posts posts={posts} searchResult={searchResult} />
 				<Sidebar posts={posts} />
 			</div>

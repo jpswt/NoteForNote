@@ -21,7 +21,7 @@ const ProtectedRoutes = () => {
 };
 
 const Router = () => {
-	const { user, dispatch } = useContext(Context);
+	const { user } = useContext(Context);
 	return (
 		<>
 			<Routes>
