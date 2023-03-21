@@ -32,7 +32,12 @@ const Home = () => {
 				posts={posts}
 				setSearchResult={setSearchResult}
 			/>
-			{/* <Header /> */}
+			{!user && <Header />}
+			{search ? (
+				<div className="text-gray-100 text-xl font-bold mt-2 w-[69%] text-center">
+					<h1>Posts by {search.split('=')[1]}</h1>
+				</div>
+			) : null}
 			<div className="flex">
 				<Posts posts={posts} searchResult={searchResult} />
 				<Sidebar posts={posts} />

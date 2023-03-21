@@ -97,7 +97,7 @@ const ComposePost = () => {
 
 	return (
 		<div className="flex-9 flex flex-col mt-4 primary text-gray-100 text-md">
-			{postImg && (
+			{postImg ? (
 				<div className="flex items-center justify-center">
 					<img
 						className="w-[450px] h-[175px] object-cover rounded-md mb-2"
@@ -105,7 +105,7 @@ const ComposePost = () => {
 						alt=""
 					/>
 				</div>
-			)}
+			) : null}
 			<form onSubmit={handleSubmit}>
 				<div className="flex items-center justify-center w-full ">
 					<div className="flex items-center justify-between w-[80%]">
@@ -152,23 +152,17 @@ const ComposePost = () => {
 						{categories.map((cat, i) => (
 							<li key={i} className=" list-none ">
 								<input
-									className="accent mr-2"
+									className=" accent-[#339a9a] hover:accent-[#339a9a] p"
 									onChange={handleToggle(cat.name)}
 									type="checkbox"
 								/>
-								<label className="form-check-label text-xl">{cat.name}</label>
+								<label className="form-check-label text-xl pl-1">
+									{cat.name}
+								</label>
 							</li>
 						))}
 					</div>
 				</div>
-				{/* <div className="flex items-center justify-center mt-12">
-					<button
-						className=" bg-teal-600 py-2 px-10 text-white text-lg rounded-md cursor-pointer"
-						type="submit"
-					>
-						Publish
-					</button>
-				</div> */}
 			</form>
 		</div>
 	);
