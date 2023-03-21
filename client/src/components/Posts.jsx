@@ -1,13 +1,18 @@
 import React from 'react';
+import { useLocation } from 'react-router';
 import Header from './Header';
 import SinglePost from './SinglePost';
 
 const Posts = ({ posts, searchResult }) => {
+	const { home } = useLocation();
+
 	const results = searchResult.map((post, i) => (
 		<SinglePost post={post} key={i} />
 	));
 
-	const content = results?.length ? (
+	const content = results?.length ? results : null;
+
+	const categories = results?.length ? (
 		results
 	) : (
 		<div>
@@ -17,7 +22,7 @@ const Posts = ({ posts, searchResult }) => {
 
 	return (
 		<div className=" flex-9 flex flex-col items-center w-[80%] mt-4">
-			{content}
+			{location.pathname === '/' ? content : categories}
 		</div>
 	);
 };
