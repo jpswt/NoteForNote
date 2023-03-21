@@ -3,7 +3,7 @@ import DOMpurify from 'dompurify';
 import { Link, Navigate } from 'react-router-dom';
 import defaultPic from '../assets/default.jpeg';
 
-const SingePost = ({ post }) => {
+const SinglePost = ({ post }) => {
 	const publicFolder = 'http://localhost:8000/assets/';
 	// console.log(post);
 
@@ -68,4 +68,4 @@ const SingePost = ({ post }) => {
 	);
 };
 
-export default SingePost;
+export default SinglePost;

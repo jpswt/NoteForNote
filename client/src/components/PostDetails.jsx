@@ -118,7 +118,7 @@ const PostDetails = () => {
 				<div className="flex justify-between mt-2 mb-4 pb-1 font-body border-b-gray-200 border-b-2">
 					<span>
 						<span>Posted by: </span>
-						<Link to={`/home?user=${post.username}`}>
+						<Link to={`/?user=${post.username}`}>
 							<strong>{post.username}</strong>
 						</Link>
 					</span>
