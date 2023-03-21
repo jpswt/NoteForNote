@@ -1,16 +1,15 @@
 import React, { useContext } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { Context } from '../context/Context';
 import cookie from 'cookie';
 
 const Dropdown = () => {
-	const navigate = useNavigate();
 	const { user, dispatch } = useContext(Context);
 
 	const handleLogout = () => {
 		document.cookie = cookie.serialize('loggedIn', null, { maxAge: 0 });
 		dispatch({ type: 'LOGOUT' });
-		window.location.reload(navigate('/'));
+		window.location.reload('/');
 	};
 
 	return (
@@ -28,7 +27,7 @@ const Dropdown = () => {
 					</li>
 					{user ? (
 						<li className="text-sm mt-1 text-gray-100 text-opacity-60 ">
-							{user?.email}
+							{user.email}
 						</li>
 					) : null}
 				</div>

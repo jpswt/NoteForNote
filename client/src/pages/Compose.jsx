@@ -7,7 +7,7 @@ const Compose = () => {
 	return (
 		<div>
 			<Navbar />
-			<div className="flex w-screen">
+			<div className="flex">
 				<ComposePost />
 				<Sidebar />
 			</div>
