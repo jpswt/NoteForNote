@@ -37,7 +37,7 @@ const Sidebar = ({ post }) => {
 							</span>
 							<img
 								className="w-[125px] h-[125px] rounded-full border-opacity-0 mt-6 shadow-lg object-cover overflow-hidden "
-								src={publicFolder + user.profilePic}
+								src={publicFolder + user?.profilePic}
 								alt=""
 								onError={setDefault}
 							/>
@@ -59,7 +59,7 @@ const Sidebar = ({ post }) => {
 							</span>
 							<img
 								className="w-[125px] h-[125px] rounded-full mt-6 object-cover "
-								src={publicFolder + post.profilePic}
+								src={publicFolder + post?.profilePic}
 								alt=""
 								onError={setDefault}
 							/>
