@@ -32,7 +32,6 @@ const Home = () => {
 				posts={posts}
 				setSearchResult={setSearchResult}
 			/>
-			{!user && <Header />}
 			{/* <Header /> */}
 			<div className="flex">
 				<Posts posts={posts} searchResult={searchResult} />

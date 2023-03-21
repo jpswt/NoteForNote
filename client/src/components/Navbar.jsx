@@ -7,7 +7,7 @@ import defaultPic from '../assets/default.jpeg';
 import Dropdown from './Dropdown';
 
 const Navbar = ({ posts, setSearchResult }) => {
-	const { user, dispatch } = useContext(Context);
+	const { user } = useContext(Context);
 	const publicFolder = 'http://localhost:8000/assets/';
 	const [openProfile, setOpenProfile] = useState(false);
 	console.log(posts);
