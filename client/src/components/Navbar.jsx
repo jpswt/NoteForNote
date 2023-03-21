@@ -41,12 +41,14 @@ const Navbar = ({ posts, setSearchResult }) => {
 	return (
 		<div className=" w-full h-[70px] sticky top-0 z-10 flex items-center justify-between font-display bg-[#2a3d53] border-b-2 border-gray-100 border-opacity-30 ">
 			{/* <div className="flex content-center">logo</div> */}
-			<div className="flex items-center justify-center ml-6">
-				<div className="flex items-center gap-2 mr-6">
-					<img src={guitarPick} alt="" className="w-[40px] h-[40px]" />
-					<img src={logo} alt="" className="w-[80px]" />
+			<Link to="/">
+				<div className="flex items-center justify-center ml-6">
+					<div className="flex items-center gap-2 mr-6">
+						<img src={guitarPick} alt="" className="w-[40px] h-[40px]" />
+						<img src={logo} alt="" className="w-[80px]" />
+					</div>
 				</div>
-			</div>
+			</Link>
 			<div className="flex items-center gap-6 mr-6">
 				<div className="flex">
 					{location.pathname === '/' && user ? (
