@@ -101,7 +101,7 @@ const PostDetails = () => {
 					<div className="flex">
 						<h1 className="flex-2 text-3xl text-center font-body">{title}</h1>
 
-						{post.username === user?.username && (
+						{post?.username === user?.username && (
 							<div className="flex-1 text-xl">
 								<i
 									className="fa-solid fa-file-pen ml-2 cursor-pointer text-white accent p-3 rounded-full "

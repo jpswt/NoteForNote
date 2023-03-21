@@ -1,15 +1,13 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import Settings from '../components/Profile';
-import Sidebar from '../components/Sidebar';
+import ProfileComp from '../components/Profile';
 
 const Profile = () => {
 	return (
 		<div>
 			<Navbar />
 			<div className="flex w-screen">
-				<Settings />
-				{/* <Sidebar /> */}
+				<ProfileComp />
 			</div>
 		</div>
 	);

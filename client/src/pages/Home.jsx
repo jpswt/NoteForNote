@@ -33,13 +33,15 @@ const Home = () => {
 				setSearchResult={setSearchResult}
 			/>
 			{!user && <Header />}
-			{search ? (
-				<div className="text-gray-100 text-xl font-bold mt-2 w-[69%] text-center">
-					<h1>Posts by {search.split('=')[1]}</h1>
-				</div>
-			) : null}
 			<div className="flex w-screen">
-				<Posts posts={posts} searchResult={searchResult} />
+				<div className="flex flex-col flex-9">
+					{search ? (
+						<div className="text-gray-100 text-xl font-bold mt-2 text-center">
+							<h1>Posts by {search.split('=')[1]}</h1>
+						</div>
+					) : null}
+					<Posts posts={posts} searchResult={searchResult} />
+				</div>
 				<Sidebar posts={posts} />
 			</div>
 		</>
