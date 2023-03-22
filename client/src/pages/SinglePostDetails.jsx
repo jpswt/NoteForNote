@@ -6,9 +6,12 @@ import Navbar from '../components/Navbar';
 import axios from 'axios';
 
 const SinglePostDetails = () => {
-	const [post, setPost] = useState({});
 	const [categories, setCategories] = useState([]);
 	const [isLoaded, setIsLoaded] = useState(false);
+	const [post, setPost] = useState({});
+	const [title, setTitle] = useState('');
+	const [description, setDescription] = useState('');
+	const [profilePic, setProfilePic] = useState(null);
 	const idPath = useLocation();
 	console.log(idPath);
 	const id = idPath.pathname.split('/')[2];
@@ -18,6 +21,10 @@ const SinglePostDetails = () => {
 			const response = await axios.get(`http://localhost:8000/posts/${id}`);
 			console.log(response.data);
 			setPost(response.data);
+			setTitle(response.data.title);
+			setDescription(response.data.description);
+			setProfilePic(response.data.profilePic);
+			setIsLoaded(true);
 		};
 		getPost();
 	}, []);
@@ -31,15 +38,23 @@ const SinglePostDetails = () => {
 		fetchCategories();
 	}, []);
 
-	return (
-		<div>
-			<Navbar />
-			<div className="flex">
-				<PostDetails post={post} />
-				<Sidebar post={post} categories={categories} />
+	if (!isLoaded) {
+		<></>;
+	} else
+		return (
+			<div>
+				<Navbar />
+				<div className="flex">
+					<PostDetails
+						post={post}
+						title={title}
+						description={description}
+						profilePic={profilePic}
+					/>
+					<Sidebar post={post} categories={categories} />
+				</div>
 			</div>
-		</div>
-	);
+		);
 };
 
 export default SinglePostDetails;
