@@ -30,6 +30,7 @@ const PostDetails = () => {
 
 	const navigate = useNavigate();
 	const { user } = useContext(Context);
+	const [loaded, setLoaded] = useState(false);
 	const [post, setPost] = useState({});
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
@@ -42,12 +43,14 @@ const PostDetails = () => {
 
 	useEffect(() => {
 		const getPost = async () => {
+			setLoaded(true);
 			const response = await axios.get(`http://localhost:8000/posts/${id}`);
 			console.log(response.data);
 			setPost(response.data);
 			setTitle(response.data.title);
 			setDescription(response.data.description);
 			setProfilePic(response.data.profilePic);
+			setLoaded(false);
 		};
 		getPost();
 	}, [id]);
@@ -100,7 +103,6 @@ const PostDetails = () => {
 				) : (
 					<div className="flex">
 						<h1 className="flex-2 text-3xl text-center font-body">{title}</h1>
-
 						{post.username === user?.username && (
 							<div className="flex-1 text-xl">
 								<i

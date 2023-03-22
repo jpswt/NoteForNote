@@ -11,7 +11,7 @@ const Settings = () => {
 	const [password, setPassword] = useState('');
 	const [about, setAbout] = useState('');
 	const [successMsg, setSuccessMsg] = useState(false);
-	console.log(user);
+	console.log(user.email);
 
 	const handleUpdate = async (e) => {
 		e.preventDefault();
@@ -22,6 +22,15 @@ const Settings = () => {
 			password: password,
 			about: about,
 		};
+		if (updateUser.email === '') {
+			return user.email;
+		}
+		if (updateUser.about === '') {
+			return user.about;
+		}
+		if (updateUser.password === '') {
+			return user.password;
+		}
 		if (img) {
 			const data = new FormData();
 			const imgName = `${user.username}.jpeg`;
@@ -76,7 +85,7 @@ const Settings = () => {
 						{' '}
 						Update Photo
 					</i> */}
-					<i class="fa-solid fa-camera text-white bg-gray-500 py-2 px-4 rounded-md mb-4">
+					<i className="fa-solid fa-camera text-white bg-gray-500 py-2 px-4 rounded-md mb-4">
 						<span className="font-body ml-2">Update Photo</span>
 					</i>
 				</label>
@@ -104,7 +113,6 @@ const Settings = () => {
 					placeholder="*************"
 					className="p-4 my-2 w-[40%]"
 					onChange={(e) => setPassword(e.target.value)}
-					required
 				/>
 				<button
 					type="submit"
