@@ -4,7 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Context } from '../context/Context';
 
-const ComposePost = () => {
+const ComposePost = ({ categories }) => {
 	const modules = {
 		toolbar: [
 			[
@@ -29,10 +29,6 @@ const ComposePost = () => {
 	const [description, setDescription] = useState('');
 	const [postImg, setPostImg] = useState(null);
 	const [checked, setChecked] = useState([]);
-	const [categories, setCategories] = useState([]);
-	// const [profilePic, setProfilePic] = useState(
-	// 	'http://localhost:8000/assets/default.jpeg'
-	// );
 
 	const handleToggle = (cat) => () => {
 		const clickedCategory = checked.indexOf(cat);
@@ -87,13 +83,13 @@ const ComposePost = () => {
 		} catch (err) {}
 	};
 
-	useEffect(() => {
-		const fetchCategories = async () => {
-			const response = await axios.get('http://localhost:8000/categories');
-			setCategories(response.data);
-		};
-		fetchCategories();
-	}, [categories]);
+	// useEffect(() => {
+	// 	const fetchCategories = async () => {
+	// 		const response = await axios.get('http://localhost:8000/categories');
+	// 		setCategories(response.data);
+	// 	};
+	// 	fetchCategories();
+	// }, [categories]);
 
 	return (
 		<div className="flex-9 flex flex-col mt-4 primary text-gray-100 text-md">

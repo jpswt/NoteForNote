@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const SinglePostDetails = () => {
 	const [post, setPost] = useState({});
-	// const [profilePic, setProfilePic] = useState(null);
+	const [categories, setCategories] = useState([]);
 	const idPath = useLocation();
 	console.log(idPath);
 	const id = idPath.pathname.split('/')[2];
@@ -19,15 +19,23 @@ const SinglePostDetails = () => {
 			setPost(response.data);
 		};
 		getPost();
-	}, [id]);
+	}, []);
 	console.log(post);
-	//
+
+	useEffect(() => {
+		const fetchCategories = async () => {
+			const response = await axios.get('http://localhost:8000/categories');
+			setCategories(response.data);
+		};
+		fetchCategories();
+	}, []);
+
 	return (
 		<div>
 			<Navbar />
 			<div className="flex">
 				<PostDetails post={post} />
-				<Sidebar post={post} />
+				<Sidebar post={post} categories={categories} />
 			</div>
 		</div>
 	);

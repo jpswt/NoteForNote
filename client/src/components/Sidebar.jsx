@@ -4,23 +4,13 @@ import axios from 'axios';
 import defaultPic from '../assets/defaultAvatar.svg';
 import { Context } from '../context/Context';
 
-const Sidebar = ({ post }) => {
+const Sidebar = ({ post, categories }) => {
 	const { user } = useContext(Context);
 	const publicFolder = 'http://localhost:8000/assets/';
-
-	const [categories, setCategories] = useState([]);
 
 	const handleScroll = () => {
 		window.scrollTo(0, 0);
 	};
-
-	useEffect(() => {
-		const fetchCategories = async () => {
-			const response = await axios.get('http://localhost:8000/categories');
-			setCategories(response.data);
-		};
-		fetchCategories();
-	}, []);
 
 	const setDefault = (e) => {
 		e.target.src = defaultPic;

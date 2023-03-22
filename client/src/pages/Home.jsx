@@ -11,6 +11,7 @@ const Home = () => {
 	const { user, dispatch } = useContext(Context);
 	const [posts, setPosts] = useState([]);
 	const [searchResult, setSearchResult] = useState([]);
+	const [categories, setCategories] = useState([]);
 
 	const { search } = useLocation();
 	console.log(location);
@@ -25,6 +26,14 @@ const Home = () => {
 		fetchPosts();
 	}, [search]);
 
+	useEffect(() => {
+		const fetchCategories = async () => {
+			const response = await axios.get('http://localhost:8000/categories');
+			setCategories(response.data);
+		};
+		fetchCategories();
+	}, []);
+
 	return (
 		<>
 			<Navbar
@@ -35,7 +44,7 @@ const Home = () => {
 			{user ? null : <Header />}
 			<div className="flex">
 				<Posts posts={posts} searchResult={searchResult} />
-				<Sidebar posts={posts} />
+				<Sidebar posts={posts} categories={categories} />
 			</div>
 		</>
 	);
