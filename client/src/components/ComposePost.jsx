@@ -120,7 +120,7 @@ const ComposePost = () => {
 								onChange={(e) => setPostImg(e.target.files[0])}
 							/>
 							<input
-								className=" primary border-b-2 border-gray-400 w-[90%] outline-none p-2 text-3xl mb-2 text-gray-600 bg-opacity-50"
+								className=" primary border-b-2 border-gray-400 w-[90%] outline-none p-2 text-3xl mb-2 text-gray-100 bg-opacity-50"
 								type="text"
 								placeholder="Title"
 								autoFocus={true}

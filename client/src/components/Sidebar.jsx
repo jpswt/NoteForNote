@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import defaultPic from '../assets/default.jpeg';
+import defaultPic from '../assets/defaultAvatar.svg';
 import { Context } from '../context/Context';
 
 const Sidebar = ({ post }) => {
