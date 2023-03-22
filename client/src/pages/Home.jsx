@@ -32,7 +32,7 @@ const Home = () => {
 				posts={posts}
 				setSearchResult={setSearchResult}
 			/>
-			{/* <Header /> */}
+			{user ? null : <Header />}
 			<div className="flex">
 				<Posts posts={posts} searchResult={searchResult} />
 				<Sidebar posts={posts} />
