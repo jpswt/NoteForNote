@@ -8,6 +8,7 @@ import axios from 'axios';
 const SinglePostDetails = () => {
 	const [post, setPost] = useState({});
 	const [categories, setCategories] = useState([]);
+	const [isLoaded, setIsLoaded] = useState(false);
 	const idPath = useLocation();
 	console.log(idPath);
 	const id = idPath.pathname.split('/')[2];

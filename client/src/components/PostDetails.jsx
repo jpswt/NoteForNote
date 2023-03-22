@@ -30,7 +30,7 @@ const PostDetails = () => {
 
 	const navigate = useNavigate();
 	const { user } = useContext(Context);
-	const [loaded, setLoaded] = useState(false);
+	const [isLoaded, setIsLoaded] = useState(false);
 	const [post, setPost] = useState({});
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
@@ -43,14 +43,13 @@ const PostDetails = () => {
 
 	useEffect(() => {
 		const getPost = async () => {
-			setLoaded(true);
 			const response = await axios.get(`http://localhost:8000/posts/${id}`);
 			console.log(response.data);
 			setPost(response.data);
 			setTitle(response.data.title);
 			setDescription(response.data.description);
 			setProfilePic(response.data.profilePic);
-			setLoaded(false);
+			setIsLoaded(true);
 		};
 		getPost();
 	}, [id]);
@@ -79,86 +78,88 @@ const PostDetails = () => {
 	const sanitizeData = () => ({
 		__html: DOMpurify.sanitize(post.description),
 	});
-
-	return (
-		<div className="flex-9 flex flex-col items-center mt-1 bg-[#2a3d53] text-gray-100 ">
-			<div className=" p-2.5 pr-0 w-[80%]">
-				{post.photo && (
-					<img
-						className=" w-[450px] h-[180px] object-cover rounded-md my-2 mx-auto mb-4"
-						src={publicFolder + post.photo}
-						alt=""
-					/>
-				)}
-				{updateInfo ? (
-					<div className="flex">
-						<input
-							type="text"
-							value={title}
-							onChange={(e) => setTitle(e.target.value)}
-							autoFocus={true}
-							className="w-full py-2 text-center text-3xl bg-gray-600 outline-none"
+	if (!isLoaded) {
+		<></>;
+	} else
+		return (
+			<div className="flex-9 flex flex-col items-center mt-1 bg-[#2a3d53] text-gray-100 ">
+				<div className=" p-2.5 pr-0 w-[80%]">
+					{post.photo && (
+						<img
+							className=" w-[450px] h-[180px] object-cover rounded-md my-2 mx-auto mb-4"
+							src={publicFolder + post.photo}
+							alt=""
 						/>
+					)}
+					{updateInfo ? (
+						<div className="flex">
+							<input
+								type="text"
+								value={title}
+								onChange={(e) => setTitle(e.target.value)}
+								autoFocus={true}
+								className="w-full py-2 text-center text-3xl bg-gray-600 outline-none"
+							/>
+						</div>
+					) : (
+						<div className="flex">
+							<h1 className="flex-2 text-3xl text-center font-body">{title}</h1>
+							{post.username === user?.username && (
+								<div className="flex-1 text-xl">
+									<i
+										className="fa-solid fa-file-pen ml-2 cursor-pointer text-white accent p-3 rounded-full "
+										onClick={() => setUpdateInfo(true)}
+									></i>
+									<i
+										className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-red-700 p-3 rounded-full "
+										onClick={handleDelete}
+									></i>
+								</div>
+							)}
+						</div>
+					)}
+					<div className="flex justify-between mt-2 mb-4 pb-1 font-body border-b-gray-200 border-b-2">
+						<span>
+							<span>Posted by: </span>
+							<Link to={`/?user=${post.username}`}>
+								<strong>{post.username}</strong>
+							</Link>
+						</span>
+						<span className="text-white">
+							{new Date(post.createdAt).toLocaleDateString('en-US', {
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric',
+							})}
+						</span>
 					</div>
-				) : (
-					<div className="flex">
-						<h1 className="flex-2 text-3xl text-center font-body">{title}</h1>
-						{post.username === user?.username && (
-							<div className="flex-1 text-xl">
-								<i
-									className="fa-solid fa-file-pen ml-2 cursor-pointer text-white accent p-3 rounded-full "
-									onClick={() => setUpdateInfo(true)}
-								></i>
-								<i
-									className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-red-700 p-3 rounded-full "
-									onClick={handleDelete}
-								></i>
-							</div>
-						)}
-					</div>
-				)}
-				<div className="flex justify-between mt-2 mb-4 pb-1 font-body border-b-gray-200 border-b-2">
-					<span>
-						<span>Posted by: </span>
-						<Link to={`/?user=${post.username}`}>
-							<strong>{post.username}</strong>
-						</Link>
-					</span>
-					<span className="text-white">
-						{new Date(post.createdAt).toLocaleDateString('en-US', {
-							year: 'numeric',
-							month: 'long',
-							day: 'numeric',
-						})}
-					</span>
+					{updateInfo ? (
+						<ReactQuill
+							className="border-none mt-2 w-full text-gray-600 bg-white p-0 ql-editor ql-container"
+							theme="snow"
+							value={description}
+							onChange={setDescription}
+							modules={modules}
+						/>
+					) : (
+						<div
+							className="mb-10 text-inherit blog-link text-xl"
+							dangerouslySetInnerHTML={sanitizeData()}
+						/>
+					)}
+					{updateInfo ? (
+						<div className="flex items-center justify-center mt-4">
+							<button
+								className="accent text-white px-20 py-2 rounded-md cursor-pointer"
+								onClick={handleUpdate}
+							>
+								Update
+							</button>
+						</div>
+					) : null}
 				</div>
-				{updateInfo ? (
-					<ReactQuill
-						className="border-none mt-2 w-full text-gray-600 bg-white p-0 ql-editor ql-container"
-						theme="snow"
-						value={description}
-						onChange={setDescription}
-						modules={modules}
-					/>
-				) : (
-					<div
-						className="mb-10 text-inherit blog-link text-xl"
-						dangerouslySetInnerHTML={sanitizeData()}
-					/>
-				)}
-				{updateInfo ? (
-					<div className="flex items-center justify-center mt-4">
-						<button
-							className="accent text-white px-20 py-2 rounded-md cursor-pointer"
-							onClick={handleUpdate}
-						>
-							Update
-						</button>
-					</div>
-				) : null}
 			</div>
-		</div>
-	);
+		);
 };
 
 export default PostDetails;

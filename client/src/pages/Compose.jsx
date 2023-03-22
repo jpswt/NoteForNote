@@ -6,24 +6,29 @@ import axios from 'axios';
 
 const Compose = () => {
 	const [categories, setCategories] = useState([]);
+	const [isLoaded, setIsLoaded] = useState(false);
 
 	useEffect(() => {
 		const fetchCategories = async () => {
 			const response = await axios.get('http://localhost:8000/categories');
 			setCategories(response.data);
+			setIsLoaded(true);
 		};
 		fetchCategories();
 	}, []);
 
-	return (
-		<div>
-			<Navbar />
-			<div className="flex">
-				<ComposePost categories={categories} />
-				<Sidebar categories={categories} />
+	if (!isLoaded) {
+		<></>;
+	} else
+		return (
+			<div>
+				<Navbar />
+				<div className="flex">
+					<ComposePost categories={categories} />
+					<Sidebar categories={categories} />
+				</div>
 			</div>
-		</div>
-	);
+		);
 };
 
 export default Compose;

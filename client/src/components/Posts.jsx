@@ -5,6 +5,7 @@ import SinglePost from './SinglePost';
 
 const Posts = ({ posts, searchResult }) => {
 	const { home } = useLocation();
+	const root = location.pathname;
 
 	const results = searchResult.map((post, i) => (
 		<SinglePost post={post} key={i} />
@@ -22,7 +23,7 @@ const Posts = ({ posts, searchResult }) => {
 
 	return (
 		<div className=" flex-9 flex flex-col items-center w-[80%] mt-4">
-			{location.pathname === '/' ? content : categories}
+			{categories}
 		</div>
 	);
 };

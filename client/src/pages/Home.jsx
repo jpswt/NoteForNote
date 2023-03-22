@@ -12,6 +12,7 @@ const Home = () => {
 	const [posts, setPosts] = useState([]);
 	const [searchResult, setSearchResult] = useState([]);
 	const [categories, setCategories] = useState([]);
+	const [isLoaded, setIsLoaded] = useState(false);
 
 	const { search } = useLocation();
 	console.log(location);
@@ -21,6 +22,7 @@ const Home = () => {
 			const response = await axios.get(`http://localhost:8000/posts/${search}`);
 			setPosts(response.data);
 			setSearchResult(response.data);
+			setIsLoaded(true);
 			// console.log(response);
 		};
 		fetchPosts();
@@ -34,20 +36,27 @@ const Home = () => {
 		fetchCategories();
 	}, []);
 
-	return (
-		<>
-			<Navbar
-				user={{ user, dispatch }}
-				posts={posts}
-				setSearchResult={setSearchResult}
-			/>
-			{user ? null : <Header />}
-			<div className="flex">
-				<Posts posts={posts} searchResult={searchResult} />
-				<Sidebar posts={posts} categories={categories} />
-			</div>
-		</>
-	);
+	if (!isLoaded) {
+		<></>;
+	} else
+		return (
+			<>
+				<Navbar
+					user={{ user, dispatch }}
+					posts={posts}
+					setSearchResult={setSearchResult}
+				/>
+				{user ? null : <Header />}
+				<div className="flex">
+					<Posts
+						posts={posts}
+						searchResult={searchResult}
+						categories={categories}
+					/>
+					<Sidebar posts={posts} categories={categories} />
+				</div>
+			</>
+		);
 };
 
 export default Home;
