@@ -20,7 +20,7 @@ const Sidebar = ({ post }) => {
 			setCategories(response.data);
 		};
 		fetchCategories();
-	}, [categories]);
+	}, []);
 
 	const setDefault = (e) => {
 		e.target.src = defaultPic;
