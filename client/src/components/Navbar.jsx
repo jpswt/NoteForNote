@@ -58,7 +58,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 									className=" border-gray-400 border-2 py-1 rounded-full px-4 outline-none"
 									type="text"
 									id="search"
-									placeholder="Search Blogs..."
+									placeholder="Search..."
 									autoFocus={true}
 									onChange={handleSearch}
 								/>
