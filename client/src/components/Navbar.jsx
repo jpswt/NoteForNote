@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Context } from '../context/Context';
 import guitarPick from '../assets/guitar-pick.png';
 import logo from '../assets/nfn2.png';
-import defaultPic from '../assets/default.jpeg';
+import defaultPic from '../assets/defaultAvatar.svg';
 import Dropdown from './Dropdown';
 
 const Navbar = ({ posts, setSearchResult }) => {
