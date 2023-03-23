@@ -33,8 +33,13 @@ const Sidebar = ({ post, categories }) => {
 									alt=""
 									onError={setDefault}
 								/>
+								<Link to={`/?user=${user.username}`}>
+									<p className="mt-3 text-lg font-semibold bg-[#339999] px-4 rounded-full hover:bg-opacity-70 hover:text-gray-200">
+										{user.username}
+									</p>
+								</Link>
 								{user.about ? (
-									<p className="px-12 py-6">{user.about}</p>
+									<p className="px-12 pt-2 pb-6">{user.about}</p>
 								) : (
 									// <p className="px-12 py-6">Add a Bio</p>
 									<Link to="/profile">
