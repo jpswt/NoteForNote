@@ -7,7 +7,14 @@ import axios from 'axios';
 import { Context } from '../context/Context';
 import { useLocation } from 'react-router';
 
-const PostDetails = ({ post, title, description, profilePic }) => {
+const PostDetails = ({
+	post,
+	title,
+	description,
+	profilePic,
+	setDescription,
+	setTitle,
+}) => {
 	const modules = {
 		toolbar: [
 			[

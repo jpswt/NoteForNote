@@ -1,37 +1,22 @@
 import React, { useContext, useState } from 'react';
 import { Context } from '../context/Context';
 import axios from 'axios';
-import defaultPic from '../assets/defaultAvatar.svg';
-import { Link } from 'react-router-dom';
+import defaultPic from '../assets/default.jpeg';
 
 const Settings = () => {
 	const { user, dispatch } = useContext(Context);
 	const publicFolder = 'http://localhost:8000/assets/';
 	const [img, setImg] = useState(null);
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
 	const [about, setAbout] = useState('');
 	const [successMsg, setSuccessMsg] = useState(false);
-	console.log(user.email);
 
 	const handleUpdate = async (e) => {
 		e.preventDefault();
 		dispatch({ type: 'UPDATE_START' });
 		const updateUser = {
 			userId: user._id,
-			email: email,
-			password: password,
 			about: about,
 		};
-		if (updateUser.email === '') {
-			return user.email;
-		}
-		if (updateUser.about === '') {
-			return user.about;
-		}
-		if (updateUser.password === '') {
-			return user.password;
-		}
 		if (img) {
 			const data = new FormData();
 			const imgName = `${user.username}.jpeg`;
@@ -66,12 +51,9 @@ const Settings = () => {
 				className="flex flex-col justify-center items-center relative"
 				onSubmit={handleUpdate}
 			>
-				<div className=" text-gray-100 text-lg mb-4">
-					Complete any fields you wish to update
-				</div>
 				<div className="flex items-center justify-center mb-2">
 					<img
-						className="w-[100px] h-[100px] object-cover rounded-full "
+						className="w-40 h-40 object-cover rounded-full "
 						src={
 							img ? URL.createObjectURL(img) : publicFolder + user.profilePic
 						}
@@ -94,39 +76,26 @@ const Settings = () => {
 					className="hidden"
 					onChange={(e) => setImg(e.target.files[0])}
 				/>
-				<label className=" text-left text-gray-100" htmlFor="about">
-					Tell us about you...
-				</label>
+				{/* <input
+					type="text"
+					placeholder={user.email}
+					className="p-4 my-2 w-[24rem]"
+					onChange={(e) => setEmail(e.target.value)}
+				/> */}
 				<textarea
 					type="text"
-					id="about"
 					placeholder={user.about}
 					className="p-4 my-2 w-[24rem]"
 					onChange={(e) => setAbout(e.target.value)}
+					rows="4"
 					max="300"
 				/>
-
-				<label className=" text-left text-gray-100" htmlFor="email">
-					Email
-				</label>
-				<input
+				{/* <input
 					type="text"
-					id="email"
-					placeholder={user.email}
-					className="px-3 py-2 my-2 w-[24rem]"
-					onChange={(e) => setEmail(e.target.value)}
-				/>
-				<label className=" text-left text-gray-100" htmlFor="email">
-					Password
-				</label>
-				<input
-					type="text"
-					id="password"
 					placeholder="*************"
-					className="px-3 py-2 my-2 w-[24rem]"
+					className="p-4 my-2 w-[24rem]"
 					onChange={(e) => setPassword(e.target.value)}
-				/>
-
+				/> */}
 				<button
 					type="submit"
 					className="w-40 accent text-white py-2 rounded-md mt-2 cursor-pointer"

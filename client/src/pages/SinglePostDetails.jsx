@@ -50,6 +50,8 @@ const SinglePostDetails = () => {
 						title={title}
 						description={description}
 						profilePic={profilePic}
+						setDescription={setDescription}
+						setTitle={setTitle}
 					/>
 					<Sidebar post={post} categories={categories} />
 				</div>
