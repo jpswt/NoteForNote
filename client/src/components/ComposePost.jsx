@@ -143,16 +143,18 @@ const ComposePost = ({ categories }) => {
 					/>
 				</div>
 				<div className="flex flex-col items-center justify-center">
-					<h3 className="my-4 text-xl">Select Categories: </h3>
+					<h3 className="my-4 text-2xl">Select Categories: </h3>
 					<div className="w-full items-center justify-center flex flex-wrap gap-6">
 						{categories.map((cat, i) => (
 							<li key={i} className=" list-none ">
 								<input
-									className="accent mr-2"
+									className=" accent-[#339999] mr-2 accent w-[18px] h-[18px]"
 									onChange={handleToggle(cat.name)}
 									type="checkbox"
 								/>
-								<label className="form-check-label text-xl">{cat.name}</label>
+								<label className="form-check-label text-[1.3rem]">
+									{cat.name}
+								</label>
 							</li>
 						))}
 					</div>

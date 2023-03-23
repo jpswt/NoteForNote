@@ -45,7 +45,7 @@ const Sidebar = ({ post, categories }) => {
 					) : (
 						<>
 							<span className="m-2 mt-10 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
-								ABOUT ME
+								POSTED BY
 							</span>
 							<img
 								className="w-[125px] h-[125px] rounded-full mt-6 object-cover "
@@ -54,7 +54,9 @@ const Sidebar = ({ post, categories }) => {
 								onError={setDefault}
 							/>
 							<p> </p>
-							<p className="mt-2">{post.username}</p>
+							<p className="mt-3 text-lg font-semibold accent px-4 rounded-full hover:accent-opacity-40">
+								<Link to={`/?user=${post.username}`}>{post.username}</Link>
+							</p>
 							<p className="px-12 py-6">{post.about}</p>
 						</>
 					)}
