@@ -7,18 +7,12 @@ const Settings = () => {
 	const { user, dispatch } = useContext(Context);
 	const publicFolder = 'http://localhost:8000/assets/';
 	const [img, setImg] = useState(null);
-	// const [about, setAbout] = useState('');
 	const [successMsg, setSuccessMsg] = useState(false);
-	console.log(user.about);
 	const aboutRef = useRef();
 
 	const handleUpdate = async (e) => {
 		e.preventDefault();
 		dispatch({ type: 'UPDATE_START' });
-		// const updateUser = {
-		// 	userId: user._id,
-		// 	about: about,
-		// };
 		if (img) {
 			const data = new FormData();
 			const imgName = `${user.username}.jpeg`;

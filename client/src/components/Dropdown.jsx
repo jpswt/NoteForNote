@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import { Link, Navigate, useNavigate, useSearchParams } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../context/Context';
 import cookie from 'cookie';
 

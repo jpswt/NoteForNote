@@ -1,9 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router';
-import Header from './Header';
 import SinglePost from './SinglePost';
 
-const Posts = ({ posts, searchResult }) => {
+const Posts = ({ searchResult }) => {
 	const { home } = useLocation();
 	const root = location.pathname;
 
@@ -11,9 +10,7 @@ const Posts = ({ posts, searchResult }) => {
 		<SinglePost post={post} key={i} />
 	));
 
-	const content = results?.length ? results : null;
-
-	const categories = results?.length ? (
+	const content = results?.length ? (
 		results
 	) : (
 		<div className="text-gray-100">
@@ -23,7 +20,7 @@ const Posts = ({ posts, searchResult }) => {
 
 	return (
 		<div className=" flex-9 flex flex-col items-center w-[80%] mt-4">
-			{categories}
+			{content}
 		</div>
 	);
 };

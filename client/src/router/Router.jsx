@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import cookie from 'cookie';
-import Navbar from '../components/Navbar';
 import Compose from '../pages/Compose';
 import Home from '../pages/Home';
 import Login from '../pages/Login';

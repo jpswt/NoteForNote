@@ -1,10 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import DOMpurify from 'dompurify';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
 import defaultPic from '../assets/default.jpeg';
 
 const SinglePost = ({ post }) => {
-	const navigate = useNavigate();
 	const publicFolder = 'http://localhost:8000/assets/';
 
 	const sanitizeData = () => ({
