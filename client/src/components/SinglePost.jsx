@@ -50,7 +50,6 @@ const SinglePost = ({ post }) => {
 							key={i}
 							className="font-body text-white bg-[#339999] py-[3px] px-[8px] rounded-xl font-medium text-small mr-2 cursor-pointer hover:bg-opacity-70 hover:text-gray-200"
 						>
-							{/* {category} */}
 							<Link to={`/?category=${category}`}>{category}</Link>
 						</span>
 					))}

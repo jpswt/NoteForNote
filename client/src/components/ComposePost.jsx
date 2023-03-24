@@ -152,7 +152,7 @@ const ComposePost = ({ categories }) => {
 									onChange={handleToggle(cat.name)}
 									type="checkbox"
 								/>
-								<label className="form-check-label text-[1.3rem]">
+								<label className="form-check-label text-[1.2rem]">
 									{cat.name}
 								</label>
 							</li>
