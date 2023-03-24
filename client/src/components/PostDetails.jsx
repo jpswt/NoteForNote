@@ -47,6 +47,7 @@ const PostDetails = ({
 
 	const navigate = useNavigate();
 	const { user } = useContext(Context);
+	const [openEdit, setOpenEdit] = useState(false);
 	// const [isLoaded, setIsLoaded] = useState(false);
 	// const [post, setPost] = useState({});
 	// const [title, setTitle] = useState('');
@@ -70,6 +71,10 @@ const PostDetails = ({
 	// 	};
 	// 	getPost();
 	// }, [id]);
+
+	const handleOpenEdit = () => {
+		setOpenEdit(!openEdit);
+	};
 
 	const handleUpdate = async () => {
 		try {
@@ -118,35 +123,39 @@ const PostDetails = ({
 					</div>
 				) : (
 					<>
-						<div className="flex items-end justify-end">
+						{/* <div className="flex items-end justify-start">
 							{post.username === user?.username && (
-								<div className="flex-1 text-xl">
+								<div className="flex-1 text-md font-body">
 									<i
-										className="fa-solid fa-file-pen ml-2 cursor-pointer text-white accent p-3 rounded-full "
+										className="fa-solid fa-file-pen ml-2 cursor-pointer text-white accent py-2 px-2 rounded-md "
 										onClick={() => setUpdateInfo(true)}
-									></i>
+									>
+										<span className="font-body ml-2">Update</span>
+									</i>
 									<i
-										className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-red-700 p-3 rounded-full "
+										className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-red-700 p-3 rounded-md "
 										onClick={handleDelete}
 									></i>
 								</div>
 							)}
-						</div>
+						</div> */}
 						<h1 className="flex-2 text-3xl text-center font-body">{title}</h1>
 						<div className="flex justify-between items-center mt-2 mb-4 pb-1 font-body border-b-gray-200 border-b-2">
-							<span>
-								<span>Posted by: </span>
-								<Link to={`/?user=${post.username}`}>
-									<strong>{post.username}</strong>
-								</Link>
-							</span>
-							<span className="text-white">
-								{new Date(post.createdAt).toLocaleDateString('en-US', {
-									year: 'numeric',
-									month: 'long',
-									day: 'numeric',
-								})}
-							</span>
+							<div>
+								<span className="mr-6">
+									<span>Posted by: </span>
+									<Link to={`/?user=${post.username}`}>
+										<strong>{post.username}</strong>
+									</Link>
+								</span>
+								<span className="text-white">
+									{new Date(post.createdAt).toLocaleDateString('en-US', {
+										year: 'numeric',
+										month: 'long',
+										day: 'numeric',
+									})}
+								</span>
+							</div>
 							<span className="flex gap-1 mb-1 ">
 								<EmailShareButton>
 									<EmailIcon size={32} round />
@@ -228,10 +237,49 @@ const PostDetails = ({
 						modules={modules}
 					/>
 				) : (
-					<div
-						className="mb-10 text-inherit blog-link text-xl"
-						dangerouslySetInnerHTML={sanitizeData()}
-					/>
+					<>
+						{!openEdit ? (
+							<div
+								className=" text-right text-md font-bold cursor-pointer"
+								onClick={handleOpenEdit}
+							>
+								<span className="bg-[#339999] py-1 px-3 rounded-full">
+									Edit Post
+								</span>
+							</div>
+						) : (
+							// <i
+							// 	className="fa-solid fa-rectangle-xmark cursor-pointer"
+							// 	onClick={handleOpenEdit}
+							// ></i>
+							<div className="flex items-end justify-end">
+								{post.username === user?.username && (
+									<div className="flex-1 text-md font-body">
+										<i
+											className="fa-solid fa-file-pen ml-2 cursor-pointer text-white bg-[#339999] p-2 rounded-md bg-opacity-80"
+											onClick={() => setUpdateInfo(true)}
+										>
+											<span className="font-body ml-2">Update</span>
+										</i>
+										<i
+											className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-red-700 p-2 rounded-md bg-opacity-80 "
+											onClick={handleDelete}
+										>
+											<span className="font-body ml-2">Delete</span>
+										</i>
+										<i
+											className="fa-solid fa-xmark cursor-pointer ml-2 bg-gray-400 py-2 px-3 rounded-md "
+											onClick={() => setOpenEdit(false)}
+										></i>
+									</div>
+								)}
+							</div>
+						)}
+						<div
+							className="mb-10 text-inherit blog-link text-xl"
+							dangerouslySetInnerHTML={sanitizeData()}
+						/>
+					</>
 				)}
 				{updateInfo ? (
 					<div className="flex items-center justify-center mt-4">
