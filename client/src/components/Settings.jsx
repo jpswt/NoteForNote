@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Context } from '../context/Context';
 import axios from 'axios';
 import defaultPic from '../assets/default.jpeg';
@@ -7,16 +7,18 @@ const Settings = () => {
 	const { user, dispatch } = useContext(Context);
 	const publicFolder = 'http://localhost:8000/assets/';
 	const [img, setImg] = useState(null);
-	const [about, setAbout] = useState('');
+	// const [about, setAbout] = useState('');
 	const [successMsg, setSuccessMsg] = useState(false);
+	console.log(user.about);
+	const aboutRef = useRef();
 
 	const handleUpdate = async (e) => {
 		e.preventDefault();
 		dispatch({ type: 'UPDATE_START' });
-		const updateUser = {
-			userId: user._id,
-			about: about,
-		};
+		// const updateUser = {
+		// 	userId: user._id,
+		// 	about: about,
+		// };
 		if (img) {
 			const data = new FormData();
 			const imgName = `${user.username}.jpeg`;
@@ -30,7 +32,7 @@ const Settings = () => {
 		try {
 			const response = await axios.put(
 				`http://localhost:8000/users/${user._id}`,
-				updateUser
+				{ userId: user._id, about: aboutRef.current.value }
 			);
 			dispatch({ type: 'UPDATE_SUCCESS', payload: response.data });
 			window.location.reload();
@@ -47,6 +49,11 @@ const Settings = () => {
 
 	return (
 		<div className="flex-9 mt-1 font-body">
+			{/* <div className="flex items-center justify-between mb-2 px-8">
+				<span className="text-md mt-2 bg-red-700 text-white px-2 py-1 rounded-md">
+					Delete Account
+				</span>
+			</div> */}
 			<form
 				className="flex flex-col justify-center items-center relative"
 				onSubmit={handleUpdate}
@@ -84,9 +91,12 @@ const Settings = () => {
 				/> */}
 				<textarea
 					type="text"
-					placeholder={user.about}
+					name="about"
+					placeholder="Tell us about you..."
+					ref={aboutRef}
+					defaultValue={user.about}
 					className="p-4 my-2 w-[24rem]"
-					onChange={(e) => setAbout(e.target.value)}
+					// onChange={(e) => setAbout(e.target.value)}
 					rows="4"
 					max="300"
 				/>

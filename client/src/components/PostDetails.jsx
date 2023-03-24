@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import DOMpurify from 'dompurify';
@@ -6,6 +6,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Context } from '../context/Context';
 import { useLocation } from 'react-router';
+import {
+	EmailShareButton,
+	EmailIcon,
+	FacebookIcon,
+	FacebookShareButton,
+	TwitterShareButton,
+	TwitterIcon,
+	RedditShareButton,
+	RedditIcon,
+} from 'react-share';
 
 const PostDetails = ({
 	post,
@@ -88,7 +98,7 @@ const PostDetails = ({
 
 	return (
 		<div className="flex-9 flex flex-col items-center mt-1 bg-[#2a3d53] text-gray-100 ">
-			<div className=" p-2.5 pr-0 w-[80%]">
+			<div className=" py-2.5 pr-0 w-[80%]">
 				{post.photo && (
 					<img
 						className=" w-[450px] h-[180px] object-cover rounded-md my-2 mx-auto mb-4"
@@ -107,23 +117,67 @@ const PostDetails = ({
 						/>
 					</div>
 				) : (
-					<div className="flex">
+					<>
+						<div className="flex items-end justify-end">
+							{post.username === user?.username && (
+								<div className="flex-1 text-xl">
+									<i
+										className="fa-solid fa-file-pen ml-2 cursor-pointer text-white accent p-3 rounded-full "
+										onClick={() => setUpdateInfo(true)}
+									></i>
+									<i
+										className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-red-700 p-3 rounded-full "
+										onClick={handleDelete}
+									></i>
+								</div>
+							)}
+						</div>
 						<h1 className="flex-2 text-3xl text-center font-body">{title}</h1>
-						{post.username === user?.username && (
-							<div className="flex-1 text-xl">
-								<i
-									className="fa-solid fa-file-pen ml-2 cursor-pointer text-white accent p-3 rounded-full "
-									onClick={() => setUpdateInfo(true)}
-								></i>
-								<i
-									className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-red-700 p-3 rounded-full "
-									onClick={handleDelete}
-								></i>
-							</div>
-						)}
-					</div>
+						<div className="flex justify-between items-center mt-2 mb-4 pb-1 font-body border-b-gray-200 border-b-2">
+							<span>
+								<span>Posted by: </span>
+								<Link to={`/?user=${post.username}`}>
+									<strong>{post.username}</strong>
+								</Link>
+							</span>
+							<span className="text-white">
+								{new Date(post.createdAt).toLocaleDateString('en-US', {
+									year: 'numeric',
+									month: 'long',
+									day: 'numeric',
+								})}
+							</span>
+							<span className="flex gap-1 mb-1 ">
+								<EmailShareButton>
+									<EmailIcon size={32} round />
+								</EmailShareButton>
+								<FacebookShareButton
+									url={'https://www.note4note.com'}
+									quote={post.title}
+									hashtag="#NoteForNote"
+								>
+									<FacebookIcon size={32} round />
+								</FacebookShareButton>
+								<TwitterShareButton
+									url={window.location.href}
+									quote={post.title}
+									hashtag="NoteForNote"
+								>
+									<TwitterIcon size={32} round />
+								</TwitterShareButton>
+								<RedditShareButton
+									url={window.location.href}
+									quote={post.title}
+									hashtag="NoteForNote"
+									title={post.title}
+								>
+									<RedditIcon size={32} round />
+								</RedditShareButton>
+							</span>
+						</div>
+					</>
 				)}
-				<div className="flex justify-between mt-2 mb-4 pb-1 font-body border-b-gray-200 border-b-2">
+				{/* <div className="flex justify-between items-center mt-2 mb-4 pb-1 font-body border-b-gray-200 border-b-2">
 					<span>
 						<span>Posted by: </span>
 						<Link to={`/?user=${post.username}`}>
@@ -137,7 +191,34 @@ const PostDetails = ({
 							day: 'numeric',
 						})}
 					</span>
-				</div>
+					<span className="flex gap-1 mb-1 ">
+						<EmailShareButton>
+							<EmailIcon size={32} round />
+						</EmailShareButton>
+						<FacebookShareButton
+							url={'https://www.note4note.com'}
+							quote={post.title}
+							hashtag="#NoteForNote"
+						>
+							<FacebookIcon size={32} round />
+						</FacebookShareButton>
+						<TwitterShareButton
+							url={window.location.href}
+							quote={post.title}
+							hashtag="NoteForNote"
+						>
+							<TwitterIcon size={32} round />
+						</TwitterShareButton>
+						<RedditShareButton
+							url={window.location.href}
+							quote={post.title}
+							hashtag="NoteForNote"
+							title={post.title}
+						>
+							<RedditIcon size={32} round />
+						</RedditShareButton>
+					</span>
+				</div> */}
 				{updateInfo ? (
 					<ReactQuill
 						className="border-none mt-2 w-full text-gray-600 bg-white p-0 ql-editor ql-container"

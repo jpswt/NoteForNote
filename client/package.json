@@ -16,6 +16,7 @@
 		"react-dom": "^18.2.0",
 		"react-quill": "^2.0.0",
 		"react-router-dom": "^6.8.2",
+		"react-share": "^4.4.1",
 		"react-sticky-box": "^2.0.0"
 	},
 	"devDependencies": {
