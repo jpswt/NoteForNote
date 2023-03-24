@@ -21,12 +21,12 @@ const Register = () => {
 				password,
 			})
 			.then((response) => {
-				console.log(response);
+				// console.log(response);
 				navigate('/login');
 			})
 			.catch((error) => {
 				setError(true);
-				console.log(error);
+				// console.log(error);
 			});
 	};
 

@@ -13,13 +13,13 @@ const SinglePostDetails = () => {
 	const [description, setDescription] = useState('');
 	const [profilePic, setProfilePic] = useState(null);
 	const idPath = useLocation();
-	console.log(idPath);
+	// console.log(idPath);
 	const id = idPath.pathname.split('/')[2];
 
 	useEffect(() => {
 		const getPost = async () => {
 			const response = await axios.get(`http://localhost:8000/posts/${id}`);
-			console.log(response.data);
+			// console.log(response.data);
 			setPost(response.data);
 			setTitle(response.data.title);
 			setDescription(response.data.description);
@@ -28,7 +28,7 @@ const SinglePostDetails = () => {
 		};
 		getPost();
 	}, []);
-	console.log(post);
+	// console.log(post);
 
 	useEffect(() => {
 		const fetchCategories = async () => {

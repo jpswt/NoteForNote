@@ -66,7 +66,7 @@ const ComposePost = ({ categories }) => {
 		try {
 			const res = await axios.post('http://localhost:8000/posts', newPost);
 			window.location.replace('/posts/' + res.data._id);
-			console.log(newPost);
+			// console.log(newPost);
 		} catch (err) {}
 	};
 

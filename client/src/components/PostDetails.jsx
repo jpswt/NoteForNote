@@ -49,9 +49,6 @@ const PostDetails = ({
 	const { user } = useContext(Context);
 	const [openEdit, setOpenEdit] = useState(false);
 	const [updateInfo, setUpdateInfo] = useState(false);
-	const idPath = useLocation();
-	console.log(idPath);
-	const id = idPath.pathname.split('/')[2];
 	const publicFolder = 'http://localhost:8000/assets/';
 
 	const handleOpenEdit = () => {
@@ -152,48 +149,6 @@ const PostDetails = ({
 						</div>
 					</>
 				)}
-				{/* <div className="flex justify-between items-center mt-2 mb-4 pb-1 font-body border-b-gray-200 border-b-2">
-					<span>
-						<span>Posted by: </span>
-						<Link to={`/?user=${post.username}`}>
-							<strong>{post.username}</strong>
-						</Link>
-					</span>
-					<span className="text-white">
-						{new Date(post.createdAt).toLocaleDateString('en-US', {
-							year: 'numeric',
-							month: 'long',
-							day: 'numeric',
-						})}
-					</span>
-					<span className="flex gap-1 mb-1 ">
-						<EmailShareButton>
-							<EmailIcon size={32} round />
-						</EmailShareButton>
-						<FacebookShareButton
-							url={'https://www.note4note.com'}
-							quote={post.title}
-							hashtag="#NoteForNote"
-						>
-							<FacebookIcon size={32} round />
-						</FacebookShareButton>
-						<TwitterShareButton
-							url={window.location.href}
-							quote={post.title}
-							hashtag="NoteForNote"
-						>
-							<TwitterIcon size={32} round />
-						</TwitterShareButton>
-						<RedditShareButton
-							url={window.location.href}
-							quote={post.title}
-							hashtag="NoteForNote"
-							title={post.title}
-						>
-							<RedditIcon size={32} round />
-						</RedditShareButton>
-					</span>
-				</div> */}
 				{updateInfo ? (
 					<ReactQuill
 						className="border-none mt-2 w-full text-gray-600 bg-white p-0 ql-editor ql-container"
@@ -204,43 +159,42 @@ const PostDetails = ({
 					/>
 				) : (
 					<>
-						{!openEdit ? (
-							<div
-								className=" text-right text-md font-bold cursor-pointer"
-								onClick={handleOpenEdit}
-							>
-								<span className="bg-[#339999] py-1 px-3 rounded-full">
-									Edit Post
-								</span>
-							</div>
-						) : (
-							// <i
-							// 	className="fa-solid fa-rectangle-xmark cursor-pointer"
-							// 	onClick={handleOpenEdit}
-							// ></i>
-							<div className="flex items-end justify-end">
-								{post.username === user?.username && (
-									<div className="flex-1 text-md font-body">
-										<i
-											className="fa-solid fa-file-pen ml-2 cursor-pointer text-white bg-[#339999] p-2 rounded-md bg-opacity-80"
-											onClick={() => setUpdateInfo(true)}
+						<div className="flex items-end justify-end">
+							{post.username === user?.username && (
+								<div>
+									{!openEdit ? (
+										<div
+											className=" text-right text-md font-bold cursor-pointer"
+											onClick={handleOpenEdit}
 										>
-											<span className="font-body ml-2">Update</span>
-										</i>
-										<i
-											className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-red-700 p-2 rounded-md bg-opacity-80 "
-											onClick={handleDelete}
-										>
-											<span className="font-body ml-2">Delete</span>
-										</i>
-										<i
-											className="fa-solid fa-xmark cursor-pointer ml-2 bg-gray-400 py-2 px-3 rounded-md "
-											onClick={() => setOpenEdit(false)}
-										></i>
-									</div>
-								)}
-							</div>
-						)}
+											<span className="bg-[#339999] py-1 px-3 rounded-full">
+												Edit Post
+											</span>
+										</div>
+									) : (
+										<div className="flex-1 text-md font-body">
+											<i
+												className="fa-solid fa-file-pen ml-2 cursor-pointer text-white bg-[#339999] p-2 rounded-md bg-opacity-80"
+												onClick={() => setUpdateInfo(true)}
+											>
+												<span className="font-body ml-2">Update</span>
+											</i>
+											<i
+												className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-red-700 p-2 rounded-md bg-opacity-80 "
+												onClick={handleDelete}
+											>
+												<span className="font-body ml-2">Delete</span>
+											</i>
+											<i
+												className="fa-solid fa-xmark cursor-pointer ml-2 bg-gray-400 py-2 px-3 rounded-md "
+												onClick={() => setOpenEdit(false)}
+											></i>
+										</div>
+									)}
+								</div>
+							)}
+						</div>
+
 						<div
 							className="mb-10 text-inherit blog-link text-xl"
 							dangerouslySetInnerHTML={sanitizeData()}

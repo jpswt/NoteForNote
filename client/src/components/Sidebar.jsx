@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import defaultPic from '../assets/defaultAvatar.svg';
 import { Context } from '../context/Context';
 import StickyBox from 'react-sticky-box';
@@ -41,7 +40,6 @@ const Sidebar = ({ post, categories }) => {
 								{user.about ? (
 									<p className="px-12 pt-2 pb-6">{user.about}</p>
 								) : (
-									// <p className="px-12 py-6">Add a Bio</p>
 									<Link to="/profile">
 										<button className="accent text-white px-4 py-2 rounded-md mt-6 ">
 											Add a Bio

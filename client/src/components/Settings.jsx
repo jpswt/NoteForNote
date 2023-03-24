@@ -31,7 +31,7 @@ const Settings = () => {
 			dispatch({ type: 'UPDATE_SUCCESS', payload: response.data });
 			window.location.reload();
 			setSuccessMsg(true);
-			console.log(updateUser);
+			// console.log(updateUser);
 		} catch (err) {
 			dispatch({ type: 'UPDATE_FAIL' });
 		}
@@ -43,11 +43,11 @@ const Settings = () => {
 
 	return (
 		<div className="flex-9 mt-1 font-body">
-			{/* <div className="flex items-center justify-between mb-2 px-8">
+			<div className="flex items-center justify-between mb-2 px-8">
 				<span className="text-md mt-2 bg-red-700 text-white px-2 py-1 rounded-md">
 					Delete Account
 				</span>
-			</div> */}
+			</div>
 			<form
 				className="flex flex-col justify-center items-center relative"
 				onSubmit={handleUpdate}

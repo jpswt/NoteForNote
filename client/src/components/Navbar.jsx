@@ -10,7 +10,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 	const { user } = useContext(Context);
 	const publicFolder = 'http://localhost:8000/assets/';
 	const [openProfile, setOpenProfile] = useState(false);
-	console.log(posts);
+	// console.log(posts);
 
 	const { home } = useLocation();
 

@@ -15,7 +15,7 @@ const Home = () => {
 	const [isLoaded, setIsLoaded] = useState(false);
 
 	const { search } = useLocation();
-	console.log(location);
+	// console.log(location);
 
 	useEffect(() => {
 		const fetchPosts = async () => {
