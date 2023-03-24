@@ -43,55 +43,5 @@ const Router = () => {
 		</>
 	);
 };
-// const PageLayout = () => {
-// 	const { user } = useContext(Context);
-// 	return (
-// 		<>
-// 			<Navbar user={user} />
-// 			{user ? <Outlet /> : <Navigate to="/register" />}
-// 		</>
-// 	);
-// };
-
-// const router = createBrowserRouter([
-// 	{
-// 		path: '/',
-// 		element: <PageLayout />,
-// 		children: [
-// 			{
-// 				path: '/',
-// 				element: <Home />,
-// 			},
-// 			{
-// 				path: '/compose',
-// 				element: <Compose />,
-// 			},
-// 			{
-// 				path: '/posts/:id',
-// 				element: <SinglePostDetails />,
-// 			},
-// 			{
-// 				path: '/profile',
-// 				element: <Profile />,
-// 			},
-// 		],
-// 	},
-// 	{
-// 		path: '/register',
-// 		element: (
-// 			<div>
-// 				<Register />
-// 			</div>
-// 		),
-// 	},
-// 	{
-// 		path: '/login',
-// 		element: (
-// 			<div>
-// 				<Login />
-// 			</div>
-// 		),
-// 	},
-// ]);
 
 export default Router;

@@ -48,29 +48,11 @@ const PostDetails = ({
 	const navigate = useNavigate();
 	const { user } = useContext(Context);
 	const [openEdit, setOpenEdit] = useState(false);
-	// const [isLoaded, setIsLoaded] = useState(false);
-	// const [post, setPost] = useState({});
-	// const [title, setTitle] = useState('');
-	// const [description, setDescription] = useState('');
-	// const [profilePic, setProfilePic] = useState(null);
 	const [updateInfo, setUpdateInfo] = useState(false);
 	const idPath = useLocation();
 	console.log(idPath);
 	const id = idPath.pathname.split('/')[2];
 	const publicFolder = 'http://localhost:8000/assets/';
-
-	// useEffect(() => {
-	// 	const getPost = async () => {
-	// 		const response = await axios.get(`http://localhost:8000/posts/${id}`);
-	// 		console.log(response.data);
-	// 		setPost(response.data);
-	// 		setTitle(response.data.title);
-	// 		setDescription(response.data.description);
-	// 		setProfilePic(response.data.profilePic);
-	// 		setIsLoaded(true);
-	// 	};
-	// 	getPost();
-	// }, [id]);
 
 	const handleOpenEdit = () => {
 		setOpenEdit(!openEdit);
@@ -123,22 +105,6 @@ const PostDetails = ({
 					</div>
 				) : (
 					<>
-						{/* <div className="flex items-end justify-start">
-							{post.username === user?.username && (
-								<div className="flex-1 text-md font-body">
-									<i
-										className="fa-solid fa-file-pen ml-2 cursor-pointer text-white accent py-2 px-2 rounded-md "
-										onClick={() => setUpdateInfo(true)}
-									>
-										<span className="font-body ml-2">Update</span>
-									</i>
-									<i
-										className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-red-700 p-3 rounded-md "
-										onClick={handleDelete}
-									></i>
-								</div>
-							)}
-						</div> */}
 						<h1 className="flex-2 text-3xl text-center font-body">{title}</h1>
 						<div className="flex justify-between items-center mt-2 mb-4 pb-1 font-body border-b-gray-200 border-b-2">
 							<div>

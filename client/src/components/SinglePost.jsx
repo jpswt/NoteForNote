@@ -6,7 +6,6 @@ import defaultPic from '../assets/default.jpeg';
 const SinglePost = ({ post }) => {
 	const navigate = useNavigate();
 	const publicFolder = 'http://localhost:8000/assets/';
-	// console.log(post);
 
 	const sanitizeData = () => ({
 		__html: DOMpurify.sanitize(post.description),

@@ -23,7 +23,6 @@ const Home = () => {
 			setPosts(response.data);
 			setSearchResult(response.data);
 			setIsLoaded(true);
-			// console.log(response);
 		};
 		fetchPosts();
 	}, [search]);

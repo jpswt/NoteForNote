@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import axios from 'axios';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
@@ -53,19 +53,6 @@ const ComposePost = ({ categories }) => {
 			about: user.about,
 		};
 
-		// if (profilePic) {
-		// 	const data = new FormData();
-		// 	const imgName = `${user.username}.jpeg`;
-		// 	data.append('name', imgName);
-		// 	data.append('file', img);
-		// 	newPost.profilePic = imgName;
-		// 	try {
-		// 		await axios.post('http://localhost:8000/upload', data);
-		// 	} catch (err) {
-		// 		console.error(err);
-		// 	}
-		// }
-
 		if (postImg) {
 			const postData = new FormData();
 			const postImgName = Date.now() + postImg.name;
@@ -82,14 +69,6 @@ const ComposePost = ({ categories }) => {
 			console.log(newPost);
 		} catch (err) {}
 	};
-
-	// useEffect(() => {
-	// 	const fetchCategories = async () => {
-	// 		const response = await axios.get('http://localhost:8000/categories');
-	// 		setCategories(response.data);
-	// 	};
-	// 	fetchCategories();
-	// }, [categories]);
 
 	return (
 		<div className="flex-9 flex flex-col mt-4 primary text-gray-100 text-md">
@@ -133,7 +112,6 @@ const ComposePost = ({ categories }) => {
 				</div>
 				<div className=" flex items-center justify-center ">
 					<ReactQuill
-						// className="border-none ml-[36px] mt-4 mb-4 w-[80%] text-gray-600 p-0 ql-container ql-editor "
 						className="border-none  mt-2 w-[80%] text-gray-600 bg-white p-0 ql-snow ql-editor ql-container"
 						placeholder="Enter your thoughts..."
 						theme="snow"
@@ -159,14 +137,6 @@ const ComposePost = ({ categories }) => {
 						))}
 					</div>
 				</div>
-				{/* <div className="flex items-center justify-center mt-12">
-					<button
-						className=" bg-teal-600 py-2 px-10 text-white text-lg rounded-md cursor-pointer"
-						type="submit"
-					>
-						Publish
-					</button>
-				</div> */}
 			</form>
 		</div>
 	);

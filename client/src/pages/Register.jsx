@@ -76,12 +76,6 @@ const Register = () => {
 				{error ? (
 					<p className="text-gray-300 py-1 px-2 rounded-md ">{error}</p>
 				) : null}
-				{/* <div className="absolute top-4 right-2 text-white flex items-center">
-					<p>Not a Member?</p>
-					<button className="mx-2 bg-teal-600 px-4 py-1 rounded-lg">
-						<Link to="/register">Register</Link>
-					</button>
-				</div> */}
 			</div>
 		</div>
 	);

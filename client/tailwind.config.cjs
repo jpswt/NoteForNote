@@ -22,12 +22,6 @@ module.exports = {
 			6: '6',
 			9: '9',
 		},
-		// backgroundColor: {
-		// 	primary: 'hsl(212,0,0)',
-		// 	accent: 'hsl(180,50%,40%)',
-		// 	secondary: 'rgb(185 28 28)',
-		// 	fade: 'gray',
-		// },
 		backgroundImage: {
 			login:
 				"url('https://img.freepik.com/free-vector/music-notes-stave-staff_1284-44373.jpg?w=996&t=st=1679327868~exp=1679328468~hmac=3ac1da87f88ccc169b7c1f2a9f3977b517b57f24753ddde78608c6360cd4cecf')",

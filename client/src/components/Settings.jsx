@@ -69,10 +69,6 @@ const Settings = () => {
 					/>
 				</div>
 				<label htmlFor="imgInput">
-					{/* <i className="fa-solid fa-user cursor-pointer text-3xl ml-4 text-red-700 ">
-						{' '}
-						Update Photo
-					</i> */}
 					<i className="fa-solid fa-camera text-white bg-gray-500 py-2 px-4 rounded-md mb-4">
 						<span className="font-body ml-2">Update Photo</span>
 					</i>
@@ -83,12 +79,6 @@ const Settings = () => {
 					className="hidden"
 					onChange={(e) => setImg(e.target.files[0])}
 				/>
-				{/* <input
-					type="text"
-					placeholder={user.email}
-					className="p-4 my-2 w-[24rem]"
-					onChange={(e) => setEmail(e.target.value)}
-				/> */}
 				<textarea
 					type="text"
 					name="about"
@@ -96,16 +86,9 @@ const Settings = () => {
 					ref={aboutRef}
 					defaultValue={user.about}
 					className="p-4 my-2 w-[24rem]"
-					// onChange={(e) => setAbout(e.target.value)}
 					rows="4"
 					max="300"
 				/>
-				{/* <input
-					type="text"
-					placeholder="*************"
-					className="p-4 my-2 w-[24rem]"
-					onChange={(e) => setPassword(e.target.value)}
-				/> */}
 				<button
 					type="submit"
 					className="w-40 accent text-white py-2 rounded-md mt-2 cursor-pointer"

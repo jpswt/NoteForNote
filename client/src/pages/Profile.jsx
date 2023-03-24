@@ -9,7 +9,6 @@ const Profile = () => {
 			<Navbar />
 			<div className="flex">
 				<Settings />
-				{/* <Sidebar /> */}
 			</div>
 		</div>
 	);
