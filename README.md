@@ -3,7 +3,7 @@
 This application was created with Vite React.
 
 ## Requirements
-=
+---
 
 - NodeJS
 - Package manager i.e. npm or yarn
