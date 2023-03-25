@@ -9,7 +9,7 @@ This application was created with Vite React.
 
 ### Clone the repository
 
----
+===
 
 `$ git clone http://https://github.com/jpswt/NoteForNote.git`
 
@@ -33,13 +33,16 @@ This application was created with Vite React.
 
 - For Backend Directory:
 
-  - Create .env file to add your MongoDB URL :
+  1. Create .env file to add your MongoDB URL :
 
-    `MONGO_URL = *Your mongodb url*`
+  `MONGO_URL = *Your mongodb url*`
 
-  - Either `npm start` or `yarn start`
+  2. Either `npm start` or `yarn start`
 
-  Server will run on: `https://localhost:8000`
+  MongoDB Server will run on: `http://localhost:8000`
 
 - For Frontend Directory:
-  - Either `npm run dev` or `yarn dev`
+
+  1. Either `npm run dev` or `yarn dev`
+
+  React Application will run on `http://localhost:5174`
