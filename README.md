@@ -16,4 +16,4 @@ cd backend
 cd client
 
 ### Installing dependencies
-Either use **npm install** or **yarn install**
+* Use `$ npm install` or `$ yarn install`
