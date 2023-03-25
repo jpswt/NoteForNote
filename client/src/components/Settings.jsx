@@ -18,7 +18,7 @@ const Settings = () => {
 			const imgName = `${user.username}.jpeg`;
 			data.append('name', imgName);
 			data.append('file', img);
-			updateUser.profilePic = imgName;
+			// updateUser.profilePic = imgName;
 			try {
 				await axios.post('http://localhost:8000/upload', data);
 			} catch (err) {}
@@ -26,7 +26,11 @@ const Settings = () => {
 		try {
 			const response = await axios.put(
 				`http://localhost:8000/users/${user._id}`,
-				{ userId: user._id, about: aboutRef.current.value }
+				{
+					userId: user._id,
+					about: aboutRef.current.value,
+					profilePic: user.profilePic,
+				}
 			);
 			dispatch({ type: 'UPDATE_SUCCESS', payload: response.data });
 			window.location.reload();
@@ -36,6 +40,14 @@ const Settings = () => {
 			dispatch({ type: 'UPDATE_FAIL' });
 		}
 	};
+
+	// const handleDelete = async (id) => {
+	// 	try {
+	// 		const response = await axios.delete(`http://localhost:8000/${user._id}`)
+	// 		const data = await response.json()
+	// 	}
+
+	// }
 
 	const setDefault = (e) => {
 		e.target.src = defaultPic;
@@ -62,7 +74,7 @@ const Settings = () => {
 						onError={setDefault}
 					/>
 				</div>
-				<label htmlFor="imgInput">
+				<label htmlFor="imgInput" className="cursor-pointer">
 					<i className="fa-solid fa-camera text-white bg-gray-500 py-2 px-4 rounded-md mb-4">
 						<span className="font-body ml-2">Update Photo</span>
 					</i>
