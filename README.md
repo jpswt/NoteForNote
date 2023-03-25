@@ -7,4 +7,13 @@ This application was created with Vite React.
 * Package manager i.e. npm or yarn
 
 ### Clone the Repository
-`$ git clone http://`
+`$ git clone http://https://github.com/jpswt/NoteForNote.git`
+
+#### Backend
+cd backend
+
+#### Frontend
+cd client
+
+### Installing dependencies
+Either use **npm install** or **yarn install**
