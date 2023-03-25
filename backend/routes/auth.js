@@ -28,8 +28,8 @@ router.post('/login', async (req, res) => {
 		if (!user) {
 			return res.status(500).json('Incorrect Username/Password');
 		}
-		const validated = await bcrypt.compare(req.body.password, user.password);
-		if (!validated) {
+		const validateUser = await bcrypt.compare(req.body.password, user.password);
+		if (!validateUser) {
 			return res.status(400).json('Incorrect Username/Password');
 		}
 		const { password, ...others } = user._doc;
