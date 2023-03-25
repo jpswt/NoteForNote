@@ -9,7 +9,7 @@ This application was created with Vite React.
 - Package manager i.e. npm or yarn
 
 ### Clone the repository
-===
+---
 
 `$ git clone http://https://github.com/jpswt/NoteForNote.git`
 
