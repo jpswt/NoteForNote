@@ -49,6 +49,19 @@
 	.accent-input {
 		background-color: hsl(212, 33%, 35%);
 	}
+	.details a {
+		color: hsla(180, 50%, 45%, 1);
+	}
+
+	.details a:hover {
+		color: hsla(180, 50%, 50%, 1);
+	}
+
+	.blocktext {
+		display: unset;
+		display: block;
+		width: 23rem;
+	}
 }
 @tailwind components;
 @tailwind utilities;

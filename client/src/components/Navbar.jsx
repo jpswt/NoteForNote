@@ -24,12 +24,12 @@ const Navbar = ({ posts, setSearchResult }) => {
 
 		const results = posts.filter(
 			(post) =>
+				post.title.toLowerCase().includes(target) ||
 				post.title.includes(target) ||
-				post.title.includes(target.toUpperCase()) ||
+				post.username.toLowerCase().includes(target) ||
 				post.username.includes(target) ||
-				post.username.includes(target.toUpperCase()) ||
-				post.description.includes(target) ||
-				post.description.includes(target.toUpperCase())
+				post.description.toLowerCase().includes(target) ||
+				post.description.includes(target)
 		);
 		setSearchResult(results);
 	};

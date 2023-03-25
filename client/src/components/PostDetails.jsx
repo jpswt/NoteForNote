@@ -196,7 +196,7 @@ const PostDetails = ({
 						</div>
 
 						<div
-							className="mb-10 text-inherit blog-link text-xl"
+							className="mb-10 text-inherit blog-link text-xl details"
 							dangerouslySetInnerHTML={sanitizeData()}
 						/>
 					</>

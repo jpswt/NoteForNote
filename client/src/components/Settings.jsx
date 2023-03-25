@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from 'react';
 import { Context } from '../context/Context';
 import axios from 'axios';
-import defaultPic from '../assets/default.jpeg';
+import defaultPic from '../assets/defaultAvatar.svg';
 
 const Settings = () => {
 	const { user, dispatch } = useContext(Context);
@@ -18,7 +18,7 @@ const Settings = () => {
 			const imgName = `${user.username}.jpeg`;
 			data.append('name', imgName);
 			data.append('file', img);
-			// updateUser.profilePic = imgName;
+			user.profilePic = imgName;
 			try {
 				await axios.post('http://localhost:8000/upload', data);
 			} catch (err) {}
@@ -33,8 +33,11 @@ const Settings = () => {
 				}
 			);
 			dispatch({ type: 'UPDATE_SUCCESS', payload: response.data });
-			window.location.reload();
+			// window.location.reload();
 			setSuccessMsg(true);
+			setTimeout(() => {
+				window.location.reload();
+			}, 1500);
 			// console.log(updateUser);
 		} catch (err) {
 			dispatch({ type: 'UPDATE_FAIL' });
@@ -55,13 +58,8 @@ const Settings = () => {
 
 	return (
 		<div className="flex-9 mt-1 font-body">
-			<div className="flex items-center justify-between mb-2 px-8">
-				<span className="text-md mt-2 bg-red-700 text-white px-2 py-1 rounded-md">
-					Delete Account
-				</span>
-			</div>
 			<form
-				className="flex flex-col justify-center items-center relative"
+				className="flex flex-col justify-center items-center relative mt-8"
 				onSubmit={handleUpdate}
 			>
 				<div className="flex items-center justify-center mb-2">
@@ -85,6 +83,9 @@ const Settings = () => {
 					className="hidden"
 					onChange={(e) => setImg(e.target.files[0])}
 				/>
+				<label htmlFor="" className="blocktext text-gray-100 text-lg">
+					About You:
+				</label>
 				<textarea
 					type="text"
 					name="about"
@@ -101,7 +102,9 @@ const Settings = () => {
 				>
 					Update Profile
 				</button>
-				{successMsg && 'Profile has successfully been updated'}
+				<p className=" text-gray-100 mt-2">
+					{successMsg && 'Profile has successfully been updated'}
+				</p>
 			</form>
 		</div>
 	);
