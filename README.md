@@ -27,7 +27,7 @@ This application was created with Vite React.
 
 - For Backend Directory:
 
-  1. Create .env file to add your MongoDB URL : <code>MONGO_URL = _Your mongodb url_</code>
+  1. Create .env file to add your MongoDB URL : <code>MONGO_URL = '_Your mongodb url_'</code>
 
   2. Either `npm start` or `yarn start`
 
