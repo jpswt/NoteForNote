@@ -2,7 +2,8 @@
 
 This application was created with Vite React.
 
-### Requirements
+## Requirements
+=
 
 - NodeJS
 - Package manager i.e. npm or yarn
