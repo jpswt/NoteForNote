@@ -9,10 +9,9 @@ This application was created with Vite React.
 ### Clone the Repository
 `$ git clone http://https://github.com/jpswt/NoteForNote.git`
 
-#### Backend
+#### For Backend Directory: 
 cd backend
-
-#### Frontend
+#### For Frontend Directory:
 cd client
 
 ### Installing dependencies
