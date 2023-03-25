@@ -19,15 +19,11 @@ This application was created with Vite React.
 
 `$ cd client`
 
-### Installing dependencies
-
----
+##Installing dependencies
 
 - Use `$ npm install` or `$ yarn install`
 
-### Running the application
-
----
+## Running the application
 
 - For Backend Directory:
 
