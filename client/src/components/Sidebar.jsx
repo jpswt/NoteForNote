@@ -18,7 +18,7 @@ const Sidebar = ({ post, categories }) => {
 
 	return (
 		<div className="flex-4 font-body border-l-2 border-gray-500 text-gray-100 min-h-screen">
-			<StickyBox offsetTop={70} offsetBottom={360}>
+			<StickyBox offsetTop={70} offsetBottom={220}>
 				<div className=" bg-[#2a3d53] flex flex-col items-center w-full">
 					<div className="flex flex-col items-center pb-2 mb-10 w-[60%]">
 						{!user ? null : !post ? (
@@ -86,6 +86,17 @@ const Sidebar = ({ post, categories }) => {
 								</li>
 							))}
 						</ul>
+					</div>
+					<div className="flex flex-col w-[60%] mt-10">
+						<span className="m-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
+							FOLLOW US
+						</span>
+						<div className="flex ml-2 items-center justify-center gap-4 mt-4">
+							<i class="fa-brands fa-facebook text-3xl "></i>
+							<i class="fa-brands fa-instagram text-3xl "></i>
+							<i class="fa-brands fa-twitter text-3xl "></i>
+							<i class="fa-brands fa-youtube text-3xl "></i>
+						</div>
 					</div>
 				</div>
 			</StickyBox>
