@@ -14,6 +14,12 @@ const SinglePost = ({ post }) => {
 		e.target.src = defaultPic;
 	};
 
+	const formatDate = new Date(post.createdAt).toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	});
+
 	return (
 		<div className="w-[70%] mx-10 flex items-center border-b-2 border-gray-400 text-gray-100 last:border-b-0 ">
 			<div className="flex flex-col w-full my-6">
@@ -30,12 +36,7 @@ const SinglePost = ({ post }) => {
 						/>
 					</span>
 					<span className="font-body text-base">
-						{post.username} •{' '}
-						{new Date(post.createdAt).toLocaleDateString('en-US', {
-							year: 'numeric',
-							month: 'long',
-							day: 'numeric',
-						})}
+						{post.username} • {formatDate}
 					</span>
 				</div>
 				<div

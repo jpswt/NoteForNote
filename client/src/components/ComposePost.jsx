@@ -24,6 +24,31 @@ const ComposePost = ({ categories }) => {
 			],
 		],
 	};
+
+	const formats = [
+		'header',
+		'font',
+		'size',
+		'bold',
+		'italic',
+		'underline',
+		'strike',
+		'blockquote',
+		'list',
+		'bullet',
+		'indent',
+		'link',
+		'image',
+		'video',
+		'code-block',
+		'align',
+		'direction',
+		'color',
+		'background',
+		'script',
+		'super',
+		'sub',
+	];
 	const { user } = useContext(Context);
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
@@ -113,11 +138,12 @@ const ComposePost = ({ categories }) => {
 				<div className=" flex items-center justify-center ">
 					<ReactQuill
 						className="border-none  mt-2 w-[80%] text-gray-600 bg-white p-0 ql-snow ql-editor ql-container"
+						modules={modules}
+						formats={formats}
 						placeholder="Enter your thoughts..."
 						theme="snow"
 						value={description}
 						onChange={setDescription}
-						modules={modules}
 					/>
 				</div>
 				<div className="flex flex-col items-center justify-center">

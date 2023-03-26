@@ -15,6 +15,7 @@ const Home = () => {
 	const [isLoaded, setIsLoaded] = useState(false);
 
 	const { search } = useLocation();
+
 	// console.log(location);
 
 	useEffect(() => {

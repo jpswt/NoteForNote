@@ -45,6 +45,31 @@ const PostDetails = ({
 		],
 	};
 
+	const formats = [
+		'header',
+		'font',
+		'size',
+		'bold',
+		'italic',
+		'underline',
+		'strike',
+		'blockquote',
+		'list',
+		'bullet',
+		'indent',
+		'link',
+		'image',
+		'video',
+		'code-block',
+		'align',
+		'direction',
+		'color',
+		'background',
+		'script',
+		'super',
+		'sub',
+	];
+
 	const navigate = useNavigate();
 	const { user } = useContext(Context);
 	const [openEdit, setOpenEdit] = useState(false);
@@ -80,6 +105,12 @@ const PostDetails = ({
 		__html: DOMpurify.sanitize(post.description),
 	});
 
+	const formatDate = new Date(post.createdAt).toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+	});
+
 	return (
 		<div className="flex-9 flex flex-col items-center mt-1 bg-[#2a3d53] text-gray-100 ">
 			<div className=" py-2.5 pr-0 w-[80%]">
@@ -111,13 +142,7 @@ const PostDetails = ({
 										<strong>{post.username}</strong>
 									</Link>
 								</span>
-								<span className="text-white">
-									{new Date(post.createdAt).toLocaleDateString('en-US', {
-										year: 'numeric',
-										month: 'long',
-										day: 'numeric',
-									})}
-								</span>
+								<span className="text-white">{formatDate}</span>
 							</div>
 							<span className="flex gap-1 mb-1 ">
 								<EmailShareButton>
@@ -152,10 +177,11 @@ const PostDetails = ({
 				{updateInfo ? (
 					<ReactQuill
 						className="border-none mt-2 w-full text-gray-600 bg-white p-0 ql-editor ql-container"
+						modules={modules}
+						formats={formats}
 						theme="snow"
 						value={description}
 						onChange={setDescription}
-						modules={modules}
 					/>
 				) : (
 					<>
@@ -164,7 +190,7 @@ const PostDetails = ({
 								<div>
 									{!openEdit ? (
 										<div
-											className=" text-right text-md font-bold cursor-pointer"
+											className=" text-right text-md font-bold cursor-pointer mb-2 p-1"
 											onClick={handleOpenEdit}
 										>
 											<span className="bg-[#339999] py-1 px-3 rounded-full">
@@ -172,7 +198,7 @@ const PostDetails = ({
 											</span>
 										</div>
 									) : (
-										<div className="flex-1 text-md font-body">
+										<div className="flex-1 text-md font-body mb-2">
 											<i
 												className="fa-solid fa-file-pen ml-2 cursor-pointer text-white bg-[#339999] p-2 rounded-md bg-opacity-80"
 												onClick={() => setUpdateInfo(true)}
@@ -196,7 +222,7 @@ const PostDetails = ({
 						</div>
 
 						<div
-							className="mb-10 text-inherit blog-link text-xl details"
+							className="mb-10 blog-link text-xl details sanitized"
 							dangerouslySetInnerHTML={sanitizeData()}
 						/>
 					</>

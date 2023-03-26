@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Context } from '../context/Context';
 import guitarPick from '../assets/guitar-pick.png';
@@ -18,6 +18,12 @@ const Navbar = ({ posts, setSearchResult }) => {
 		setOpenProfile(!openProfile);
 	};
 
+	// const formatDate = new Date(post.createdAt).toLocaleDateString('en-US', {
+	// 	year: 'numeric',
+	// 	month: 'long',
+	// 	day: 'numeric',
+	// });
+
 	const handleSearch = (e) => {
 		const target = e.target.value;
 		if (!target) return setSearchResult(posts);
@@ -29,7 +35,23 @@ const Navbar = ({ posts, setSearchResult }) => {
 				post.username.toLowerCase().includes(target) ||
 				post.username.includes(target) ||
 				post.description.toLowerCase().includes(target) ||
-				post.description.includes(target)
+				post.description.includes(target) ||
+				new Date(post.createdAt)
+					.toLocaleDateString('en-US', {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric',
+					})
+					.includes(target) ||
+				new Date(post.createdAt)
+					.toLocaleDateString('en-US', {
+						year: 'numeric',
+						month: 'long',
+						day: 'numeric',
+					})
+					.toLowerCase()
+					.includes(target)
+			// formatDate.toLowerCase().includes(target)
 		);
 		setSearchResult(results);
 	};
