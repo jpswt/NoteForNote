@@ -57,21 +57,23 @@
 		color: hsla(180, 50%, 50%, 1);
 	}
 
+	.details ul {
+		/* color: red; */
+		list-style-type: disc;
+		padding-left: 1rem;
+		margin-left: 2.5rem;
+	}
+
+	.details ol {
+		list-style-type: decimal;
+		padding-left: 1rem;
+		margin-left: 1.5rem;
+	}
+
 	.blocktext {
 		display: unset;
 		display: block;
 		width: 23rem;
-	}
-
-	.sanitized ul {
-		/* color: red; */
-		list-style-type: disc;
-		padding-left: rem;
-	}
-
-	.sanitized ol {
-		list-style-type: decimal;
-		padding-left: 1rem;
 	}
 }
 @tailwind components;

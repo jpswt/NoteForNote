@@ -222,7 +222,7 @@ const PostDetails = ({
 						</div>
 
 						<div
-							className="mb-10 blog-link text-xl details sanitized"
+							className="mb-10 blog-link text-xl details"
 							dangerouslySetInnerHTML={sanitizeData()}
 						/>
 					</>
