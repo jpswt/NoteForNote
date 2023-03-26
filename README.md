@@ -1,6 +1,8 @@
 # Note For Note
 
-This application was created with Vite React.
+This application was created with Vite React. 
+
+Note for Note is a blog geared towards musicians and their stories.  
 
 ## Requirements
 
