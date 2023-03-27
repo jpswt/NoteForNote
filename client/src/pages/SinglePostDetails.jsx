@@ -44,7 +44,7 @@ const SinglePostDetails = () => {
 		return (
 			<div>
 				<Navbar />
-				<div className="flex">
+				<div className="flex lg:flex-col lg:w-[100%]">
 					<PostDetails
 						post={post}
 						title={title}

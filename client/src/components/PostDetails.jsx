@@ -119,7 +119,7 @@ const PostDetails = ({
 
 	return (
 		<div className="flex-9 flex flex-col items-center mt-1 bg-[#2a3d53] text-gray-100 ">
-			<div className=" py-2.5 pr-0 w-[80%]">
+			<div className=" py-2.5 pr-0 w-[75%]">
 				{post.photo && (
 					<img
 						className=" w-[450px] h-[180px] object-cover rounded-md my-2 mx-auto mb-4"
