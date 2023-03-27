@@ -67,13 +67,17 @@
 	.details ol {
 		list-style-type: decimal;
 		padding-left: 1rem;
-		margin-left: 1.5rem;
+		margin-left: 0.2rem;
 	}
 
 	.blocktext {
 		display: unset;
 		display: block;
 		width: 23rem;
+	}
+
+	.profile {
+		height: calc(100vh - 70px);
 	}
 }
 @tailwind components;

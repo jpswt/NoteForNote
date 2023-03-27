@@ -57,9 +57,9 @@ const Settings = () => {
 	};
 
 	return (
-		<div className="flex-9 mt-1 font-body">
+		<div className="flex-9 profile font-body flex flex-col items-center justify-center">
 			<form
-				className="flex flex-col justify-center items-center relative mt-8"
+				className="flex flex-col justify-center items-center relative"
 				onSubmit={handleUpdate}
 			>
 				<div className="flex items-center justify-center mb-2">
@@ -74,7 +74,7 @@ const Settings = () => {
 				</div>
 				<label htmlFor="imgInput" className="cursor-pointer">
 					<i className="fa-solid fa-camera text-white bg-gray-500 py-2 px-4 rounded-md mb-4">
-						<span className="font-body ml-2">Update Photo</span>
+						<span className="font-body ml-2">Select Photo</span>
 					</i>
 				</label>
 				<input
@@ -98,7 +98,7 @@ const Settings = () => {
 				/>
 				<button
 					type="submit"
-					className="w-40 accent text-white py-2 rounded-md mt-2 cursor-pointer"
+					className="w-40 bg-[#339999] text-white font-semibold py-2 rounded-md mt-2 cursor-pointer "
 				>
 					Update Profile
 				</button>

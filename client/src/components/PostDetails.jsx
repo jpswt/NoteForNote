@@ -93,12 +93,18 @@ const PostDetails = ({
 	};
 
 	const handleDelete = async () => {
-		try {
-			await axios.delete(`http://localhost:8000/posts/${post._id}`, {
-				data: { username: user.username },
-			});
-			navigate('/');
-		} catch (error) {}
+		if (window.confirm('Are you sure you want to delete this post?')) {
+			try {
+				await axios.delete(`http://localhost:8000/posts/${post._id}`, {
+					data: { username: user.username },
+				});
+				navigate('/');
+			} catch (error) {}
+		}
+	};
+
+	const handleScroll = () => {
+		window.scrollTo(0, 100);
 	};
 
 	const sanitizeData = () => ({
@@ -201,7 +207,10 @@ const PostDetails = ({
 										<div className="flex-1 text-md font-body mb-2">
 											<i
 												className="fa-solid fa-file-pen ml-2 cursor-pointer text-white bg-[#339999] p-2 rounded-md bg-opacity-80"
-												onClick={() => setUpdateInfo(true)}
+												onClick={() => {
+													setUpdateInfo(true);
+													handleScroll();
+												}}
 											>
 												<span className="font-body ml-2">Update</span>
 											</i>
@@ -228,13 +237,21 @@ const PostDetails = ({
 					</>
 				)}
 				{updateInfo ? (
-					<div className="flex items-center justify-center mt-4">
+					<div className="flex items-center justify-center mt-4 gap-6">
 						<button
-							className="accent text-white px-20 py-2 rounded-md cursor-pointer"
+							className="accent text-white px-10 py-2 rounded-md cursor-pointer font-semibold"
 							onClick={handleUpdate}
 						>
 							Update
 						</button>
+						<div class>
+							<button
+								className="bg-gray-400 text-white px-10 py-2 rounded-md cursor-pointer font-semibold"
+								onClick={() => setUpdateInfo(false)}
+							>
+								Cancel
+							</button>
+						</div>
 					</div>
 				) : null}
 			</div>
