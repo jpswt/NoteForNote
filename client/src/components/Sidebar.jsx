@@ -17,12 +17,12 @@ const Sidebar = ({ post, categories }) => {
 	};
 
 	return (
-		<div className="flex-4 font-body border-l-2 border-gray-500 text-gray-100 min-h-screen">
-			<StickyBox offsetTop={70} offsetBottom={220}>
+		<div className="flex-4 font-body border-l-2 border-gray-500 text-gray-100 min-h-screen lg:min-h-full">
+			<StickyBox offsetTop={70} offsetBottom={150}>
 				<div className=" bg-[#2a3d53] flex flex-col items-center w-full">
-					<div className="flex flex-col items-center pb-2 mb-10 w-[60%]">
+					<div className="flex flex-col items-center pb-2 mb-10 w-[60%] lg:w-[70%]">
 						{!user ? null : !post ? (
-							<>
+							<div className="flex flex-col items-center w-60% lg:hidden">
 								<span className="m-2 mt-10 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
 									ABOUT ME
 								</span>
@@ -46,7 +46,7 @@ const Sidebar = ({ post, categories }) => {
 										</button>
 									</Link>
 								)}
-							</>
+							</div>
 						) : (
 							<>
 								<span className="m-2 mt-10 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
@@ -68,16 +68,16 @@ const Sidebar = ({ post, categories }) => {
 							</>
 						)}
 					</div>
-					<div className="flex flex-col items-center w-[60%]">
-						<span className="m-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
+					<div className="flex flex-col flex-wrap items-center w-[60%] lg:w-[70%]">
+						<span className="my-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title ">
 							DISCOVER YOUR INTERESTS
 						</span>
 
-						<ul className=" text-lg flex-2 mb-8 mt-2 ">
+						<ul className=" text-lg flex-2 mb-8 mt-2 lg:flex lg:flex-2 lg:flex-wrap lg:justify-start lg:ml-4 ">
 							{categories.map((category, i) => (
 								<li
 									key={category._id}
-									className=" inline-block w-[50%] px-8 cursor-pointer mt-2 "
+									className="inline-block px-8 cursor-pointer mt-2 "
 									onClick={handleScroll}
 								>
 									<Link to={`/?category=${category.name}`}>
@@ -87,8 +87,8 @@ const Sidebar = ({ post, categories }) => {
 							))}
 						</ul>
 					</div>
-					<div className="flex flex-col w-[60%] mt-10">
-						<span className="m-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
+					<div className="flex flex-col w-[60%] mt-10 mb-20 lg:w-[70%] lg:mb-4">
+						<span className="my-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title">
 							FOLLOW US
 						</span>
 						<div className="flex ml-2 items-center justify-center gap-4 mt-4">
