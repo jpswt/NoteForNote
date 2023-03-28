@@ -11,17 +11,17 @@ const Navbar = ({ posts, setSearchResult }) => {
 	const publicFolder = 'http://localhost:8000/assets/';
 	const [openProfile, setOpenProfile] = useState(false);
 	const [openNav, setOpenNav] = useState(false);
-	const [showNav, setShowNav] = useState(false);
-	// console.log(posts);
-
+	const [showLogin, setShowLogin] = useState(false);
 	const { home } = useLocation();
 
 	useEffect(() => {
 		const handleSize = () => {
 			if (window.innerWidth > 1075) {
 				setOpenNav(false);
+				setShowLogin(false);
 			} else if (window.innerWidth < 1075) {
 				setOpenNav(false);
+				setShowLogin(true);
 			}
 		};
 		window.addEventListener('resize', handleSize);
@@ -85,16 +85,21 @@ const Navbar = ({ posts, setSearchResult }) => {
 				</div>
 			</Link>
 			<>
-				<div
-					className="items-center text-center text-gray-100 text-xl h-[40px] bg-[#339999] rounded-md mr-6 hidden lg:flex "
-					onClick={handleOpenNav}
-				>
-					{openNav ? (
-						<i class="fa-solid fa-xmark w-[40px]"></i>
-					) : (
-						<i class="fa-solid fa-bars w-[40px]"></i>
-					)}
+				<div className="lg:flex lg: items-center">
+					{/* Hamburger Menu for Mobile Nav */}
+					<div
+						className="items-center text-center text-gray-100 text-xl h-[40px] bg-[#339999] rounded-md mr-6 hidden lg:flex lg:cursor-pointer"
+						onClick={handleOpenNav}
+					>
+						{openNav ? (
+							<i class="fa-solid fa-xmark w-[40px]"></i>
+						) : (
+							<i class="fa-solid fa-bars w-[40px]"></i>
+						)}
+					</div>
 				</div>
+
+				{/* Nav Links */}
 				<ul
 					className={
 						'flex gap-8 mr-6 text-lg font-light cursor-pointer lg:fixed lg:top-[70px] lg:-right-[4%] lg:w-0 lg:overflow-x-hidden lg:flex-col lg:items-center lg:justify-start lg:gap-20 lg:bg-gray-400  lg:h-[90vh]  lg:text-center z-50 lg:transform lg:ease-in-out lg:duration-300 lg:bg-opacity-95  ' +
@@ -102,7 +107,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 					}
 				>
 					{location.pathname === '/' && user ? (
-						<li className="flex mr-4">
+						<li className="flex mr-4 lg:mr-3">
 							<div className="w-full relative">
 								<input
 									className=" border-gray-400 border-2 py-1 rounded-full px-4 outline-none"
@@ -155,12 +160,18 @@ const Navbar = ({ posts, setSearchResult }) => {
 								</span>
 							</>
 						) : (
-							<ul className="flex gap-6 text-lg font-light text-gray-100 font-body cursor-pointer">
-								<li className="accent px-3 py-1 rounded-md">
-									<Link to="/login">Login</Link>{' '}
+							<ul className="flex gap-6 text-lg font-light text-gray-100 font-body cursor-pointer lg:flex-col lg:gap-20">
+								<li className="bg-[#339999] px-3 py-1 rounded-md lg:bg-transparent lg:text-3xl lg:font-title lg:font-semibold">
+									<Link to="/login" className="lg:flex">
+										<i class="fa-solid fa-right-to-bracket hidden lg:block"></i>
+										<span className="lg:uppercase lg:ml-4">Login</span>
+									</Link>
 								</li>
-								<li className="accent px-3 py-1 rounded-md">
-									<Link to="/register">Register</Link>{' '}
+								<li className="bg-[#339999] px-3 py-1 rounded-md lg:bg-transparent lg:text-3xl lg:font-title lg:font-semibold">
+									<Link to="/register" className="lg:flex">
+										<i class="fa-solid fa-address-card hidden lg:block"></i>
+										<span className="lg:uppercase lg:ml-4">Sign Up</span>
+									</Link>
 								</li>
 							</ul>
 						)}
