@@ -2,7 +2,7 @@
 
 This application was created with Vite React. 
 
-Note for Note is a blog geared towards guitarists and their stories.  
+Note for Note is a MERN stack blog geared towards guitarists and their stories.  Users can read blog posts created by other users anytime.  Users can sign up and begin adding their stories to the community.
 
 ## Requirements
 
@@ -40,3 +40,5 @@ Note for Note is a blog geared towards guitarists and their stories.
   1. Either `npm run dev` or `yarn dev`
 
   React Application will run on `http://localhost:5174`
+
+## Note For Note Home Page 
