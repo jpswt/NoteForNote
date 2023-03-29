@@ -70,6 +70,12 @@ A user can update the post title and post body information in the rich text edit
 
 <img width="1484" alt="SinglePostUpdateRTE" src="https://user-images.githubusercontent.com/94721942/228423916-3b206051-8a56-4e7e-b5f2-491550670921.png">
 
+## Profile Page
+
+Users can update the their profile picture and bio tagline at anytime.
+
+<img width="1481" alt="Profile" src="https://user-images.githubusercontent.com/94721942/228424230-e0e5e38a-bf04-43d0-9b22-573bf9cd8daa.png">
+
 ## Category Filter
 
 Users can filter out community posts by category types.  This can be achieved by clicking items in the sidebar, by clicking the category chips attached to each post and using the search bar.  This examples has posts filtered out for the category of "Tone".
@@ -82,10 +88,5 @@ Users can use the enter keywords to search the post title, post body, date poste
 
 <img width="1484" alt="Dash_withSearch" src="https://user-images.githubusercontent.com/94721942/228419656-e26706f6-b2c9-40b9-b259-1a2bda560e3a.png">
 
-## Profile Page
-
-Users can update the their profile picture and bio tagline at anytime.
-
-<img width="1481" alt="Profile" src="https://user-images.githubusercontent.com/94721942/228424230-e0e5e38a-bf04-43d0-9b22-573bf9cd8daa.png">
 
 
