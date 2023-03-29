@@ -1,6 +1,7 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
 const app = express();
-const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
@@ -12,10 +13,8 @@ const path = require('path');
 
 const multer = require('multer');
 
-dotenv.config();
 app.use(express.json());
 app.use(cors());
-
 app.use('/assets', express.static(path.join(__dirname, '/assets')));
 
 mongoose
@@ -46,6 +45,10 @@ app.use('/users', userRoute);
 app.use('/posts', postRoute);
 app.use('/categories', categoryRoute);
 
-app.listen('8000', () => {
-	console.log('Server is running');
-});
+if (process.env.API_PORT) {
+	app.listen(process.env.API_PORT, () => {
+		console.log('Server is running');
+	});
+}
+
+module.exports = app;
