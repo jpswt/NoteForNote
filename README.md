@@ -55,6 +55,10 @@ This is the home page for a logged in community member.  It shows all community 
 
 ## Compose Page
 
+This is where a user can write and publish a post of their own to the community.  The user has the ability to add an image, use the rich text editor to add the text of their post and can select categories for their post using the checkboxes.
+
+<img width="1488" alt="Screenshot 2023-03-28 at 10 43 53 PM" src="https://user-images.githubusercontent.com/94721942/228421420-70efdc51-d8d9-4c33-9ad2-30071e94e9ae.png">
+
 ## Category Filter
 
 Users can filter out community posts by category types.  This can be achieved by clicking items in the sidebar, by clicking the category chips attached to each post and using the search bar.  This examples has posts filtered out for the category of "Tone".
