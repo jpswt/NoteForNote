@@ -2,7 +2,7 @@
 
 This application was created with Vite React. 
 
-Note for Note is a MERN stack blog geared towards guitarists and their stories.  Users can read blog posts created by other users anytime.  Users can sign up and begin adding their stories to the community.
+Note for Note is a MERN stack blog geared towards guitarists and their stories.  Anyone can read blog posts created by other users at anytime.  To compose your own stories and add to community, you will need to sign up.
 
 ## Requirements
 
@@ -53,6 +53,8 @@ This is the home page for a logged in community member.  It shows all community 
 
 <img width="1493" alt="Dash_LoggedIn" src="https://user-images.githubusercontent.com/94721942/228418138-6243a7b1-9a5d-400a-8754-1bb7cc5ee45c.png">
 
+## Compose Page
+
 ## Category Filter
 
 Users can filter out community posts by category types.  This can be achieved by clicking items in the sidebar, by clicking the category chips attached to each post and using the search bar.  This examples has posts filtered out for the category of "Tone".
@@ -63,5 +65,5 @@ Users can filter out community posts by category types.  This can be achieved by
 
 Users can use the enter keywords to search the post title, post body, date posted, username and categories to filter out those posts.  The following example uses the search to find a posts by a specific user named "Amanda"
 
-<img width="1492" alt="Dash_withSearch" src="https://user-images.githubusercontent.com/94721942/228419463-43f89266-763b-4bb0-96e8-9546958c8c69.png">
+<img width="1484" alt="Dash_withSearch" src="https://user-images.githubusercontent.com/94721942/228419656-e26706f6-b2c9-40b9-b259-1a2bda560e3a.png">
 
