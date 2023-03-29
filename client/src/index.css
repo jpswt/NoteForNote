@@ -79,23 +79,6 @@
 	.profile {
 		height: calc(100vh - 70px);
 	}
-
-	.mobile-nav {
-		position: fixed;
-		top: 70px;
-		right: -4%;
-		width: 0;
-		overflow-x: hidden;
-		height: 90vh;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: start;
-		text-align: center;
-		gap: 5rem;
-		background-color: hsl(218, 11%, 65%);
-		transition: 0.5s;
-	}
 }
 @tailwind components;
 @tailwind utilities;

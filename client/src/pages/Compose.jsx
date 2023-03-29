@@ -23,7 +23,7 @@ const Compose = () => {
 		return (
 			<div>
 				<Navbar />
-				<div className="flex">
+				<div className="flex lg:flex-col lg:w-[100%]">
 					<ComposePost categories={categories} />
 					<Sidebar categories={categories} />
 				</div>

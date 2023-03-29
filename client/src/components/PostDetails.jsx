@@ -141,14 +141,25 @@ const PostDetails = ({
 					<>
 						<h1 className="flex-2 text-3xl text-center font-body">{title}</h1>
 						<div className="flex justify-between items-center mt-2 mb-4 pb-1 font-body border-b-gray-200 border-b-2">
-							<div>
-								<span className="mr-6">
-									<span>Posted by: </span>
-									<Link to={`/?user=${post.username}`}>
-										<strong>{post.username}</strong>
-									</Link>
-								</span>
-								<span className="text-white">{formatDate}</span>
+							<div className="flex gap-4">
+								<div>
+									{' '}
+									<img
+										className="w-[45px] h-[45px] rounded-full border-opacity-0  shadow-lg object-cover overflow-hidden "
+										src={publicFolder + post?.profilePic}
+										alt=""
+										// onError={setDefault}
+									/>
+								</div>
+								<div className="flex flex-col items-start">
+									<span className="">
+										{/* <span>Posted by: </span> */}
+										<Link to={`/?user=${post.username}`}>
+											<strong>{post.username}</strong>
+										</Link>
+									</span>
+									<span className="text-white">{formatDate}</span>
+								</div>
 							</div>
 							<span className="flex gap-1 mb-1 ">
 								<EmailShareButton>

@@ -108,8 +108,8 @@ const ComposePost = ({ categories }) => {
 			)}
 			<form onSubmit={handleSubmit}>
 				<div className="flex items-center justify-center w-full ">
-					<div className="flex items-center justify-between w-[80%]">
-						<div className="w-full">
+					<div className="flex items-center justify-between w-[80%] relative lg:flex-wrap">
+						<div className="w-full ">
 							<label htmlFor="imgInput">
 								<i className="fa-solid fa-folder-plus text-xl cursor-pointer text-gray-100 p-2"></i>
 							</label>
@@ -120,7 +120,7 @@ const ComposePost = ({ categories }) => {
 								onChange={(e) => setPostImg(e.target.files[0])}
 							/>
 							<input
-								className=" primary border-b-2 border-gray-400 w-[90%] outline-none p-2 text-3xl mb-2 text-gray-100 bg-opacity-50"
+								className=" primary border-b-2 border-gray-400 w-[82%] outline-none p-2 text-3xl mb-2 text-gray-100 bg-opacity-50 md:w-[70%] md:text-2xl"
 								type="text"
 								placeholder="Title"
 								autoFocus={true}
@@ -128,7 +128,7 @@ const ComposePost = ({ categories }) => {
 							/>
 						</div>
 						<button
-							className=" accent py-1 px-2 text-white text-lg rounded-md cursor-pointer"
+							className=" accent py-1 px-2 text-white text-lg rounded-md cursor-pointer absolute top-4 right-0 "
 							type="submit"
 						>
 							Publish
@@ -148,7 +148,7 @@ const ComposePost = ({ categories }) => {
 				</div>
 				<div className="flex flex-col items-center justify-center">
 					<h3 className="my-4 text-2xl">Select Categories: </h3>
-					<div className="w-full items-center justify-center flex flex-wrap gap-6">
+					<div className="w-full items-center justify-center flex flex-wrap gap-6 lg:px-4 lg: mb-20 lg:w-[90%]">
 						{categories.map((cat, i) => (
 							<li key={i} className=" list-none ">
 								<input
