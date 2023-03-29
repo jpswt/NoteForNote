@@ -4,7 +4,7 @@ import DOMpurify from 'dompurify';
 import defaultPic from '../assets/default.jpeg';
 
 const SinglePost = ({ post }) => {
-	const publicFolder = 'http://localhost:8000/assets/';
+	const publicFolder = `${import.meta.env.VITE_NFN_URI}/assets/`;
 
 	const sanitizeData = () => ({
 		__html: DOMpurify.sanitize(post.description),
@@ -38,7 +38,13 @@ const SinglePost = ({ post }) => {
 						/>
 					</span>
 					<span className="font-body text-base">
-						{post.username} • {formatDate}
+						<Link
+							to={`/?user=${post.username}`}
+							className="font-semibold hover:text-gray-300"
+						>
+							{post.username}
+						</Link>{' '}
+						• {formatDate}
 					</span>
 				</div>
 				<div
@@ -58,11 +64,13 @@ const SinglePost = ({ post }) => {
 			</div>
 			<div>
 				{post.photo && (
-					<img
-						className="w-[100px] h-[100px] object-cover rounded-sm p-0 mx-6"
-						src={publicFolder + post.photo}
-						alt=""
-					/>
+					<Link to={`/posts/${post._id}`}>
+						<img
+							className="w-[100px] h-[100px] object-cover rounded-sm p-0 mx-6 hover:opacity-90"
+							src={publicFolder + post.photo}
+							alt=""
+						/>
+					</Link>
 				)}
 			</div>
 		</div>

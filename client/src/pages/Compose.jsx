@@ -10,7 +10,9 @@ const Compose = () => {
 
 	useEffect(() => {
 		const fetchCategories = async () => {
-			const response = await axios.get('http://localhost:8000/categories');
+			const response = await axios.get(
+				`${import.meta.env.VITE_NFN_URI}/categories`
+			);
 			setCategories(response.data);
 			setIsLoaded(true);
 		};

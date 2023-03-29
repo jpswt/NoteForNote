@@ -5,7 +5,7 @@ import defaultPic from '../assets/defaultAvatar.svg';
 
 const Settings = () => {
 	const { user, dispatch } = useContext(Context);
-	const publicFolder = 'http://localhost:8000/assets/';
+	const publicFolder = `${import.meta.env.VITE_NFN_URI}/assets/`;
 	const [img, setImg] = useState(null);
 	const [successMsg, setSuccessMsg] = useState(false);
 	const aboutRef = useRef();
@@ -20,12 +20,12 @@ const Settings = () => {
 			data.append('file', img);
 			user.profilePic = imgName;
 			try {
-				await axios.post('http://localhost:8000/upload', data);
+				await axios.post(`${import.meta.env.VITE_NFN_URI}/upload`, data);
 			} catch (err) {}
 		}
 		try {
 			const response = await axios.put(
-				`http://localhost:8000/users/${user._id}`,
+				`${import.meta.env.VITE_NFN_URI}/users/${user._id}`,
 				{
 					userId: user._id,
 					about: aboutRef.current.value,

@@ -74,7 +74,7 @@ const PostDetails = ({
 	const { user } = useContext(Context);
 	const [openEdit, setOpenEdit] = useState(false);
 	const [updateInfo, setUpdateInfo] = useState(false);
-	const publicFolder = 'http://localhost:8000/assets/';
+	const publicFolder = `${import.meta.env.VITE_NFN_URI}/assets/`;
 
 	const handleOpenEdit = () => {
 		setOpenEdit(!openEdit);
@@ -82,7 +82,7 @@ const PostDetails = ({
 
 	const handleUpdate = async () => {
 		try {
-			await axios.put(`http://localhost:8000/posts/${post._id}`, {
+			await axios.put(`${import.meta.env.VITE_NFN_URI}/posts/${post._id}`, {
 				username: user.username,
 				title: title,
 				description: description,
@@ -95,9 +95,12 @@ const PostDetails = ({
 	const handleDelete = async () => {
 		if (window.confirm('Are you sure you want to delete this post?')) {
 			try {
-				await axios.delete(`http://localhost:8000/posts/${post._id}`, {
-					data: { username: user.username },
-				});
+				await axios.delete(
+					`${import.meta.env.VITE_NFN_URI}/posts/${post._id}`,
+					{
+						data: { username: user.username },
+					}
+				);
 				navigate('/');
 			} catch (error) {}
 		}

@@ -18,7 +18,7 @@ const Login = () => {
 		dispatch({ type: 'LOGIN_START' });
 
 		await axios
-			.post('http://localhost:8000/auth/login', {
+			.post(`${import.meta.env.VITE_NFN_URI}/auth/login`, {
 				email: userRef.current.value,
 				password: passwordRef.current.value,
 			})

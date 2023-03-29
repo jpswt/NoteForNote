@@ -15,7 +15,7 @@ const Register = () => {
 		e.preventDefault();
 
 		await axios
-			.post('http://localhost:8000/auth/register', {
+			.post(`${import.meta.env.VITE_NFN_URI}/auth/register`, {
 				username,
 				email,
 				password,

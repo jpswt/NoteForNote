@@ -20,7 +20,9 @@ const Home = () => {
 
 	useEffect(() => {
 		const fetchPosts = async () => {
-			const response = await axios.get(`http://localhost:8000/posts/${search}`);
+			const response = await axios.get(
+				`${import.meta.env.VITE_NFN_URI}/posts/${search}`
+			);
 			setPosts(response.data);
 			setSearchResult(response.data);
 			setIsLoaded(true);
@@ -30,7 +32,9 @@ const Home = () => {
 
 	useEffect(() => {
 		const fetchCategories = async () => {
-			const response = await axios.get('http://localhost:8000/categories');
+			const response = await axios.get(
+				`${import.meta.env.VITE_NFN_URI}/categories`
+			);
 			setCategories(response.data);
 		};
 		fetchCategories();

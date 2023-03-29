@@ -85,11 +85,14 @@ const ComposePost = ({ categories }) => {
 			postData.append('file', postImg);
 			newPost.photo = postImgName;
 			try {
-				await axios.post('http://localhost:8000/upload', postData);
+				await axios.post(`${import.meta.env.VITE_NFN_URI}/upload`, postData);
 			} catch (err) {}
 		}
 		try {
-			const res = await axios.post('http://localhost:8000/posts', newPost);
+			const res = await axios.post(
+				`${import.meta.env.VITE_NFN_URI}/posts`,
+				newPost
+			);
 			window.location.replace('/posts/' + res.data._id);
 			// console.log(newPost);
 		} catch (err) {}

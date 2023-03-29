@@ -18,7 +18,9 @@ const SinglePostDetails = () => {
 
 	useEffect(() => {
 		const getPost = async () => {
-			const response = await axios.get(`http://localhost:8000/posts/${id}`);
+			const response = await axios.get(
+				`${import.meta.env.VITE_NFN_URI}/posts/${id}`
+			);
 			// console.log(response.data);
 			setPost(response.data);
 			setTitle(response.data.title);
@@ -32,7 +34,9 @@ const SinglePostDetails = () => {
 
 	useEffect(() => {
 		const fetchCategories = async () => {
-			const response = await axios.get('http://localhost:8000/categories');
+			const response = await axios.get(
+				`${import.meta.env.VITE_NFN_URI}/categories`
+			);
 			setCategories(response.data);
 		};
 		fetchCategories();
