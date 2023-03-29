@@ -30,7 +30,7 @@ module.exports = {
 			'2xl': { max: '1535px' },
 			// => @media (max-width: 1535px) { ... }
 
-			'xl': { max: '1300px' },
+			'xl': { max: '1434px' },
 			// => @media (max-width: 1279px) { ... }
 
 			'lg': { max: '1075px' },

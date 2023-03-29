@@ -76,7 +76,7 @@ const Sidebar = ({ post, categories }) => {
 							{categories.map((category, i) => (
 								<li
 									key={category._id}
-									className="inline-block px-8 cursor-pointer mt-2 "
+									className="inline-block w-1/2 px-9 cursor-pointer mt-2 xl:w-[48%] xl:px-5 "
 									onClick={handleScroll}
 								>
 									<Link to={`/?category=${category.name}`}>
