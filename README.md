@@ -2,7 +2,7 @@
 
 This application was created with Vite React. 
 
-Note for Note is a MERN stack blog geared towards guitarists and their stories.  Anyone can read blog posts created by other users at anytime.  To compose your own stories and add to community, you will need to sign up.
+Note for Note is a MERN stack blog geared towards guitarists and their stories.  Anyone can read blog posts created by other users at anytime without becoming a member.  But to compose your own stories and add to community, a user must sign up for an account.
 
 ## Requirements
 
