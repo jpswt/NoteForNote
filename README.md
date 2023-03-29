@@ -59,6 +59,11 @@ This is where a user can write and publish a post of their own to the community.
 
 <img width="1488" alt="Screenshot 2023-03-28 at 10 43 53 PM" src="https://user-images.githubusercontent.com/94721942/228421420-70efdc51-d8d9-4c33-9ad2-30071e94e9ae.png">
 
+## Single Post
+This ia a page that display's the entire post.  If the post was created by the current user, the ability to edit the post will be available.  You can also share this post with other media site by selecting the respective icons.
+
+<img width="1488" alt="SPost" src="https://user-images.githubusercontent.com/94721942/228422931-00c0db0a-c58c-4d5d-8931-23fec0307661.png">
+
 ## Category Filter
 
 Users can filter out community posts by category types.  This can be achieved by clicking items in the sidebar, by clicking the category chips attached to each post and using the search bar.  This examples has posts filtered out for the category of "Tone".
