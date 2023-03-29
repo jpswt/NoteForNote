@@ -119,7 +119,7 @@ const PostDetails = ({
 
 	return (
 		<div className="flex-9 flex flex-col items-center mt-1 bg-[#2a3d53] text-gray-100 ">
-			<div className=" py-2.5 pr-0 w-[80%]">
+			<div className=" py-2.5 pr-0 w-[75%]">
 				{post.photo && (
 					<img
 						className=" w-[450px] h-[180px] object-cover rounded-md my-2 mx-auto mb-4"
@@ -141,32 +141,43 @@ const PostDetails = ({
 					<>
 						<h1 className="flex-2 text-3xl text-center font-body">{title}</h1>
 						<div className="flex justify-between items-center mt-2 mb-4 pb-1 font-body border-b-gray-200 border-b-2">
-							<div>
-								<span className="mr-6">
-									<span>Posted by: </span>
-									<Link to={`/?user=${post.username}`}>
-										<strong>{post.username}</strong>
-									</Link>
-								</span>
-								<span className="text-white">{formatDate}</span>
+							<div className="flex gap-4">
+								<div>
+									{' '}
+									<img
+										className="w-[45px] h-[45px] rounded-full border-opacity-0  shadow-lg object-cover overflow-hidden "
+										src={publicFolder + post?.profilePic}
+										alt=""
+										// onError={setDefault}
+									/>
+								</div>
+								<div className="flex flex-col items-start">
+									<span className="">
+										{/* <span>Posted by: </span> */}
+										<Link to={`/?user=${post.username}`}>
+											<strong>{post.username}</strong>
+										</Link>
+									</span>
+									<span className="text-white text-sm">{formatDate}</span>
+								</div>
 							</div>
 							<span className="flex gap-1 mb-1 ">
 								<EmailShareButton>
-									<EmailIcon size={32} round />
+									<EmailIcon size={30} round />
 								</EmailShareButton>
 								<FacebookShareButton
 									url={'https://www.note4note.com'}
 									quote={post.title}
 									hashtag="#NoteForNote"
 								>
-									<FacebookIcon size={32} round />
+									<FacebookIcon size={30} round />
 								</FacebookShareButton>
 								<TwitterShareButton
 									url={window.location.href}
 									quote={post.title}
 									hashtag="NoteForNote"
 								>
-									<TwitterIcon size={32} round />
+									<TwitterIcon size={30} round />
 								</TwitterShareButton>
 								<RedditShareButton
 									url={window.location.href}
@@ -174,7 +185,7 @@ const PostDetails = ({
 									hashtag="NoteForNote"
 									title={post.title}
 								>
-									<RedditIcon size={32} round />
+									<RedditIcon size={30} round />
 								</RedditShareButton>
 							</span>
 						</div>
@@ -231,7 +242,7 @@ const PostDetails = ({
 						</div>
 
 						<div
-							className="mb-10 blog-link text-xl details"
+							className="mb-10 blog-link text-lg details lg:text-xl"
 							dangerouslySetInnerHTML={sanitizeData()}
 						/>
 					</>

@@ -26,6 +26,22 @@ module.exports = {
 			login:
 				"url('https://img.freepik.com/free-vector/music-notes-stave-staff_1284-44373.jpg?w=996&t=st=1679327868~exp=1679328468~hmac=3ac1da87f88ccc169b7c1f2a9f3977b517b57f24753ddde78608c6360cd4cecf')",
 		},
+		screens: {
+			'2xl': { max: '1535px' },
+			// => @media (max-width: 1535px) { ... }
+
+			'xl': { max: '1434px' },
+			// => @media (max-width: 1279px) { ... }
+
+			'lg': { max: '1075px' },
+			// => @media (max-width: 1023px) { ... }
+
+			'md': { max: '767px' },
+			// => @media (max-width: 767px) { ... }
+
+			'sm': { max: '639px' },
+			// => @media (max-width: 639px) { ... }
+		},
 	},
 	plugins: [require('@tailwindcss/line-clamp')],
 };

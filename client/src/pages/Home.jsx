@@ -47,7 +47,7 @@ const Home = () => {
 					setSearchResult={setSearchResult}
 				/>
 				{user ? null : <Header />}
-				<div className="flex">
+				<div className="flex lg:flex-col">
 					<Posts
 						posts={posts}
 						searchResult={searchResult}
