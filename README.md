@@ -49,7 +49,7 @@ This is the homepage for all users to read articles written by other community m
 
 ## Note For Note Members Home Page
 
-This is the home page for a logged in community member.  It shows the posts, the user's profile pic and tagline as well as give access to write their own posts.
+This is the home page for a logged in community member.  It shows all community posts, the user's profile pic and tagline as well as give access to write their own posts.  User can filter out their own posts clicking their name under their profile section.
 
 <img width="1484" alt="Dash_LoggedIn" src="https://user-images.githubusercontent.com/94721942/228416992-edac7057-8448-49c1-b0a4-6fd04d44daf1.png">
 
