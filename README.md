@@ -55,7 +55,7 @@ This is the home page for a logged in community member.  It shows all community 
 
 ## Note For Note Category Filter
 
-Users can filter out community posts by category types by clicking items in the sidebar or by clicking the category chips attached to each post.
+Users can filter out community posts by category types by clicking items in the sidebar or by clicking the category chips attached to each post.  This examples has posts filtered out for the category of "Tone".
 
 <img width="1489" alt="Dash_withCategoryFilter" src="https://user-images.githubusercontent.com/94721942/228417584-9bdc5bb3-b633-4c43-888d-ded8ee267ea2.png">
 
