@@ -1,4 +1,4 @@
-# Note For Note
+# Note For Note - A Guitarist's Blog
 
 This application was created with Vite React. 
 
