@@ -47,13 +47,13 @@ This is the homepage for all users to read articles written by other community m
 
 <img width="1494" alt="Dash_LoggedOut" src="https://user-images.githubusercontent.com/94721942/228416300-b49d3326-f2ce-45e0-9545-d209db9bf919.png">
 
-## Note For Note Members Home Page
+## Members Home Page
 
 This is the home page for a logged in community member.  It shows all community posts, the user's profile pic and tagline as well as give access to write their own posts.  Users can filter out their own posts by clicking their name under the "About Me" section.
 
 <img width="1493" alt="Dash_LoggedIn" src="https://user-images.githubusercontent.com/94721942/228418138-6243a7b1-9a5d-400a-8754-1bb7cc5ee45c.png">
 
-## Note For Note Category Filter
+## Category Filter
 
 Users can filter out community posts by category types by clicking items in the sidebar or by clicking the category chips attached to each post.  This examples has posts filtered out for the category of "Tone".
 
