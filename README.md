@@ -59,10 +59,16 @@ This is where a user can write and publish a post of their own to the community.
 
 <img width="1488" alt="Screenshot 2023-03-28 at 10 43 53 PM" src="https://user-images.githubusercontent.com/94721942/228421420-70efdc51-d8d9-4c33-9ad2-30071e94e9ae.png">
 
-## Single Post
-This ia a page that display's the entire post.  If the post was created by the current user, the ability to edit the post will be available.  You can also share this post with other media site by selecting the respective icons.
+## Single Post - User's Post
+This ia a page that display's the entire post.  If the post was created by the current user, the ability to edit the post will be available.  This option is not available on posts that were not created by the user.  A user can either update the post information or delete the post completely.  In addition, you can also share this post with other media site by selecting the respective icons.
 
 <img width="1488" alt="SPost" src="https://user-images.githubusercontent.com/94721942/228422931-00c0db0a-c58c-4d5d-8931-23fec0307661.png">
+
+## Single Post - User Update
+
+A user can update the post title and post body information in the rich text editor provided.  Once all changes are made and submitted the user is redirected back to the original single page post.
+
+<img width="1484" alt="SinglePostUpdateRTE" src="https://user-images.githubusercontent.com/94721942/228423916-3b206051-8a56-4e7e-b5f2-491550670921.png">
 
 ## Category Filter
 
@@ -75,4 +81,11 @@ Users can filter out community posts by category types.  This can be achieved by
 Users can use the enter keywords to search the post title, post body, date posted, username and categories to filter out those posts.  The following example uses the search to find a posts by a specific user named "Amanda"
 
 <img width="1484" alt="Dash_withSearch" src="https://user-images.githubusercontent.com/94721942/228419656-e26706f6-b2c9-40b9-b259-1a2bda560e3a.png">
+
+## Profile Page
+
+Users can update the their profile picture and bio tagline at anytime.
+
+<img width="1481" alt="Profile" src="https://user-images.githubusercontent.com/94721942/228424230-e0e5e38a-bf04-43d0-9b22-573bf9cd8daa.png">
+
 
