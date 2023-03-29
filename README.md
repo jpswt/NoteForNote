@@ -42,3 +42,7 @@ Note for Note is a MERN stack blog geared towards guitarists and their stories. 
   React Application will run on `http://localhost:5174`
 
 ## Note For Note Home Page 
+
+This is the homepage for all users to read articles written by other community members.  It also provides the ability to login to their account or sign up to become a member.
+
+<img width="1494" alt="Dash_LoggedOut" src="https://user-images.githubusercontent.com/94721942/228416300-b49d3326-f2ce-45e0-9545-d209db9bf919.png">
