@@ -128,7 +128,8 @@ const Navbar = ({ posts, setSearchResult }) => {
 				<ul
 					className={
 						'flex gap-8 mr-6 text-lg font-light cursor-pointer lg:pt-10 lg:fixed lg:top-[70px] lg:-right-[4%] lg:w-0 lg:overflow-x-hidden lg:flex-col lg:items-center lg:justify-start lg:gap-10 lg:bg-gray-400  lg:h-[90vh]  lg:text-center z-50 lg:transform lg:ease-in-out lg:duration-300 lg:bg-opacity-95  ' +
-						(openNav ? 'lg:w-[300px]' : 'lg:w-0 ')
+						(openNav ? 'lg:w-[300px]' : 'lg:w-0 ') +
+						(openNav ? 'sm:w-full' : 'sm:w-0')
 					}
 				>
 					<li>
