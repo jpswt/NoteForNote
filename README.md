@@ -89,4 +89,17 @@ Users can use the enter keywords to search the post title, post body, date poste
 <img width="1484" alt="Dash_withSearch" src="https://user-images.githubusercontent.com/94721942/228419656-e26706f6-b2c9-40b9-b259-1a2bda560e3a.png">
 
 
+## Technologies Used
+Frontend:
+- ReactJS
+- React Router DOM
+- React Quill RTE
+- NodeJS
+- Tailwind CSS
 
+
+Backend:
+- MongoDB
+- Express.JS
+- NodeJS
+- Multer Image Upload
