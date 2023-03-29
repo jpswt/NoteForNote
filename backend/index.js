@@ -1,5 +1,4 @@
-const dotenv = require('dotenv');
-dotenv.config();
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -10,6 +9,7 @@ const userRoute = require('./routes/users');
 const postRoute = require('./routes/posts');
 const categoryRoute = require('./routes/categories');
 const path = require('path');
+const PORT = process.env.PORT || 6000;
 
 const multer = require('multer');
 
@@ -33,10 +33,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// app.use('/', (req, res) => {
-// 	console.log('Welcome to my server');
-// 	res.json('Welcome to my MongoDB Blog Server');
-// });
+app.use('/', (req, res) => {
+	console.log('Welcome to my server');
+	res.json('Welcome to my MongoDB Blog Server');
+});
 app.post('/upload', upload.single('file'), (req, res) => {
 	res.status(200).json('file has been uploaded');
 });
@@ -45,10 +45,8 @@ app.use('/users', userRoute);
 app.use('/posts', postRoute);
 app.use('/categories', categoryRoute);
 
-if (process.env.API_PORT) {
-	app.listen(process.env.API_PORT, () => {
+mongoose.connection.once('open', () => {
+	app.listen(PORT, () => {
 		console.log('Server is running');
 	});
-}
-
-module.exports = app;
+});
