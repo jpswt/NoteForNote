@@ -53,7 +53,7 @@ This is the home page for a logged in community member.  It shows all community 
 
 <img width="1484" alt="Dash_LoggedIn" src="https://user-images.githubusercontent.com/94721942/228416992-edac7057-8448-49c1-b0a4-6fd04d44daf1.png">
 
-##Note For Note Category Filter
+## Note For Note Category Filter
 
 Users can filter out community posts by category types by clicking items in the sidebar or by clicking the category chips attached to each post.
 
