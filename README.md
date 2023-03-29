@@ -46,3 +46,11 @@ Note for Note is a MERN stack blog geared towards guitarists and their stories. 
 This is the homepage for all users to read articles written by other community members.  It also provides the ability to login to their account or sign up to become a member.
 
 <img width="1494" alt="Dash_LoggedOut" src="https://user-images.githubusercontent.com/94721942/228416300-b49d3326-f2ce-45e0-9545-d209db9bf919.png">
+
+## Note For Note Members Home Page
+
+This is the home page for a logged in community member.  It shows the posts, the user's profile pic and tagline as well as give access to write their own posts.
+
+<img width="1484" alt="Dash_LoggedIn" src="https://user-images.githubusercontent.com/94721942/228416992-edac7057-8448-49c1-b0a4-6fd04d44daf1.png">
+
+
