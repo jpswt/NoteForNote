@@ -24,7 +24,9 @@ const SinglePost = ({ post }) => {
 		<div className="w-[75%] mx-10 flex items-center border-b-2 border-gray-400 text-gray-100 last:border-b-0 lg:last:mb-14 ">
 			<div className="flex flex-col w-full my-6">
 				<Link to={`/posts/${post._id}`}>
-					<span className=" text-3xl font-semibold ">{post.title}</span>
+					<span className=" text-3xl font-semibold hover:text-gray-300 ">
+						{post.title}
+					</span>
 				</Link>
 				<div className="mb-2 mt-4 flex items-center">
 					<span className="mr-4">

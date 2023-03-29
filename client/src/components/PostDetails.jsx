@@ -158,26 +158,26 @@ const PostDetails = ({
 											<strong>{post.username}</strong>
 										</Link>
 									</span>
-									<span className="text-white">{formatDate}</span>
+									<span className="text-white text-sm">{formatDate}</span>
 								</div>
 							</div>
 							<span className="flex gap-1 mb-1 ">
 								<EmailShareButton>
-									<EmailIcon size={32} round />
+									<EmailIcon size={30} round />
 								</EmailShareButton>
 								<FacebookShareButton
 									url={'https://www.note4note.com'}
 									quote={post.title}
 									hashtag="#NoteForNote"
 								>
-									<FacebookIcon size={32} round />
+									<FacebookIcon size={30} round />
 								</FacebookShareButton>
 								<TwitterShareButton
 									url={window.location.href}
 									quote={post.title}
 									hashtag="NoteForNote"
 								>
-									<TwitterIcon size={32} round />
+									<TwitterIcon size={30} round />
 								</TwitterShareButton>
 								<RedditShareButton
 									url={window.location.href}
@@ -185,7 +185,7 @@ const PostDetails = ({
 									hashtag="NoteForNote"
 									title={post.title}
 								>
-									<RedditIcon size={32} round />
+									<RedditIcon size={30} round />
 								</RedditShareButton>
 							</span>
 						</div>
@@ -242,7 +242,7 @@ const PostDetails = ({
 						</div>
 
 						<div
-							className="mb-10 blog-link text-xl details"
+							className="mb-10 blog-link text-lg details lg:text-xl"
 							dangerouslySetInnerHTML={sanitizeData()}
 						/>
 					</>

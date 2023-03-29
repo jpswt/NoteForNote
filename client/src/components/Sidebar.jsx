@@ -23,7 +23,7 @@ const Sidebar = ({ post, categories }) => {
 					<div className="flex flex-col items-center pb-2 mb-10 w-[60%] h-full lg:w-full lg:mb-0 lg:pb-0">
 						{!user ? null : !post ? (
 							<div className="flex flex-col items-center w-60% lg:hidden">
-								<span className="m-2 mt-10 p-1 w-[100%] border-solid border-b-2 border-gray-500 font-semibold text-center text-lg font-title">
+								<span className="m-2 mt-10 p-1 w-full border-solid border-b-2 border-gray-500 font-semibold text-center text-lg font-title">
 									ABOUT ME
 								</span>
 								<img
@@ -38,7 +38,7 @@ const Sidebar = ({ post, categories }) => {
 									</p>
 								</Link>
 								{user.about ? (
-									<p className="px-12 pt-2 pb-6">{user.about}</p>
+									<p className="pl-8 pt-2 pb-6 lg:pr-8">{user.about}</p>
 								) : (
 									<Link to="/profile">
 										<button className="accent text-white px-4 py-2 rounded-md mt-6 ">
@@ -48,8 +48,8 @@ const Sidebar = ({ post, categories }) => {
 								)}
 							</div>
 						) : (
-							<div className="flex flex-col items-center w-[100%] ">
-								<span className="m-2 mt-10 p-1 w-[100%] border-solid border-b-2 border-gray-500 font-semibold text-center text-lg font-title lg:border-t-2 lg:border-b-0 lg:pt-4 lg:mt-0">
+							<div className="flex flex-col items-center w-full ">
+								<span className="m-2 mt-10 p-1 w-full border-solid border-b-2 border-gray-500 font-semibold text-center text-lg font-title lg:border-t-2 lg:border-b-0 lg:pt-4 lg:mt-0">
 									POSTED BY
 								</span>
 								<img
@@ -63,12 +63,12 @@ const Sidebar = ({ post, categories }) => {
 										{post.username}
 									</p>
 								</Link>
-								<p className="px-12 pt-2 pb-6">{post.about}</p>
+								<p className="pl-8 pt-4 pb-6 lg:pr-8">{post.about}</p>
 							</div>
 						)}
 					</div>
 					<div className="flex flex-col flex-wrap items-center w-[60%] lg:w-[75%] lg:hidden">
-						<span className="my-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title ">
+						<span className="my-2 mt-0 p-1 w-full border-solid border-b-2 border-gray-400 font-semibold text-center text-lg font-title ">
 							DISCOVER YOUR INTERESTS
 						</span>
 
@@ -76,7 +76,7 @@ const Sidebar = ({ post, categories }) => {
 							{categories.map((category, i) => (
 								<li
 									key={category._id}
-									className="inline-block w-1/2 px-9 cursor-pointer mt-2 xl:w-[48%] xl:px-5 "
+									className="inline-block w-1/2 mt-2 px-9 cursor-pointer hover:text-gray-400 xl:w-[48%] xl:px-5 "
 									onClick={handleScroll}
 								>
 									<Link to={`/?category=${category.name}`}>
@@ -86,15 +86,23 @@ const Sidebar = ({ post, categories }) => {
 							))}
 						</ul>
 					</div>
-					<div className="flex flex-col w-[60%] mt-10 mb-20 lg:w-[100%] lg:mb-4 lg:mt-0">
-						<span className="my-2 mt-0 p-1 w-[100%] border-solid border-b-2 border-gray-500 font-semibold text-center text-lg font-title lg:border-t-2 lg:border-b-0 lg:pt-4 lg:mb-0">
+					<div className="flex flex-col w-[60%] mt-10 mb-20 lg:w-full lg:mb-4 lg:mt-0">
+						<span className="my-2 mt-0 p-1 w-full border-solid border-b-2 border-gray-500 font-semibold text-center text-lg font-title lg:border-t-2 lg:border-b-0 lg:pt-4 lg:mb-0">
 							FOLLOW US
 						</span>
-						<div className="flex ml-2 items-center justify-center gap-4 mt-4 lg:mt-0">
-							<i class="fa-brands fa-facebook text-3xl "></i>
-							<i class="fa-brands fa-instagram text-3xl "></i>
-							<i class="fa-brands fa-twitter text-3xl "></i>
-							<i class="fa-brands fa-youtube text-3xl "></i>
+						<div className="flex ml-2 items-center justify-center gap-6 mt-4 lg:mt-0 lg:gap-8">
+							<a target="_blank" href={'https://www.facebook.com/'}>
+								<i class="fa-brands fa-facebook text-3xl hover:text-gray-400 "></i>
+							</a>
+							<a target="_blank" href={'https://www.instagram.com/'}>
+								<i class="fa-brands fa-instagram text-3xl hover:text-gray-400 "></i>
+							</a>
+							<a href="">
+								<i class="fa-brands fa-twitter text-3xl hover:text-gray-400 "></i>
+							</a>
+							<a href="">
+								<i class="fa-brands fa-youtube text-3xl hover:text-gray-400 "></i>
+							</a>
 						</div>
 					</div>
 				</div>

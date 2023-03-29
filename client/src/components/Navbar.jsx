@@ -68,7 +68,6 @@ const Navbar = ({ posts, setSearchResult }) => {
 					})
 					.toLowerCase()
 					.includes(target)
-			// formatDate.toLowerCase().includes(target)
 		);
 		setSearchResult(results);
 	};
@@ -132,21 +131,6 @@ const Navbar = ({ posts, setSearchResult }) => {
 						(openNav ? 'lg:w-[300px]' : 'lg:w-0 ')
 					}
 				>
-					{/* {location.pathname === '/' && user ? (
-						<li className="flex mr-4 lg:mr-3 lg:mt-6">
-							<div className="w-full relative">
-								<input
-									className=" border-gray-400 border-2 py-1 rounded-full px-4 outline-none"
-									type="text"
-									id="search"
-									placeholder="Search..."
-									autoFocus={true}
-									onChange={handleSearch}
-								/>
-								<i className="fa-solid fa-magnifying-glass text-lg text-gray-400 ml-8 absolute top-1 right-4"></i>
-							</div>
-						</li>
-					) : null} */}
 					<li>
 						<Link to="/">
 							<i className="fa-solid fa-house text-gray-100 text-3xl lg:mr-8">
