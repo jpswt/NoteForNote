@@ -33,10 +33,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-app.use('/', (req, res) => {
-	console.log('Welcome to my server');
-	res.json('Welcome to my MongoDB Blog Server');
-});
+// app.use('/', (req, res) => {
+// 	console.log('Welcome to my server');
+// 	res.json('Welcome to my MongoDB Blog Server');
+// });
 app.post('/upload', upload.single('file'), (req, res) => {
 	res.status(200).json('file has been uploaded');
 });
