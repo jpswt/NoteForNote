@@ -91,6 +91,10 @@
 		width: 23rem;
 	}
 
+	.blockmobile {
+		width: 20rem;
+	}
+
 	.profile {
 		height: calc(100vh - 70px);
 	}

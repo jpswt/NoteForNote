@@ -83,7 +83,10 @@ const Settings = () => {
 					className="hidden"
 					onChange={(e) => setImg(e.target.files[0])}
 				/>
-				<label htmlFor="" className="blocktext text-gray-100 text-lg">
+				<label
+					htmlFor=""
+					className="blocktext text-gray-100 text-lg sm:blockmobile"
+				>
 					About You:
 				</label>
 				<textarea
