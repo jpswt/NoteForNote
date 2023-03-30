@@ -48,14 +48,6 @@ const Settings = () => {
 		}
 	};
 
-	// const handleDelete = async (id) => {
-	// 	try {
-	// 		const response = await axios.delete(`http://localhost:8000/${user._id}`)
-	// 		const data = await response.json()
-	// 	}
-
-	// }
-
 	const setDefault = (e) => {
 		e.target.src = defaultPic;
 	};
