@@ -36,7 +36,7 @@ const Settings = () => {
 			// window.location.reload();
 			setSuccessMsg(true);
 			setTimeout(() => {
-				window.location.reload('/profile');
+				window.location.reload(true);
 			}, 1500);
 			// console.log(updateUser);
 		} catch (err) {
