@@ -85,14 +85,14 @@ const Navbar = ({ posts, setSearchResult }) => {
 			<div className="flex items-center">
 				<Link to="/">
 					<div className="flex items-center justify-center ml-6">
-						<div className="flex items-center gap-2 mr-6 sm:mr-9">
+						<div className="flex items-center gap-2 mr-6 sm:mr-8">
 							<img src={guitarPick} alt="" className="w-[40px] h-[40px]" />
 							<img src={logo} alt="" className="w-[80px] sm: hidden" />
 						</div>
 					</div>
 				</Link>
 				{location.pathname === '/' && user ? (
-					<li className="flex mr-4 ">
+					<li className="flex mr-0 ">
 						<div className="w-full relative">
 							<input
 								className=" border-gray-400 border-2 py-1 rounded-full px-4 outline-none"
