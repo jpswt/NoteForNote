@@ -2,7 +2,6 @@ import React, { useContext, useRef, useState } from 'react';
 import { Context } from '../context/Context';
 import axios from 'axios';
 import defaultPic from '../assets/defaultAvatar.svg';
-import { useNavigate } from 'react-router';
 
 const Settings = () => {
 	const { user, dispatch } = useContext(Context);
@@ -10,7 +9,6 @@ const Settings = () => {
 	const [img, setImg] = useState(null);
 	const [successMsg, setSuccessMsg] = useState(false);
 	const aboutRef = useRef();
-	const navigate = useNavigate();
 
 	const handleUpdate = async (e) => {
 		e.preventDefault();
@@ -38,13 +36,21 @@ const Settings = () => {
 			// window.location.reload();
 			setSuccessMsg(true);
 			setTimeout(() => {
-				setSuccessMsg(false);
+				window.location.reload();
 			}, 1500);
 			// console.log(updateUser);
 		} catch (err) {
 			dispatch({ type: 'UPDATE_FAIL' });
 		}
 	};
+
+	// const handleDelete = async (id) => {
+	// 	try {
+	// 		const response = await axios.delete(`http://localhost:8000/${user._id}`)
+	// 		const data = await response.json()
+	// 	}
+
+	// }
 
 	const setDefault = (e) => {
 		e.target.src = defaultPic;
