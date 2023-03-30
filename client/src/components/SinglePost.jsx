@@ -66,7 +66,7 @@ const SinglePost = ({ post }) => {
 				{post.photo && (
 					<Link to={`/posts/${post._id}`}>
 						<img
-							className="w-[100px] h-[100px] object-cover rounded-sm p-0 mx-6 hover:opacity-90"
+							className="w-[100px] h-[100px] object-cover rounded-sm p-0 mx-6 hover:opacity-90 sm:w-[75px] sm:h-[75px]"
 							src={publicFolder + post.photo}
 							alt=""
 						/>
