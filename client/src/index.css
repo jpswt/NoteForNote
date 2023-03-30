@@ -70,11 +70,12 @@
 		margin-left: 0.2rem;
 	}
 
-	.clamp {
-		overflow: hidden;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 3;
+	.clamp p {
+		display: none;
+	}
+
+	.clamp p:first-child {
+		display: block;
 	}
 
 	.blocktext {
