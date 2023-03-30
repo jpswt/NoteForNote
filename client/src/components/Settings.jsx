@@ -92,7 +92,7 @@ const Settings = () => {
 					placeholder="Tell us about you..."
 					ref={aboutRef}
 					defaultValue={user.about}
-					className="p-4 my-2 w-[24rem] sm:w-[8rem]"
+					className="p-4 my-2 w-[24rem] sm:w-[20rem]"
 					rows="4"
 					max="300"
 				/>
