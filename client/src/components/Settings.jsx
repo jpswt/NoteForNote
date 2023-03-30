@@ -35,9 +35,7 @@ const Settings = () => {
 			dispatch({ type: 'UPDATE_SUCCESS', payload: response.data });
 			// window.location.reload();
 			setSuccessMsg(true);
-			setTimeout(() => {
-				window.location.reload(true);
-			}, 1500);
+			window.location.reload();
 			// console.log(updateUser);
 		} catch (err) {
 			dispatch({ type: 'UPDATE_FAIL' });
