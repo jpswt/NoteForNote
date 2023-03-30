@@ -21,7 +21,7 @@ const SinglePost = ({ post }) => {
 	});
 
 	return (
-		<div className="w-[75%] mx-10 flex items-center border-b-2 border-gray-400 text-gray-100 last:border-b-0 lg:last:mb-14 ">
+		<div className="w-[75%] mx-10 flex items-center border-b-2 border-gray-400 text-gray-100 last:border-b-0 lg:last:mb-14 sm:w-[85%] ">
 			<div className="flex flex-col w-full my-6">
 				<Link to={`/posts/${post._id}`}>
 					<span className=" text-3xl font-semibold hover:text-gray-300 sm:text-xl">
@@ -66,7 +66,7 @@ const SinglePost = ({ post }) => {
 				{post.photo && (
 					<Link to={`/posts/${post._id}`}>
 						<img
-							className="w-[100px] h-[100px] object-cover rounded-sm p-0 mx-6 hover:opacity-90 sm:w-[75px] sm:h-[75px]"
+							className="w-[100px] h-[100px] object-cover rounded-sm p-0 mx-6 hover:opacity-90 sm:w-[60px] sm:h-[60px]"
 							src={publicFolder + post.photo}
 							alt=""
 						/>
