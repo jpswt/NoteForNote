@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState } from 'react';
 import { Context } from '../context/Context';
 import axios from 'axios';
 import defaultPic from '../assets/defaultAvatar.svg';
+import { useNavigate } from 'react-router';
 
 const Settings = () => {
 	const { user, dispatch } = useContext(Context);
@@ -9,6 +10,7 @@ const Settings = () => {
 	const [img, setImg] = useState(null);
 	const [successMsg, setSuccessMsg] = useState(false);
 	const aboutRef = useRef();
+	const navigate = useNavigate();
 
 	const handleUpdate = async (e) => {
 		e.preventDefault();
@@ -35,7 +37,7 @@ const Settings = () => {
 			dispatch({ type: 'UPDATE_SUCCESS', payload: response.data });
 			// window.location.reload();
 			setSuccessMsg(true);
-			window.location.reload();
+			navigate('/profile');
 			// console.log(updateUser);
 		} catch (err) {
 			dispatch({ type: 'UPDATE_FAIL' });

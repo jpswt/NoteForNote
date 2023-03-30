@@ -8,7 +8,7 @@ const Dropdown = () => {
 	const navigate = useNavigate();
 
 	const handleLogout = () => {
-		document.cookie = cookie.serialize('loggedIn', false, { maxAge: 0 });
+		document.cookie = cookie.serialize('loggedIn=', false, { maxAge: 0 });
 		dispatch({ type: 'LOGOUT' });
 		window.location.reload(navigate('/'));
 	};
