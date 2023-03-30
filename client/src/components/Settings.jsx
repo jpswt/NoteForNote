@@ -37,7 +37,11 @@ const Settings = () => {
 			dispatch({ type: 'UPDATE_SUCCESS', payload: response.data });
 			// window.location.reload();
 			setSuccessMsg(true);
+			setTimeout(() => {
+				setSuccessMsg(false);
+			}, 1500);
 			navigate('/profile');
+			window.location.reload();
 			// console.log(updateUser);
 		} catch (err) {
 			dispatch({ type: 'UPDATE_FAIL' });
