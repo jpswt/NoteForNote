@@ -117,9 +117,9 @@ const Navbar = ({ posts, setSearchResult }) => {
 						onClick={handleOpenNav}
 					>
 						{openNav ? (
-							<i class="fa-solid fa-xmark w-[40px]"></i>
+							<i className="fa-solid fa-xmark w-[40px]"></i>
 						) : (
-							<i class="fa-solid fa-bars w-[40px]"></i>
+							<i className="fa-solid fa-bars w-[40px]"></i>
 						)}
 					</div>
 				</div>
@@ -155,7 +155,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 								{openNav ? (
 									<>
 										<Link to="/profile">
-											<i class="fa-solid fa-user text-gray-100 text-3xl">
+											<i className="fa-solid fa-user text-gray-100 text-3xl">
 												<span className=" font-title text-3xl ml-4">
 													PROFILE
 												</span>
@@ -176,13 +176,13 @@ const Navbar = ({ posts, setSearchResult }) => {
 							<ul className="flex gap-6 text-lg font-light text-gray-100 font-body cursor-pointer lg:flex-col lg:gap-10">
 								<li className="bg-[#339999] px-3 py-1 rounded-md lg:bg-transparent lg:text-3xl lg:font-title lg:font-semibold">
 									<Link to="/login" className="lg:flex">
-										<i class="fa-solid fa-right-to-bracket hidden lg:block"></i>
+										<i className="fa-solid fa-right-to-bracket hidden lg:block"></i>
 										<span className="lg:uppercase lg:ml-4">Login</span>
 									</Link>
 								</li>
 								<li className="bg-[#339999] px-3 py-1 rounded-md lg:bg-transparent lg:text-3xl lg:font-title lg:font-semibold">
 									<Link to="/register" className="lg:flex">
-										<i class="fa-solid fa-address-card hidden lg:block"></i>
+										<i className="fa-solid fa-address-card hidden lg:block"></i>
 										<span className="lg:uppercase lg:ml-4">Sign Up</span>
 									</Link>
 								</li>

@@ -16,8 +16,6 @@ const Home = () => {
 
 	const { search } = useLocation();
 
-	// console.log(location);
-
 	useEffect(() => {
 		const fetchPosts = async () => {
 			const response = await axios.get(

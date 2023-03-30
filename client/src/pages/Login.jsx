@@ -1,12 +1,10 @@
 import React, { useState, useContext, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../context/Context';
 import axios from 'axios';
 import guitarPick from '../assets/guitar-pick.png';
 import logo from '../assets/nfn2.png';
 
 const Login = () => {
-	const navigate = useNavigate();
 	const userRef = useRef();
 	const passwordRef = useRef();
 	const [error, setError] = useState('');
@@ -24,7 +22,7 @@ const Login = () => {
 			})
 			.then((response) => {
 				dispatch({ type: 'LOGIN_SUCCESS', payload: response.data });
-				document.cookie = `loggedIn=true;max-age=60*1000`;
+				document.cookie = `loggedIn=true;`;
 			})
 			.catch((error) => {
 				dispatch({ type: 'LOGIN_FAIL' });

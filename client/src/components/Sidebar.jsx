@@ -92,16 +92,16 @@ const Sidebar = ({ post, categories }) => {
 						</span>
 						<div className="flex ml-2 items-center justify-center gap-6 mt-4 lg:mt-0 lg:gap-8">
 							<a target="_blank" href={'https://www.facebook.com/'}>
-								<i class="fa-brands fa-facebook text-3xl hover:text-gray-400 "></i>
+								<i className="fa-brands fa-facebook text-3xl hover:text-gray-400 "></i>
 							</a>
 							<a target="_blank" href={'https://www.instagram.com/'}>
-								<i class="fa-brands fa-instagram text-3xl hover:text-gray-400 "></i>
+								<i className="fa-brands fa-instagram text-3xl hover:text-gray-400 "></i>
 							</a>
 							<a href="">
-								<i class="fa-brands fa-twitter text-3xl hover:text-gray-400 "></i>
+								<i className="fa-brands fa-twitter text-3xl hover:text-gray-400 "></i>
 							</a>
 							<a href="">
-								<i class="fa-brands fa-youtube text-3xl hover:text-gray-400 "></i>
+								<i className="fa-brands fa-youtube text-3xl hover:text-gray-400 "></i>
 							</a>
 						</div>
 					</div>

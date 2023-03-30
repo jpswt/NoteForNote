@@ -11,7 +11,7 @@ const Header = () => {
 					<p>Discover new music, gear and unlock</p>
 					<p>tones with tips from fellow musicians.</p>
 				</div>
-				<button className="absolute mt-6 accent text-gray-100 py-2 px-4 text-[1.5rem] rounded-md border-2 border-gray-300 border-opacity-30 sm:py-1 sm:px-2 sm:text-[1.1rem] sm:mt-4">
+				<button className="absolute mt-6 accent text-gray-100 py-1 px-4 text-[1.5rem] rounded-md border-2 border-gray-300 border-opacity-30 sm:py-1 sm:px-2 sm:text-[1.1rem] sm:mt-4">
 					<Link to="/register"> Get Started </Link>
 				</button>
 			</div>
