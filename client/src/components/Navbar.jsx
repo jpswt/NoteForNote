@@ -92,7 +92,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 					</div>
 				</Link>
 				{location.pathname === '/' && user ? (
-					<li className="flex mr-4  ">
+					<li className="flex mr-4 sm:mr-8 ">
 						<div className="w-full relative">
 							<input
 								className=" border-gray-400 border-2 py-1 rounded-full px-4 outline-none"
