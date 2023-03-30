@@ -15,8 +15,8 @@ const checkAuth = () => {
 };
 
 const ProtectedRoutes = () => {
-	const { user } = useContext(Context);
-	return user ? <Outlet /> : <Login />;
+	// const { user } = useContext(Context);
+	return checkAuth ? <Outlet /> : <Login />;
 };
 
 const Router = () => {
