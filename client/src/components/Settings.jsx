@@ -40,8 +40,6 @@ const Settings = () => {
 			setTimeout(() => {
 				setSuccessMsg(false);
 			}, 1500);
-			navigate('/profile');
-			window.location = window.location;
 			// console.log(updateUser);
 		} catch (err) {
 			dispatch({ type: 'UPDATE_FAIL' });
