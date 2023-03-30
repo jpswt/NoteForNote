@@ -48,7 +48,7 @@ const SinglePost = ({ post }) => {
 					</span>
 				</div>
 				<p
-					className=" leading-6 line-clamp-3 text-ellipsis text-current text-lg details sm:line-clamp-3 sm:overflow-hidden sm:-webkit-box-orient"
+					className=" leading-6 line-clamp-3 text-ellipsis text-current text-lg details sm:clamp"
 					dangerouslySetInnerHTML={sanitizeData()}
 				/>
 				<div className="mt-4 mb-2">
