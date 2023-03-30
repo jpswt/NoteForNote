@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../context/Context';
-import cookie from 'cookie';
 
 const Dropdown = () => {
 	const { user, dispatch } = useContext(Context);
 	const navigate = useNavigate();
 
 	const handleLogout = () => {
-		document.cookie = cookie.serialize('loggedIn=', false, { maxAge: 0 });
 		dispatch({ type: 'LOGOUT' });
 		window.location.reload(navigate('/'));
 	};

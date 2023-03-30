@@ -5,7 +5,6 @@ import guitarPick from '../assets/guitar-pick.png';
 import logo from '../assets/nfn2.png';
 import defaultPic from '../assets/defaultAvatar.svg';
 import Dropdown from './Dropdown';
-import cookie from 'cookie';
 
 const Navbar = ({ posts, setSearchResult }) => {
 	const { user, dispatch } = useContext(Context);
@@ -77,7 +76,6 @@ const Navbar = ({ posts, setSearchResult }) => {
 	};
 
 	const handleLogout = () => {
-		document.cookie = cookie.serialize('loggedIn', false, { maxAge: 0 });
 		dispatch({ type: 'LOGOUT' });
 		window.location.reload(navigate('/'));
 	};
