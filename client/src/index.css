@@ -74,7 +74,7 @@
 		display: none;
 	}
 
-	.clamp > p:first-child {
+	.clamp p:first-child {
 		display: block;
 	}
 
