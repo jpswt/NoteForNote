@@ -70,12 +70,12 @@
 		margin-left: 0.2rem;
 	}
 
-	.clamp p {
-		display: none;
+	.clamp {
+		visibility: hidden;
 	}
 
-	.clamp p:first-child {
-		display: block;
+	.clamp > :first-child {
+		visibility: visible;
 	}
 
 	.blocktext {
