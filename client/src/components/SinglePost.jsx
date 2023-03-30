@@ -47,7 +47,7 @@ const SinglePost = ({ post }) => {
 						• {formatDate}
 					</span>
 				</div>
-				<div
+				<p
 					className=" leading-6 line-clamp-3 text-ellipsis text-current text-lg details"
 					dangerouslySetInnerHTML={sanitizeData()}
 				/>
