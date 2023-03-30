@@ -7,7 +7,7 @@ const Header = () => {
 			<div className="w-full min-h-full primary opacity-[50%] absolute"></div>
 			<div className=" w-full text-gray-100 absolute top-20 left-[8.0rem] font-title sm:left-[3.8rem] ">
 				<h2 className="text-[5.7rem] sm:text-[3.5rem]">Dial it up</h2>
-				<div className="mt-8 text-[1.5rem] ml-2 w-fit leading-7 sm:mt-4 sm:ml-1 sm:text-[1.2rem] sm:leading-5">
+				<div className="mt-8 text-[1.5rem] ml-2 w-fit leading-7 sm:mt-4 sm:ml-1 sm:text-[1.2rem]">
 					<p>Discover new music, gear and unlock</p>
 					<p>tones with tips from fellow musicians.</p>
 				</div>
