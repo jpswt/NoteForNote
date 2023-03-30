@@ -87,7 +87,7 @@ const Sidebar = ({ post, categories }) => {
 						</ul>
 					</div>
 					<div className="flex flex-col w-[60%] mt-10 mb-20 lg:w-full lg:mb-4 lg:mt-0">
-						<span className="my-2 mt-0 p-1 w-full border-solid border-b-2 border-gray-500 font-semibold text-center text-lg font-title lg:border-t-2 lg:border-b-0 lg:pt-4 lg:mb-0">
+						<span className="my-2 mt-0 p-1 w-full border-solid border-b-2 border-gray-500 font-semibold text-center text-lg font-title lg:border-t-2 lg:border-b-0 lg:pt-4 lg:mb-0 sm-mb-2">
 							FOLLOW US
 						</span>
 						<div className="flex ml-2 items-center justify-center gap-6 mt-4 lg:mt-0 lg:gap-8">
@@ -97,10 +97,10 @@ const Sidebar = ({ post, categories }) => {
 							<a target="_blank" href={'https://www.instagram.com/'}>
 								<i className="fa-brands fa-instagram text-3xl hover:text-gray-400 "></i>
 							</a>
-							<a href="">
+							<a target="_blank" href={'https://www.twitter.com'}>
 								<i className="fa-brands fa-twitter text-3xl hover:text-gray-400 "></i>
 							</a>
-							<a href="">
+							<a target="_blank" href={'https://www.youtube.com'}>
 								<i className="fa-brands fa-youtube text-3xl hover:text-gray-400 "></i>
 							</a>
 						</div>
