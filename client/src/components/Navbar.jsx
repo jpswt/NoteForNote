@@ -8,7 +8,7 @@ import Dropdown from './Dropdown';
 
 const Navbar = ({ posts, setSearchResult }) => {
 	const { user, dispatch } = useContext(Context);
-	const publicFolder = `${import.meta.env.VITE_NFN_URI}/assets`;
+	const publicFolder = `${import.meta.env.VITE_NFN_URI}/assets/`;
 	const [openProfile, setOpenProfile] = useState(false);
 	const [openNav, setOpenNav] = useState(false);
 	const [showLogin, setShowLogin] = useState(false);
