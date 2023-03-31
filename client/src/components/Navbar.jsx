@@ -85,7 +85,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 			<div className="flex items-center">
 				<Link to="/">
 					<div className="flex items-center justify-center ml-6">
-						<div className="flex items-center gap-2 mr-6 sm:mr-4">
+						<div className="flex items-center gap-2 mr-6 sm:mr-6">
 							<img src={guitarPick} alt="" className="w-[40px] h-[40px]" />
 							<img src={logo} alt="" className="w-[80px] sm:hidden" />
 						</div>
