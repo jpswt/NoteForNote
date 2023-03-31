@@ -15,7 +15,7 @@ const multer = require('multer');
 
 app.use(express.json());
 app.use(cors());
-app.use('/assets', express.static('assets'));
+app.use('/assets', express.static(path.join(__dirname, '/assets')));
 
 mongoose
 	.connect(process.env.MONGO_URL)
@@ -24,7 +24,7 @@ mongoose
 
 const storage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		cb(null, './assets');
+		cb(null, 'assets');
 	},
 	filename: (req, file, cb) => {
 		cb(null, req.body.name);
