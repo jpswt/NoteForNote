@@ -5,7 +5,7 @@ import defaultPic from '../assets/defaultAvatar.svg';
 
 const Settings = () => {
 	const { user, dispatch } = useContext(Context);
-	const publicFolder = `${import.meta.env.VITE_NFN_API}/assets/`;
+	const publicFolder = `${import.meta.env.VITE_NFN_API}`;
 	const [img, setImg] = useState(null);
 	const [successMsg, setSuccessMsg] = useState(false);
 	const aboutRef = useRef();

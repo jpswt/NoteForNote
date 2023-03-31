@@ -4,7 +4,7 @@ import DOMpurify from 'dompurify';
 import defaultPic from '../assets/default.jpeg';
 
 const SinglePost = ({ post }) => {
-	const publicFolder = `${import.meta.env.VITE_NFN_API}/assets/`;
+	const publicFolder = `${import.meta.env.VITE_NFN_API}`;
 
 	const sanitizeData = () => ({
 		__html: DOMpurify.sanitize(post.description),
