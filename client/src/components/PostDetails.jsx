@@ -74,7 +74,7 @@ const PostDetails = ({
 	const { user } = useContext(Context);
 	const [openEdit, setOpenEdit] = useState(false);
 	const [updateInfo, setUpdateInfo] = useState(false);
-	const publicFolder = `${import.meta.env.VITE_NFN_API}`;
+	const publicFolder = `${import.meta.env.VITE_NFN_URI}/assets`;
 
 	const handleOpenEdit = () => {
 		setOpenEdit(!openEdit);
