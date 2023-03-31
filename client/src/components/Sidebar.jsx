@@ -6,7 +6,7 @@ import StickyBox from 'react-sticky-box';
 
 const Sidebar = ({ post, categories }) => {
 	const { user } = useContext(Context);
-	const publicFolder = `${import.meta.env.VITE_NFN_URI}/assets/`;
+	const publicFolder = `${import.meta.env.VITE_NFN_API}/assets/`;
 
 	const handleScroll = () => {
 		window.scrollTo(0, 0);
