@@ -37,15 +37,17 @@ const SinglePost = ({ post }) => {
 							onError={setDefault}
 						/>
 					</span>
-					<span className="font-body text-base">
-						<Link
-							to={`/?user=${post.username}`}
-							className="font-semibold hover:text-gray-300"
-						>
-							{post.username}
-						</Link>{' '}
-						• {formatDate}
-					</span>
+					<div className="flex flex-col">
+						<span className="font-body text-base">
+							<Link
+								to={`/?user=${post.username}`}
+								className="font-semibold hover:text-gray-300"
+							>
+								{post.username}
+							</Link>
+						</span>
+						<span className="text-[.95rem]">{formatDate}</span>
+					</div>
 				</div>
 				<div
 					className=" leading-6 line-clamp-3 text-ellipsis text-current text-lg details sm:clamp"
