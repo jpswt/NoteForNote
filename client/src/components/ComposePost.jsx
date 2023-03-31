@@ -99,7 +99,7 @@ const ComposePost = ({ categories }) => {
 	};
 
 	return (
-		<div className="flex-9 flex flex-col mt-4 primary text-gray-100 text-md">
+		<div className="flex-9 flex flex-col mt-4 primary text-gray-100 text-md sm:w-[100%]">
 			{postImg && (
 				<div className="flex items-center justify-center">
 					<img
@@ -111,7 +111,7 @@ const ComposePost = ({ categories }) => {
 			)}
 			<form onSubmit={handleSubmit}>
 				<div className="flex items-center justify-center w-full ">
-					<div className="flex items-center justify-between w-[80%] relative lg:flex-wrap">
+					<div className="flex items-center justify-between w-[80%] relative lg:flex-wrap sm:w-[90%]">
 						<div className="w-full ">
 							<label htmlFor="imgInput">
 								<i className="fa-solid fa-folder-plus text-xl cursor-pointer text-gray-100 p-2"></i>
@@ -131,7 +131,7 @@ const ComposePost = ({ categories }) => {
 							/>
 						</div>
 						<button
-							className=" accent py-1 px-2 text-white text-lg rounded-md cursor-pointer absolute top-4 right-0 "
+							className=" accent py-1 px-2 text-white text-lg rounded-md cursor-pointer absolute top-4 right-0 sm:py-[2px] sm:px-[6px] sm:text-[.95rem] sm:top-5 "
 							type="submit"
 						>
 							Publish
@@ -140,7 +140,7 @@ const ComposePost = ({ categories }) => {
 				</div>
 				<div className=" flex items-center justify-center ">
 					<ReactQuill
-						className="border-none  mt-2 w-[80%] text-gray-600 bg-white p-0 ql-snow ql-editor ql-container"
+						className="border-none  mt-2 w-[80%] text-gray-600 bg-white p-0 ql-snow ql-editor ql-container sm:w-[90%]"
 						modules={modules}
 						formats={formats}
 						placeholder="Enter your thoughts..."

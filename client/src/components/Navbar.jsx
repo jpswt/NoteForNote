@@ -87,7 +87,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 					<div className="flex items-center justify-center ml-6">
 						<div className="flex items-center gap-2 mr-6 sm:mr-4">
 							<img src={guitarPick} alt="" className="w-[40px] h-[40px]" />
-							<img src={logo} alt="" className="w-[80px] sm: hidden" />
+							<img src={logo} alt="" className="w-[80px] sm:hidden" />
 						</div>
 					</div>
 				</Link>
@@ -130,7 +130,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 					}
 				>
 					<li>
-						<Link to="/">
+						<Link to="/" onClick={() => setOpenNav(false)}>
 							<i className="fa-solid fa-house text-gray-100 text-3xl lg:mr-8">
 								{openNav ? (
 									<span className=" font-title text-3xl ml-4">HOME</span>
@@ -139,7 +139,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 						</Link>
 					</li>
 					<li>
-						<Link to="/compose">
+						<Link to="/compose" onClick={() => setOpenNav(false)}>
 							<i className="fa-solid fa-pen-to-square  text-gray-100 text-3xl lg:mr-8 ">
 								{openNav ? (
 									<span className=" font-title text-3xl ml-4">WRITE</span>
@@ -152,7 +152,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 							<>
 								{openNav ? (
 									<>
-										<Link to="/profile">
+										<Link to="/profile" onClick={() => setOpenNav(false)}>
 											<i className="fa-solid fa-user text-gray-100 text-3xl">
 												<span className=" font-title text-3xl ml-4">
 													PROFILE

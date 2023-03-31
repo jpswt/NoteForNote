@@ -8,7 +8,8 @@ const Dropdown = () => {
 
 	const handleLogout = () => {
 		dispatch({ type: 'LOGOUT' });
-		window.location.reload(navigate('/'));
+		navigate('/');
+		// window.location.reload(navigate('/'));
 	};
 
 	return (
