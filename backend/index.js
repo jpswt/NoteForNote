@@ -15,6 +15,7 @@ const multer = require('multer');
 
 app.use(express.json());
 app.use(cors());
+app.use('/assets', express.static(path.join(__dirname, '/assets')));
 
 mongoose
 	.connect(process.env.MONGO_URL)
@@ -40,7 +41,6 @@ app.post('/upload', upload.single('file'), (req, res) => {
 	res.status(200).json('file has been uploaded');
 });
 
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/auth', authRoute);
 app.use('/users', userRoute);
 app.use('/posts', postRoute);
