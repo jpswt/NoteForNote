@@ -18,7 +18,7 @@ const Header = () => {
 			<img
 				className="w-full h-[300px] object-cover"
 				src="https://images.pexels.com/photos/1539789/pexels-photo-1539789.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-				alt=""
+				alt="image of a blue guitar laying vertically"
 			/>
 		</div>
 	);

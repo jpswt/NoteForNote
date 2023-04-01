@@ -127,7 +127,7 @@ const PostDetails = ({
 					<img
 						className=" w-[450px] h-[180px] object-cover rounded-md my-2 mx-auto mb-4"
 						src={publicFolder + post.photo}
-						alt=""
+						alt="user upload post photo for blog"
 					/>
 				)}
 				{updateInfo ? (
@@ -150,7 +150,7 @@ const PostDetails = ({
 									<img
 										className="w-[45px] h-[45px] rounded-full border-opacity-0  shadow-lg object-cover overflow-hidden "
 										src={publicFolder + post?.profilePic}
-										alt=""
+										alt="user upload profile pic"
 										// onError={setDefault}
 									/>
 								</div>

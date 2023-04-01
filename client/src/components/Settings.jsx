@@ -68,7 +68,7 @@ const Settings = () => {
 						src={
 							img ? URL.createObjectURL(img) : publicFolder + user.profilePic
 						}
-						alt=""
+						alt="user upload profile pic"
 						onError={setDefault}
 					/>
 				</div>

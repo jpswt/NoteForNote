@@ -105,7 +105,7 @@ const ComposePost = ({ categories }) => {
 					<img
 						className="w-[450px] h-[175px] object-cover rounded-md mb-2"
 						src={URL.createObjectURL(postImg)}
-						alt=""
+						alt="user posted image for blog"
 					/>
 				</div>
 			)}

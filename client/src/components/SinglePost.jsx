@@ -15,6 +15,10 @@ const SinglePost = ({ post }) => {
 		e.target.src = defaultPic;
 	};
 
+	const setDefaultPostPic = (e) => {
+		e.target.src = defaultPostPic;
+	};
+
 	const formatDate = new Date(post.createdAt).toLocaleDateString('en-US', {
 		year: 'numeric',
 		month: 'long',
@@ -34,7 +38,7 @@ const SinglePost = ({ post }) => {
 						<img
 							className="w-[40px] h-[40px] rounded-full object-cover"
 							src={publicFolder + post.profilePic}
-							alt=""
+							alt="user profile pic"
 							onError={setDefault}
 						/>
 					</span>
@@ -70,8 +74,9 @@ const SinglePost = ({ post }) => {
 					<Link to={`/posts/${post._id}`}>
 						<img
 							className="w-[100px] h-[100px] object-cover rounded-sm p-0 mx-6 hover:opacity-90 sm:w-[60px] sm:h-[60px]"
-							src={publicFolder + post.photo || defaultPostPic}
-							alt=""
+							src={publicFolder + post.photo}
+							alt="user posted image"
+							onError={setDefaultPostPic}
 						/>
 					</Link>
 				)}

@@ -31,8 +31,12 @@ const Login = () => {
 
 	return (
 		<div className="flex flex-col justify-center items-center h-[100vh] bg-primary ">
-			<img src={guitarPick} alt="" className="w-20 h-20" />
-			<img src={logo} alt="" className="mt-2" />
+			<img
+				src={guitarPick}
+				alt="logo of a teal guitar pick"
+				className="w-20 h-20"
+			/>
+			<img src={logo} alt="logo text for Note for Note" className="mt-2" />
 			<div className="flex flex-col items-center justify-center ">
 				<form
 					className="flex flex-col w-full items-center relative mt-14"

@@ -29,7 +29,7 @@ const Sidebar = ({ post, categories }) => {
 								<img
 									className="w-[125px] h-[125px] rounded-full border-opacity-0 mt-6 shadow-lg object-cover overflow-hidden "
 									src={publicFolder + user?.profilePic}
-									alt=""
+									alt="user profile pic"
 									onError={setDefault}
 								/>
 								<Link to={`/?user=${user.username}`}>
@@ -55,7 +55,7 @@ const Sidebar = ({ post, categories }) => {
 								<img
 									className="w-[125px] h-[125px] rounded-full mt-6 object-cover "
 									src={publicFolder + post?.profilePic}
-									alt=""
+									alt="user profile pic"
 									onError={setDefault}
 								/>
 								<Link to={`/?user=${post.username}`}>

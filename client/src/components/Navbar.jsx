@@ -86,8 +86,16 @@ const Navbar = ({ posts, setSearchResult }) => {
 				<Link to="/">
 					<div className="flex items-center justify-center ml-6">
 						<div className="flex items-center gap-2 mr-6 sm:mr-6">
-							<img src={guitarPick} alt="" className="w-[40px] h-[40px]" />
-							<img src={logo} alt="" className="w-[80px] sm:hidden" />
+							<img
+								src={guitarPick}
+								alt="logo of a guitar pick"
+								className="w-[40px] h-[40px]"
+							/>
+							<img
+								src={logo}
+								alt="logo text for Note For Note"
+								className="w-[80px] sm:hidden"
+							/>
 						</div>
 					</div>
 				</Link>
@@ -163,7 +171,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 								) : (
 									<img
 										src={publicFolder + user.profilePic}
-										alt=""
+										alt="user profile pic"
 										className="w-[40px] h-[40px] rounded-full object-cover cursor-pointer relative z-20 lg:cursor-auto"
 										onError={setDefault}
 										onClick={openNav ? null : handleOpenProfile}
