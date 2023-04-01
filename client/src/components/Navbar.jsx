@@ -214,7 +214,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 							onClick={() => setOpenProfile(false)}
 							className=" bg-slate-600 w-full h-full fixed top-0 left-0 opacity-80 cursor-default"
 						></button>
-						<Dropdown user={user} />
+						<Dropdown user={user} setOpenProfile={setOpenProfile} />
 					</>
 				)}
 			</>

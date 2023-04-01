@@ -2,14 +2,14 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Context } from '../context/Context';
 
-const Dropdown = () => {
+const Dropdown = ({ setOpenProfile }) => {
 	const { user, dispatch } = useContext(Context);
 	const navigate = useNavigate();
 
 	const handleLogout = () => {
+		setOpenProfile(false);
 		dispatch({ type: 'LOGOUT' });
 		navigate('/');
-		// window.location.reload(navigate('/'));
 	};
 
 	return (
