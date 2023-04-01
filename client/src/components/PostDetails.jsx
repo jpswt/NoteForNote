@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Context } from '../context/Context';
 import { useLocation } from 'react-router';
+import defaultPostPic from '../assets/guitar_default.jpeg';
 import {
 	EmailShareButton,
 	EmailIcon,
@@ -120,6 +121,10 @@ const PostDetails = ({
 		day: 'numeric',
 	});
 
+	const setDefaultPostPic = (e) => {
+		e.target.src = defaultPostPic;
+	};
+
 	return (
 		<div className="flex-9 flex flex-col items-center mt-1 bg-[#2a3d53] text-gray-100 ">
 			<div className=" py-2.5 pr-0 w-[75%] sm:w-[85%]">
@@ -128,6 +133,7 @@ const PostDetails = ({
 						className=" w-[450px] h-[180px] object-cover rounded-md my-2 mx-auto mb-4"
 						src={publicFolder + post.photo}
 						alt="user upload post photo for blog"
+						onError={setDefaultPostPic}
 					/>
 				)}
 				{updateInfo ? (
