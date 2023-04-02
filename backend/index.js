@@ -20,10 +20,14 @@ app.use('/assets', express.static(path.join(__dirname, '/assets')));
 
 var admin = require('firebase-admin');
 
-var serviceAccount = require(process.env.FIREBASE_SERVICE_ACCT_KEY);
+// var serviceAccount = require(process.env.FIREBASE_SERVICE_ACCT_KEY);
 
 admin.initializeApp({
-	credential: admin.credential.cert(serviceAccount),
+	credential: admin.credential.cert({
+		projectId: process.env.PROJECT_ID,
+		clientEmail: process.env.CLIENT_EMAIL,
+		privateKey: process.env.FIREBASE_PRIVATE_KEY,
+	}),
 	storageBucket: process.env.BUCKET_URL,
 });
 
