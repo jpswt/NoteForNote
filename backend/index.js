@@ -26,7 +26,9 @@ admin.initializeApp({
 	credential: admin.credential.cert({
 		projectId: process.env.PROJECT_ID,
 		clientEmail: process.env.CLIENT_EMAIL,
-		privateKey: process.env.FIREBASE_PRIVATE_KEY,
+		privateKey: process.env.FIREBASE_PRIVATE_KEY
+			? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
+			: undefined,
 	}),
 	storageBucket: process.env.BUCKET_URL,
 });
