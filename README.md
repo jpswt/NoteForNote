@@ -69,7 +69,7 @@ This is the homepage for all users to read articles written by other community m
 
 This is the home page for a logged in community member.  It shows all community posts, the user's profile pic and tagline as well as give access to write their own posts.  Users can filter out their own posts by clicking their name under the "About Me" section.
 
-<img width="1492" alt="Screenshot 2023-04-03 at 2 06 29 PM" src="https://user-images.githubusercontent.com/94721942/229603450-846a7664-0988-4d09-874d-b0a48bfde163.png">
+<img width="1487" alt="Screenshot 2023-04-03 at 2 09 01 PM" src="https://user-images.githubusercontent.com/94721942/229603826-73a96de3-9fed-4629-93c1-8ecb8d64ad27.png">
 
 ## Compose Page
 
