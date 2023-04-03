@@ -69,7 +69,7 @@ This is the homepage for all users to read articles written by other community m
 
 This is the home page for a logged in community member.  It shows all community posts, the user's profile pic and tagline as well as give access to write their own posts.  Users can filter out their own posts by clicking their name under the "About Me" section.
 
-<img width="1493" alt="Dash_LoggedIn" src="https://user-images.githubusercontent.com/94721942/228418138-6243a7b1-9a5d-400a-8754-1bb7cc5ee45c.png">
+<img width="1492" alt="Screenshot 2023-04-03 at 2 06 29 PM" src="https://user-images.githubusercontent.com/94721942/229603450-846a7664-0988-4d09-874d-b0a48bfde163.png">
 
 ## Compose Page
 
