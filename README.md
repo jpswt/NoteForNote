@@ -32,7 +32,7 @@ Note for Note is a MERN stack blog geared towards guitarists and their stories. 
 - For Backend Directory:
 
   1. Create .env file to add your MongoDB URL, PORT and Firebase Storage Credentials : 
-  ``
+  ```
   MONGO_URL = _Your Mongodb Url_
   PORT= _Your Port_
   
