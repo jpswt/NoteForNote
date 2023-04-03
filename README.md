@@ -31,8 +31,16 @@ Note for Note is a MERN stack blog geared towards guitarists and their stories. 
 
 - For Backend Directory:
 
-  1. Create .env file to add your MongoDB URL : <code>MONGO_URL = _Your Mongodb Url_</code>
-
+  1. Create .env file to add your MongoDB URL, PORT and Firebase Storage Credentials : 
+  ```
+  MONGO_URL = _Your Mongodb Url_
+  PORT= Your Port
+  
+  BUCKERT_URL= _Your Bucket Info_
+  PROJECT_ID= _Your Project ID_
+  CLIENT_EMAIL= _Your email_
+  FIREBASE_PRIVATE_KEY= _Your Private Key_ *Tip: copy everything over minus quotes.  Shoud start with -----BEGIN and end with -----END PRIVATE KEY-----\n
+``
   2. Either `npm start` or `yarn start`
 
   MongoDB Server will run on: `http://localhost:8000`
