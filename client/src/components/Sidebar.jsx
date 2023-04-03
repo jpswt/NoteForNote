@@ -13,18 +13,20 @@ const Sidebar = ({ post, categories }) => {
 	const [postProfileURL, setPostProfileURL] = useState(null);
 
 	useEffect(() => {
-		const getProfile = async () => {
-			const storage = getStorage();
-			let imageRef = ref(storage, user.profilePic);
-			await getDownloadURL(imageRef).then((res) => {
-				setProfileURL(res);
-			});
-		};
-		getProfile();
+		if (user) {
+			const getProfile = async () => {
+				const storage = getStorage();
+				let imageRef = ref(storage, user?.profilePic);
+				await getDownloadURL(imageRef).then((res) => {
+					setProfileURL(res);
+				});
+			};
+			getProfile();
+		}
 		const getPostProfile = async () => {
 			if (post) {
 				const storage = getStorage();
-				let imageRef = ref(storage, post.profilePic);
+				let imageRef = ref(storage, post?.profilePic);
 				await getDownloadURL(imageRef).then((res) => {
 					setPostProfileURL(res);
 				});
@@ -57,6 +59,7 @@ const Sidebar = ({ post, categories }) => {
 									alt=""
 									onError={setDefault}
 								/>
+
 								<Link to={`/?user=${user.username}`}>
 									<p className="mt-3 text-lg font-semibold bg-[#339999] px-4 rounded-full hover:bg-opacity-70 hover:text-gray-200">
 										{user.username}
