@@ -75,7 +75,7 @@ This is the home page for a logged in community member.  It shows all community 
 
 This is where a user can write and publish a post of their own to the community.  The user has the ability to add an image, use the rich text editor to add the text of their post and can select categories for their post using the checkboxes.
 
-<img width="1488" alt="Screenshot 2023-03-28 at 10 43 53 PM" src="https://user-images.githubusercontent.com/94721942/228421420-70efdc51-d8d9-4c33-9ad2-30071e94e9ae.png">
+<img width="1480" alt="Screenshot 2023-04-03 at 2 11 04 PM" src="https://user-images.githubusercontent.com/94721942/229604306-c8d6e255-3b26-46cf-98ef-da856c0c76cf.png">
 
 ## Single Post - User's Post
 This ia a page that display's the entire post.  If the post was created by the current user, the ability to edit the post will be available.  This option is not available on posts that were not created by the user.  A user can either update the post information or delete the post completely.  In addition, you can also share this post with other media site by selecting the respective icons.
