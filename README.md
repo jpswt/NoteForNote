@@ -1,5 +1,7 @@
 # Note For Note - A Guitarist's Blog
 
+![notefornote](https://user-images.githubusercontent.com/94721942/229598382-370d86f6-25f1-40a5-a2ce-58702a01f2d7.png)
+
 This application was created with Vite React. 
 
 Note for Note is a MERN stack blog geared towards guitarists and their stories.  Anyone can read blog posts created by other users at anytime without becoming a member.  But to compose your own stories and add to community, a user must sign up for an account.
