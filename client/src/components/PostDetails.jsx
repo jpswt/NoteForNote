@@ -97,7 +97,7 @@ const PostDetails = ({
 			});
 		};
 		getPostProfile();
-	});
+	}, []);
 
 	const handleOpenEdit = () => {
 		setOpenEdit(!openEdit);

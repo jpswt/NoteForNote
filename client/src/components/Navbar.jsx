@@ -36,14 +36,16 @@ const Navbar = ({ posts, setSearchResult }) => {
 	}, []);
 
 	useEffect(() => {
-		const getProfile = async () => {
-			const storage = getStorage();
-			let imageRef = ref(storage, user.profilePic);
-			await getDownloadURL(imageRef).then((res) => {
-				setProfileURL(res);
-			});
-		};
-		getProfile();
+		if (user) {
+			const getProfile = async () => {
+				const storage = getStorage();
+				let imageRef = ref(storage, user?.profilePic);
+				await getDownloadURL(imageRef).then((res) => {
+					setProfileURL(res);
+				});
+			};
+			getProfile();
+		}
 	}, []);
 
 	const handleOpenProfile = (e) => {

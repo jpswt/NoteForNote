@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import DOMpurify from 'dompurify';
 import { storage } from '../firebase/firebase';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
-import LazyLoad from 'react-lazyload';
 import defaultPic from '../assets/default.jpeg';
 import defaultPostPic from '../assets/guitar_default.jpeg';
 
@@ -59,14 +58,12 @@ const SinglePost = ({ post }) => {
 				</Link>
 				<div className="mb-2 mt-4 flex items-center">
 					<span className="mr-4">
-						<LazyLoad height={40}>
-							<img
-								className="w-[40px] h-[40px] rounded-full object-cover"
-								src={postProfileURL}
-								alt="user profile pic"
-								onError={setDefault}
-							/>
-						</LazyLoad>
+						<img
+							className="w-[40px] h-[40px] rounded-full object-cover"
+							src={postProfileURL}
+							alt="user profile pic"
+							onError={setDefault}
+						/>
 					</span>
 					<div className="flex flex-col">
 						<span className="font-body text-base">
@@ -98,14 +95,12 @@ const SinglePost = ({ post }) => {
 			<div>
 				{post.photo && (
 					<Link to={`/posts/${post._id}`}>
-						<LazyLoad height={100} offset={100}>
-							<img
-								className="w-[100px] h-[100px] object-cover rounded-sm p-0 mx-6 hover:opacity-90 sm:w-[60px] sm:h-[60px]"
-								src={postImgURL}
-								alt="user posted image"
-								onError={setDefaultPostPic}
-							/>
-						</LazyLoad>
+						<img
+							className="w-[100px] h-[100px] object-cover rounded-sm p-0 mx-6 hover:opacity-90 sm:w-[60px] sm:h-[60px]"
+							src={postImgURL}
+							alt="user posted image"
+							onError={setDefaultPostPic}
+						/>
 					</Link>
 				)}
 			</div>
