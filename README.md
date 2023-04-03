@@ -86,7 +86,7 @@ This ia a page that display's the entire post.  If the post was created by the c
 
 A user can update the post title and post body information in the rich text editor provided.  Once all changes are made and submitted the user is redirected back to the original single page post.
 
-<img width="1484" alt="SinglePostUpdateRTE" src="https://user-images.githubusercontent.com/94721942/228423916-3b206051-8a56-4e7e-b5f2-491550670921.png">
+<img width="1484" alt="Screenshot 2023-04-03 at 2 13 57 PM" src="https://user-images.githubusercontent.com/94721942/229604994-e30db575-1794-4330-a67c-090de01641d1.png">
 
 ## Profile Page
 
