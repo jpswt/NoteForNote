@@ -104,8 +104,7 @@ Users can filter out community posts by category types.  This can be achieved by
 
 Users can use the enter keywords to search the post title, post body, date posted, username and categories to filter out those posts.  The following example uses the search to find a posts by a specific user named "Amanda"
 
-<img width="1484" alt="Dash_withSearch" src="https://user-images.githubusercontent.com/94721942/228419656-e26706f6-b2c9-40b9-b259-1a2bda560e3a.png">
-
+<img width="1488" alt="Screenshot 2023-04-03 at 2 19 01 PM" src="https://user-images.githubusercontent.com/94721942/229606037-b499946f-33d9-4560-8b75-e66323954545.png">
 
 ## Technologies Used
 Frontend:
