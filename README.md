@@ -51,13 +51,13 @@ Note for Note is a MERN stack blog geared towards guitarists and their stories. 
   ```
   3. Either `npm start` or `yarn start`
 
-  MongoDB Server will run on: `http://localhost:8000`
+  MongoDB Server will run on: `http://localhost:####`
 
 - For Frontend Directory:
 
   1. Either `npm run dev` or `yarn dev`
 
-  React Application will run on `http://localhost:5174`
+  React Application will run on `http://localhost:51##`
 
 ## Note For Note Home Page 
 
