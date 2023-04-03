@@ -6,8 +6,8 @@ const firebaseConfig = {
 	authDomain: 'notefornote-79d2f.firebaseapp.com',
 	projectId: 'notefornote-79d2f',
 	storageBucket: 'notefornote-79d2f.appspot.com',
-	messagingSenderId: import.meta.env.FB_MESSAGING_SENDER_ID,
-	appId: import.meta.env.FB_APP_ID,
+	messagingSenderId: '880870801637',
+	appId: '1:880870801637:web:c3ce7ecc2c44e07508140c',
 };
 
 // Initialize Firebase
