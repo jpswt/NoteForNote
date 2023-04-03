@@ -1,7 +1,6 @@
-# Note For Note - A Guitarist's Blog
-
 ![notefornote](https://user-images.githubusercontent.com/94721942/229598847-556be121-9066-42ef-b129-f11d78092444.jpg)
 
+# Note For Note - A Guitarist's Blog
 
 This application was created with Vite React. 
 
