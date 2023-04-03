@@ -98,7 +98,7 @@ Users can update the their profile picture and bio tagline at anytime.
 
 Users can filter out community posts by category types.  This can be achieved by clicking items in the sidebar, by clicking the category chips attached to each post and using the search bar.  This examples has posts filtered out for the category of "Tone".
 
-<img width="1490" alt="Dash_withCategoryFilter" src="https://user-images.githubusercontent.com/94721942/228418394-49bffd7f-a75c-4a6f-8dd5-be0d974c6f07.png">
+<img width="1492" alt="Screenshot 2023-04-03 at 2 16 40 PM" src="https://user-images.githubusercontent.com/94721942/229605631-97859764-35fb-46f3-8062-247e2bd8e4ae.png">
 
 ## Search Bar
 
