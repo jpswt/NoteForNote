@@ -42,6 +42,7 @@ Note for Note is a MERN stack blog geared towards guitarists and their stories. 
   FIREBASE_PRIVATE_KEY= _Your Private Key_ 
   *Tip: copy everything over minus quotes. Shoud start with -----BEGIN and end with -----END PRIVATE KEY-----\n
 ``
+
   2. Either `npm start` or `yarn start`
 
   MongoDB Server will run on: `http://localhost:8000`
