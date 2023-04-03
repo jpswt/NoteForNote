@@ -43,7 +43,11 @@ Note for Note is a MERN stack blog geared towards guitarists and their stories. 
   *Tip: copy everything over minus quotes. Shoud start with -----BEGIN and end with -----END PRIVATE KEY-----\n
   ```
 
-  2. Either `npm start` or `yarn start`
+  2. Create .env file to add server URI and Firebase APiKEY:
+  ```VITE_NFN_URI= _Your Server Address_
+  FB_API_KEY= _YOUR Firebase Api Key_
+  ```
+  3. Either `npm start` or `yarn start`
 
   MongoDB Server will run on: `http://localhost:8000`
 
