@@ -1,14 +1,28 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useRef, useState, useEffect } from 'react';
 import { Context } from '../context/Context';
 import axios from 'axios';
 import defaultPic from '../assets/defaultAvatar.svg';
+import { storage } from '../firebase/firebase';
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 
 const Settings = () => {
 	const { user, dispatch } = useContext(Context);
 	const publicFolder = `${import.meta.env.VITE_NFN_URI}/assets/`;
 	const [img, setImg] = useState(null);
+	const [profileURL, setProfileURL] = useState(null);
 	const [successMsg, setSuccessMsg] = useState(false);
 	const aboutRef = useRef();
+
+	useEffect(() => {
+		const getProfile = async () => {
+			const storage = getStorage();
+			let imageRef = ref(storage, user.profilePic);
+			await getDownloadURL(imageRef).then((res) => {
+				setProfileURL(res);
+			});
+		};
+		getProfile();
+	}, [img]);
 
 	const handleUpdate = async (e) => {
 		e.preventDefault();
@@ -44,14 +58,6 @@ const Settings = () => {
 		}
 	};
 
-	// const handleDelete = async (id) => {
-	// 	try {
-	// 		const response = await axios.delete(`http://localhost:8000/${user._id}`)
-	// 		const data = await response.json()
-	// 	}
-
-	// }
-
 	const setDefault = (e) => {
 		e.target.src = defaultPic;
 	};
@@ -65,9 +71,7 @@ const Settings = () => {
 				<div className="flex items-center justify-center mb-2">
 					<img
 						className="w-40 h-40 object-cover rounded-full "
-						src={
-							img ? URL.createObjectURL(img) : publicFolder + user.profilePic
-						}
+						src={img ? URL.createObjectURL(img) : profileURL}
 						alt="user upload profile pic"
 						onError={setDefault}
 					/>

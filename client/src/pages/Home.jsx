@@ -39,7 +39,7 @@ const Home = () => {
 	}, []);
 
 	if (!isLoaded) {
-		<></>;
+		<>Loading...</>;
 	} else
 		return (
 			<>

@@ -20,8 +20,6 @@ app.use('/assets', express.static(path.join(__dirname, '/assets')));
 
 var admin = require('firebase-admin');
 
-// var serviceAccount = require(process.env.FIREBASE_SERVICE_ACCT_KEY);
-
 admin.initializeApp({
 	credential: admin.credential.cert({
 		projectId: process.env.PROJECT_ID,
@@ -40,21 +38,6 @@ mongoose
 	.then(console.log('Connected to MongoDB'))
 	.catch((err) => console.error(err));
 
-// const storage = multer.diskStorage({
-// 	destination: (req, file, cb) => {
-// 		cb(null, 'assets');
-// 	},
-// 	filename: (req, file, cb) => {
-// 		cb(null, req.body.name);
-// 	},
-// });
-
-// const upload = multer({ storage: storage });
-
-// app.use('/', (req, res) => {
-// 	console.log('Welcome to my server');
-// 	res.json('Welcome to my MongoDB Blog Server');
-// });
 app.post('/upload', upload.single('file'), async (req, res) => {
 	const fileName = req.body.name;
 	await app.locals.bucket
@@ -62,7 +45,6 @@ app.post('/upload', upload.single('file'), async (req, res) => {
 		.createWriteStream()
 		.end(req.file.buffer);
 	res.send('file has been uploaded');
-	// res.status(200).json('file has been uploaded');
 });
 
 app.use('/auth', authRoute);

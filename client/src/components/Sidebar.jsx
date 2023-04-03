@@ -1,12 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import defaultPic from '../assets/defaultAvatar.svg';
 import { Context } from '../context/Context';
+import { storage } from '../firebase/firebase';
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import StickyBox from 'react-sticky-box';
+import LazyLoad from 'react-lazyload';
 
 const Sidebar = ({ post, categories }) => {
 	const { user } = useContext(Context);
 	const publicFolder = `${import.meta.env.VITE_NFN_URI}/assets/`;
+	const [profileURL, setProfileURL] = useState(null);
+	const [postProfileURL, setPostProfileURL] = useState(null);
+
+	useEffect(() => {
+		const getProfile = async () => {
+			const storage = getStorage();
+			let imageRef = ref(storage, user.profilePic);
+			await getDownloadURL(imageRef).then((res) => {
+				setProfileURL(res);
+			});
+		};
+		getProfile();
+		const getPostProfile = async () => {
+			if (post) {
+				const storage = getStorage();
+				let imageRef = ref(storage, post.profilePic);
+				await getDownloadURL(imageRef).then((res) => {
+					setPostProfileURL(res);
+				});
+			}
+		};
+		getPostProfile();
+	}, []);
 
 	const handleScroll = () => {
 		window.scrollTo(0, 0);
@@ -26,12 +52,14 @@ const Sidebar = ({ post, categories }) => {
 								<span className="m-2 mt-10 p-1 w-full border-solid border-b-2 border-gray-500 font-semibold text-center text-lg font-title">
 									ABOUT ME
 								</span>
-								<img
-									className="w-[125px] h-[125px] rounded-full border-opacity-0 mt-6 shadow-lg object-cover overflow-hidden "
-									src={publicFolder + user?.profilePic}
-									alt="user profile pic"
-									onError={setDefault}
-								/>
+								<LazyLoad height={125} once>
+									<img
+										className="w-[125px] h-[125px] rounded-full border-opacity-0 mt-6 shadow-lg object-cover overflow-hidden "
+										src={profileURL}
+										alt=""
+										onError={setDefault}
+									/>
+								</LazyLoad>
 								<Link to={`/?user=${user.username}`}>
 									<p className="mt-3 text-lg font-semibold bg-[#339999] px-4 rounded-full hover:bg-opacity-70 hover:text-gray-200">
 										{user.username}
@@ -54,8 +82,8 @@ const Sidebar = ({ post, categories }) => {
 								</span>
 								<img
 									className="w-[125px] h-[125px] rounded-full mt-6 object-cover "
-									src={publicFolder + post?.profilePic}
-									alt="user profile pic"
+									src={postProfileURL}
+									alt=""
 									onError={setDefault}
 								/>
 								<Link to={`/?user=${post.username}`}>

@@ -1,6 +1,8 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Context } from '../context/Context';
+import { storage } from '../firebase/firebase';
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import guitarPick from '../assets/guitar-pick.png';
 import logo from '../assets/nfn2.png';
 import defaultPic from '../assets/defaultAvatar.svg';
@@ -12,6 +14,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 	const [openProfile, setOpenProfile] = useState(false);
 	const [openNav, setOpenNav] = useState(false);
 	const [showLogin, setShowLogin] = useState(false);
+	const [profileURL, setProfileURL] = useState(null);
 	const navigate = useNavigate();
 	const { home } = useLocation();
 
@@ -30,6 +33,17 @@ const Navbar = ({ posts, setSearchResult }) => {
 		return () => {
 			window.removeEventListener('resize', handleSize);
 		};
+	}, []);
+
+	useEffect(() => {
+		const getProfile = async () => {
+			const storage = getStorage();
+			let imageRef = ref(storage, user.profilePic);
+			await getDownloadURL(imageRef).then((res) => {
+				setProfileURL(res);
+			});
+		};
+		getProfile();
 	}, []);
 
 	const handleOpenProfile = (e) => {
@@ -170,8 +184,8 @@ const Navbar = ({ posts, setSearchResult }) => {
 									</>
 								) : (
 									<img
-										src={publicFolder + user.profilePic}
-										alt="user profile pic"
+										src={profileURL || null}
+										alt=""
 										className="w-[40px] h-[40px] rounded-full object-cover cursor-pointer relative z-20 lg:cursor-auto"
 										onError={setDefault}
 										onClick={openNav ? null : handleOpenProfile}
@@ -201,7 +215,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 							onClick={handleLogout}
 						>
 							<Link to="/profile">
-								<i class="fa-solid fa-right-from-bracket text-gray-100 text-3xl">
+								<i className="fa-solid fa-right-from-bracket text-gray-100 text-3xl">
 									<span className=" font-title text-3xl ml-4">LOGOUT</span>
 								</i>
 							</Link>

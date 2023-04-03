@@ -1,11 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import DOMpurify from 'dompurify';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Context } from '../context/Context';
-import { useLocation } from 'react-router';
+import { storage } from '../firebase/firebase';
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import defaultPostPic from '../assets/guitar_default.jpeg';
 import {
 	EmailShareButton,
@@ -75,7 +76,28 @@ const PostDetails = ({
 	const { user } = useContext(Context);
 	const [openEdit, setOpenEdit] = useState(false);
 	const [updateInfo, setUpdateInfo] = useState(false);
+	const [postImgURL, setPostImgUrl] = useState(null);
+	const [postProfileURL, setPostProfileURL] = useState(null);
 	const publicFolder = `${import.meta.env.VITE_NFN_URI}/assets/`;
+
+	useEffect(() => {
+		const getPostImg = async () => {
+			const storage = getStorage();
+			let imageRef = ref(storage, post.photo);
+			await getDownloadURL(imageRef).then((res) => {
+				setPostImgUrl(res);
+			});
+		};
+		getPostImg();
+		const getPostProfile = async () => {
+			const storage = getStorage();
+			let imageRef = ref(storage, post.profilePic);
+			await getDownloadURL(imageRef).then((res) => {
+				setPostProfileURL(res);
+			});
+		};
+		getPostProfile();
+	});
 
 	const handleOpenEdit = () => {
 		setOpenEdit(!openEdit);
@@ -131,7 +153,7 @@ const PostDetails = ({
 				{post.photo && (
 					<img
 						className=" w-[450px] h-[180px] object-cover rounded-md my-2 mx-auto mb-4"
-						src={publicFolder + post.photo}
+						src={postImgURL}
 						alt="user upload post photo for blog"
 						onError={setDefaultPostPic}
 					/>
@@ -155,7 +177,7 @@ const PostDetails = ({
 									{' '}
 									<img
 										className="w-[45px] h-[45px] rounded-full border-opacity-0  shadow-lg object-cover overflow-hidden "
-										src={publicFolder + post?.profilePic}
+										src={postProfileURL}
 										alt="user upload profile pic"
 										// onError={setDefault}
 									/>
