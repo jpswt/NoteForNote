@@ -32,7 +32,7 @@ Note for Note is a MERN stack blog geared towards guitarists and their stories. 
 - For Backend Directory:
 
   1. Create .env file to add your MongoDB URL, PORT and Firebase Storage Credentials : 
-  `
+  ``
   MONGO_URL = _Your Mongodb Url_
   PORT= _Your Port_
   
@@ -41,7 +41,7 @@ Note for Note is a MERN stack blog geared towards guitarists and their stories. 
   CLIENT_EMAIL= _Your Email_
   FIREBASE_PRIVATE_KEY= _Your Private Key_ 
   *Tip: copy everything over minus quotes. Shoud start with -----BEGIN and end with -----END PRIVATE KEY-----\n
-`
+``
   2. Either `npm start` or `yarn start`
 
   MongoDB Server will run on: `http://localhost:8000`
