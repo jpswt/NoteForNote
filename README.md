@@ -80,7 +80,7 @@ This is where a user can write and publish a post of their own to the community.
 ## Single Post - User's Post
 This ia a page that display's the entire post.  If the post was created by the current user, the ability to edit the post will be available.  This option is not available on posts that were not created by the user.  A user can either update the post information or delete the post completely.  In addition, you can also share this post with other media site by selecting the respective icons.
 
-<img width="1488" alt="SPost" src="https://user-images.githubusercontent.com/94721942/228422931-00c0db0a-c58c-4d5d-8931-23fec0307661.png">
+<img width="1485" alt="Screenshot 2023-04-03 at 2 12 27 PM" src="https://user-images.githubusercontent.com/94721942/229604650-583b65c3-89a3-4115-9568-b9eef37bb5c9.png">
 
 ## Single Post - User Update
 
