@@ -39,7 +39,8 @@ Note for Note is a MERN stack blog geared towards guitarists and their stories. 
   BUCKERT_URL= _Your Bucket Info_
   PROJECT_ID= _Your Project ID_
   CLIENT_EMAIL= _Your email_
-  FIREBASE_PRIVATE_KEY= _Your Private Key_ *Tip: copy everything over minus quotes.  Shoud start with -----BEGIN and end with -----END PRIVATE KEY-----\n
+  FIREBASE_PRIVATE_KEY= _Your Private Key_ 
+  *Tip: copy everything over minus quotes. Shoud start with -----BEGIN and end with -----END PRIVATE KEY-----\n
 ``
   2. Either `npm start` or `yarn start`
 
