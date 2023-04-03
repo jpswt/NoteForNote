@@ -33,7 +33,8 @@ Note for Note is a MERN stack blog geared towards guitarists and their stories. 
 
   1. Create .env file to add your MongoDB URL, PORT and Firebase Storage Credentials : 
 
-  ```MONGO_URL = _Your Mongodb Url_
+  ```
+  MONGO_URL = _Your Mongodb Url_
   PORT= _Your Port_
   
   BUCKERT_URL= _Your Bucket Info_
@@ -44,7 +45,8 @@ Note for Note is a MERN stack blog geared towards guitarists and their stories. 
   ```
 
   2. Create .env file to add server URI and Firebase APiKEY:
-  ```VITE_NFN_URI= _Your Server Address_
+  ```
+  VITE_NFN_URI= _Your Server Address_
   FB_API_KEY= _YOUR Firebase Api Key_
   ```
   3. Either `npm start` or `yarn start`
