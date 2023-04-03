@@ -92,7 +92,7 @@ A user can update the post title and post body information in the rich text edit
 
 Users can update the their profile picture and bio tagline at anytime.
 
-<img width="1481" alt="Profile" src="https://user-images.githubusercontent.com/94721942/228424230-e0e5e38a-bf04-43d0-9b22-573bf9cd8daa.png">
+<img width="1490" alt="Screenshot 2023-04-03 at 2 15 14 PM" src="https://user-images.githubusercontent.com/94721942/229605227-494a54ff-1dd2-441d-b367-4b0154450ed5.png">
 
 ## Category Filter
 
