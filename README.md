@@ -1,6 +1,7 @@
 # Note For Note - A Guitarist's Blog
 
-![notefornote](https://user-images.githubusercontent.com/94721942/229598382-370d86f6-25f1-40a5-a2ce-58702a01f2d7.png)
+![notefornote](https://user-images.githubusercontent.com/94721942/229598847-556be121-9066-42ef-b129-f11d78092444.jpg)
+
 
 This application was created with Vite React. 
 
