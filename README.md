@@ -119,4 +119,5 @@ Backend:
 - MongoDB
 - Express.JS
 - NodeJS
-- Multer Image Upload
+- Multer
+- Firebase Storage API
