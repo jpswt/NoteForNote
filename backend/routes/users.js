@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt');
 //GET User
 
 router.get('/:id', async (req, res) => {
-	res.set('Cache-control', 'public, max-age=300');
 	try {
 		const user = await User.findById(req.params.id);
 		const { password, ...others } = user._doc;
@@ -18,7 +17,6 @@ router.get('/:id', async (req, res) => {
 
 // Update
 router.put('/:id', async (req, res) => {
-	res.set('Cache-control', 'public, max-age=300');
 	if (req.body.userId === req.params.id) {
 		if (req.body.password) {
 			const salt = await bcrypt.genSalt(10);

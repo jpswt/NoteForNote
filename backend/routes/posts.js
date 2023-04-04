@@ -5,7 +5,6 @@ const Post = require('../models/Post');
 router.get('/', async (req, res) => {
 	const username = req.query.user;
 	const category = req.query.category;
-	res.set('Cache-control', 'public, max-age=300');
 	try {
 		let posts;
 		if (username) {
