@@ -154,7 +154,7 @@ const ComposePost = ({ categories }) => {
 				</div>
 				<div className="flex flex-col items-center justify-center">
 					<h3 className="my-4 text-2xl">Select Categories: </h3>
-					<div className="w-full items-center justify-center flex flex-wrap gap-6 lg:px-4 lg: mb-8 lg:w-[100%]">
+					<div className="w-full items-center justify-center flex flex-wrap gap-6 lg:px-4 lg: mb-8 lg:w-[70%]">
 						{categories.map((cat, i) => (
 							<li key={i} className=" list-none ">
 								<input
