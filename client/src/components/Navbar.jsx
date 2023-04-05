@@ -57,24 +57,14 @@ const Navbar = ({ posts, setSearchResult }) => {
 	};
 
 	const handleSearch = (e) => {
-		const target = e.target.value;
+		const target = e.target.value.toLowerCase();
 		if (!target) return setSearchResult(posts);
 
 		const results = posts.filter(
 			(post) =>
 				post.title.toLowerCase().includes(target) ||
-				post.title.includes(target) ||
 				post.username.toLowerCase().includes(target) ||
-				post.username.includes(target) ||
 				post.description.toLowerCase().includes(target) ||
-				post.description.includes(target) ||
-				new Date(post.createdAt)
-					.toLocaleDateString('en-US', {
-						year: 'numeric',
-						month: 'long',
-						day: 'numeric',
-					})
-					.includes(target) ||
 				new Date(post.createdAt)
 					.toLocaleDateString('en-US', {
 						year: 'numeric',
