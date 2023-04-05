@@ -54,6 +54,7 @@ const ComposePost = ({ categories }) => {
 	const [description, setDescription] = useState('');
 	const [postImg, setPostImg] = useState(null);
 	const [checked, setChecked] = useState([]);
+	const [isSending, setIsSending] = useState(false);
 
 	const handleToggle = (cat) => () => {
 		const clickedCategory = checked.indexOf(cat);
@@ -89,6 +90,7 @@ const ComposePost = ({ categories }) => {
 			} catch (err) {}
 		}
 		try {
+			setIsSending(true);
 			const res = await axios.post(
 				`${import.meta.env.VITE_NFN_URI}/posts`,
 				newPost
@@ -96,6 +98,7 @@ const ComposePost = ({ categories }) => {
 			window.location.replace('/posts/' + res.data._id);
 			// console.log(newPost);
 		} catch (err) {}
+		setIsSending(false);
 	};
 
 	return (
@@ -123,7 +126,7 @@ const ComposePost = ({ categories }) => {
 								onChange={(e) => setPostImg(e.target.files[0])}
 							/>
 							<input
-								className=" primary border-b-2 border-gray-400 w-[82%] outline-none p-2 text-3xl mb-2 text-gray-100 bg-opacity-50 md:w-[70%] md:text-2xl"
+								className=" primary border-b-2 border-gray-400 w-[82%] outline-none p-2 text-3xl mb-2 text-gray-100 bg-opacity-50 md:w-[78%] md:text-2xl sm:w-[90%]"
 								type="text"
 								placeholder="Title"
 								autoFocus={true}
@@ -131,7 +134,7 @@ const ComposePost = ({ categories }) => {
 							/>
 						</div>
 						<button
-							className=" accent py-1 px-2 text-white text-lg rounded-md cursor-pointer absolute top-4 right-0 sm:py-[2px] sm:px-[6px] sm:text-[.95rem] sm:top-5 "
+							className=" accent py-1 px-2 text-white text-lg rounded-md cursor-pointer absolute top-4 right-0 sm:hidden sm:py-[2px] sm:px-[6px] sm:text-[.95rem] sm:top-5 "
 							type="submit"
 						>
 							Publish
@@ -151,7 +154,7 @@ const ComposePost = ({ categories }) => {
 				</div>
 				<div className="flex flex-col items-center justify-center">
 					<h3 className="my-4 text-2xl">Select Categories: </h3>
-					<div className="w-full items-center justify-center flex flex-wrap gap-6 lg:px-4 lg: mb-20 lg:w-[90%]">
+					<div className="w-full items-center justify-center flex flex-wrap gap-6 lg:px-4 lg: mb-8 lg:w-[90%]">
 						{categories.map((cat, i) => (
 							<li key={i} className=" list-none ">
 								<input
@@ -165,6 +168,14 @@ const ComposePost = ({ categories }) => {
 							</li>
 						))}
 					</div>
+				</div>
+				<div className="flex flex-col items-center">
+					<button
+						className=" hidden sm:block sm:accent sm:w-[100px] sm:py-1 px-2 sm:text-white sm:text-lg sm:rounded-md sm:cursor-pointer sm:mb-20"
+						type="submit"
+					>
+						{isSending ? 'Sending...' : 'Publish'}
+					</button>
 				</div>
 			</form>
 		</div>
