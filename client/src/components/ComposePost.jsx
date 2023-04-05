@@ -126,7 +126,7 @@ const ComposePost = ({ categories }) => {
 								onChange={(e) => setPostImg(e.target.files[0])}
 							/>
 							<input
-								className=" primary border-b-2 border-gray-400 w-[82%] outline-none p-2 text-3xl mb-2 text-gray-100 bg-opacity-50 md:w-[78%] md:text-2xl sm:w-[80%]"
+								className=" primary border-b-2 border-gray-400 w-[82%] outline-none p-2 text-3xl mb-2 text-gray-100 bg-opacity-50 md:w-[78%] md:text-2xl sm:w-[82%]"
 								type="text"
 								placeholder="Title"
 								autoFocus={true}
