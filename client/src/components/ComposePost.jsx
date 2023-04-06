@@ -86,6 +86,7 @@ const ComposePost = ({ categories }) => {
 			postData.append('file', postImg);
 			newPost.photo = postImgName;
 			try {
+				setIsSending(true);
 				await axios.post(`${import.meta.env.VITE_NFN_URI}/upload`, postData);
 			} catch (err) {}
 		}
