@@ -10,6 +10,7 @@ const Sidebar = ({ post, categories }) => {
 	const publicFolder = `${import.meta.env.VITE_NFN_URI}/assets/`;
 	const [profileURL, setProfileURL] = useState(null);
 	const [postProfileURL, setPostProfileURL] = useState(null);
+	const defaultImg = new URL(defaultPic, import.meta.url).href;
 
 	useEffect(() => {
 		if (user) {
@@ -39,7 +40,7 @@ const Sidebar = ({ post, categories }) => {
 	};
 
 	const setDefault = (e) => {
-		e.target.src = defaultPic;
+		e.target.src = defaultImg;
 	};
 
 	return (
@@ -53,9 +54,9 @@ const Sidebar = ({ post, categories }) => {
 							</span>
 							<img
 								className="mt-6 h-[125px] w-[125px] overflow-hidden rounded-full border-opacity-0 object-cover shadow-lg "
-								src={profileURL}
+								src={profileURL || defaultImg}
 								alt=""
-								onError={setDefault}
+								onError={defaultImg}
 							/>
 
 							<Link to={`/?user=${user.username}`}>
@@ -80,9 +81,9 @@ const Sidebar = ({ post, categories }) => {
 							</span>
 							<img
 								className="mt-6 h-[125px] w-[125px] rounded-full object-cover "
-								src={postProfileURL}
+								src={postProfileURL || defaultImg}
 								alt=""
-								onError={setDefault}
+								onError={defaultImg}
 							/>
 							<Link to={`/?user=${post.username}`}>
 								<p className="mt-3 rounded-full bg-[#339999] px-4 text-lg font-semibold hover:bg-opacity-70 hover:text-gray-200">

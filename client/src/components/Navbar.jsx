@@ -17,6 +17,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 	const [profileURL, setProfileURL] = useState(null);
 	const navigate = useNavigate();
 	const { home } = useLocation();
+	const defaultImg = new URL(defaultPic, import.meta.url).href;
 
 	useEffect(() => {
 		const handleSize = () => {
@@ -78,7 +79,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 	};
 
 	const setDefault = (e) => {
-		e.target.src = defaultPic;
+		e.target.src = defaultImg;
 	};
 
 	const handleLogout = () => {
@@ -176,10 +177,10 @@ const Navbar = ({ posts, setSearchResult }) => {
 									</>
 								) : (
 									<img
-										src={profileURL || null}
+										src={profileURL || defaultImg}
 										alt=""
 										className="relative z-20 h-[40px] w-[40px] cursor-pointer rounded-full object-cover lg:cursor-auto"
-										onError={setDefault}
+										onError={defaultImg}
 										onClick={openNav ? null : handleOpenProfile}
 									/>
 								)}

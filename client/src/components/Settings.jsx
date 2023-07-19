@@ -12,6 +12,7 @@ const Settings = () => {
 	const [profileURL, setProfileURL] = useState(null);
 	const [successMsg, setSuccessMsg] = useState(false);
 	const aboutRef = useRef();
+	const defaultImg = new URL(defaultPic, import.meta.url).href;
 
 	useEffect(() => {
 		const getProfile = async () => {
@@ -59,7 +60,7 @@ const Settings = () => {
 	};
 
 	const setDefault = (e) => {
-		e.target.src = defaultPic;
+		e.target.src = defaultImg;
 	};
 
 	return (
@@ -71,9 +72,9 @@ const Settings = () => {
 				<div className="mb-2 flex items-center justify-center">
 					<img
 						className="h-40 w-40 rounded-full object-cover "
-						src={img ? URL.createObjectURL(img) : profileURL}
+						src={img ? URL.createObjectURL(img) : profileURL || defaultImg}
 						alt="user upload profile pic"
-						onError={setDefault}
+						onError={defaultImg}
 					/>
 				</div>
 				<label htmlFor="imgInput" className="cursor-pointer">
