@@ -30,47 +30,52 @@ const Login = () => {
 	};
 
 	return (
-		<div className="flex flex-col justify-center items-center h-[100vh] bg-primary ">
+		<div className="bg-primary flex h-[100vh] flex-col items-center justify-center ">
 			<img
 				src={guitarPick}
 				alt="logo of a teal guitar pick"
-				className="w-20 h-20"
+				className="h-20 w-20"
 			/>
 			<img src={logo} alt="logo text for Note for Note" className="mt-2" />
 			<div className="flex flex-col items-center justify-center ">
 				<form
-					className="flex flex-col w-full items-center relative mt-14"
+					className="relative mt-14 flex w-full flex-col items-center"
 					onSubmit={handleSubmit}
 				>
 					<label htmlFor="email">
-						<i className="fa-solid fa-user text-xl text-gray-400 absolute top-[.5rem] left-3"></i>
+						<i className="fa-solid fa-user absolute top-[.5rem] left-3 text-xl text-gray-400"></i>
 					</label>
 					<input
 						type="email"
 						placeholder="Email"
-						className="py-2.5 pl-10 w-[17rem] mb-4 border-b-2  border-gray-500 bg-primary outline-none caret-gray-200 text-gray-200 accent-input"
+						className="bg-primary accent-input mb-4 w-[17rem] border-b-2  border-gray-500 py-2.5 pl-10 text-gray-200 caret-gray-200 outline-none"
 						autoFocus={true}
 						ref={userRef}
 					/>
 					<label htmlFor="password">
-						<i className="fa-solid fa-lock text-xl text-gray-400 absolute top-[4.4rem] left-3"></i>
+						<i className="fa-solid fa-lock absolute top-[4.4rem] left-3 text-xl text-gray-400"></i>
 					</label>
 					<input
 						type="password"
 						placeholder="Password"
-						className="py-2.5 pl-10 w-[17rem] border-b-2 border-gray-500 bg-primary outline-none caret-gray-200 text-gray-200 accent-input"
+						className="bg-primary accent-input w-[17rem] border-b-2 border-gray-500 py-2.5 pl-10 text-gray-200 caret-gray-200 outline-none"
 						ref={passwordRef}
 					/>
 					<button
-						className="mt-6 text-gray-200 accent w-fit pt-1 px-[6.5rem] rounded-md mb-4 text-lg font-title "
+						className="accent mt-6 mb-4 w-fit rounded-md px-[6.6rem] pt-1 font-title text-lg text-gray-200 "
 						type="submit"
 					>
 						LOGIN
 					</button>
 				</form>
 				{error ? (
-					<p className="text-gray-300 py-1 px-2 rounded-md ">{error}</p>
+					<p className="rounded-md py-1 px-2 text-gray-300 ">{error}</p>
 				) : null}
+			</div>
+			<div style={{ background: 'lightgray', padding: '0 1rem' }}>
+				<p style={{ textAlign: 'center', fontWeight: 'bold' }}>Demo</p>
+				<p>email: testuser@gmail.com</p>
+				<p>password: D3m0PwD@2! </p>
 			</div>
 		</div>
 	);

@@ -14,19 +14,19 @@ const Dropdown = ({ setOpenProfile }) => {
 
 	return (
 		<>
-			<ul className="flex flex-col items-center w-[12%] accent rounded-md text-white mt-1 px-2 py-4 gap-4 absolute top-16 right-4 z-100 shadow-xl before:content-[''] before:absolute before:-top-1 before:right-[12px] before:w-8 before:h-8 before:accent before:rotate-45">
+			<ul className="accent z-100 before:accent absolute top-16 right-4 mt-1 flex w-[12%] flex-col items-center gap-4 rounded-md px-2 py-4 text-white shadow-xl before:absolute before:-top-1 before:right-[12px] before:h-8 before:w-8 before:rotate-45 before:content-['']">
 				<Link to="/profile">
 					<li className=" hover:text-gray-200">Profile</li>
 				</Link>
-				<div className="flex flex-col items-center pt-1 w-full">
+				<div className="flex w-full flex-col items-center pt-1">
 					<li
 						onClick={handleLogout}
-						className="hover:text-gray-200 cursor-pointer"
+						className="cursor-pointer hover:text-gray-200"
 					>
 						Sign Out
 					</li>
 					{user ? (
-						<li className="text-sm mt-1 text-gray-100 text-opacity-60 ">
+						<li className="mt-1 text-sm text-gray-100 text-opacity-60 ">
 							{user.email}
 						</li>
 					) : null}

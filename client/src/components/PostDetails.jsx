@@ -148,11 +148,11 @@ const PostDetails = ({
 	};
 
 	return (
-		<div className="flex-9 flex flex-col items-center mt-1 bg-[#2a3d53] text-gray-100 ">
-			<div className=" py-2.5 pr-0 w-[75%] sm:w-[85%]">
+		<div className="mt-1 flex flex-9 flex-col items-center bg-[#2a3d53] text-gray-100 ">
+			<div className=" w-[75%] py-2.5 pr-0 sm:w-[85%]">
 				{post.photo && (
 					<img
-						className=" w-[450px] h-[180px] object-cover rounded-md my-2 mx-auto mb-4"
+						className=" my-2 mx-auto mb-4 h-[180px] w-[450px] rounded-md object-cover"
 						src={postImgURL}
 						alt="user upload post photo for blog"
 						onError={setDefaultPostPic}
@@ -165,18 +165,18 @@ const PostDetails = ({
 							value={title}
 							onChange={(e) => setTitle(e.target.value)}
 							autoFocus={true}
-							className="w-full py-2 text-center text-3xl bg-gray-600 outline-none"
+							className="w-full bg-gray-600 py-2 text-center text-3xl outline-none"
 						/>
 					</div>
 				) : (
 					<>
-						<h1 className="flex-2 text-3xl text-center font-body">{title}</h1>
-						<div className="flex justify-between items-center mt-2 mb-4 pb-1 font-body border-b-gray-200 border-b-2">
+						<h1 className="flex-2 text-center font-body text-3xl">{title}</h1>
+						<div className="mt-2 mb-4 flex items-center justify-between border-b-2 border-b-gray-200 pb-1 font-body">
 							<div className="flex gap-4">
 								<div>
 									{' '}
 									<img
-										className="w-[45px] h-[45px] rounded-full border-opacity-0  shadow-lg object-cover overflow-hidden "
+										className="h-[45px] w-[45px] overflow-hidden rounded-full  border-opacity-0 object-cover shadow-lg "
 										src={postProfileURL}
 										alt="user upload profile pic"
 										// onError={setDefault}
@@ -189,10 +189,10 @@ const PostDetails = ({
 											<strong>{post.username}</strong>
 										</Link>
 									</span>
-									<span className="text-white text-sm">{formatDate}</span>
+									<span className="text-sm text-white">{formatDate}</span>
 								</div>
 							</div>
-							<span className="flex gap-1 mb-1 ">
+							<span className="mb-1 flex gap-1 ">
 								<EmailShareButton>
 									<EmailIcon size={30} round />
 								</EmailShareButton>
@@ -224,7 +224,7 @@ const PostDetails = ({
 				)}
 				{updateInfo ? (
 					<ReactQuill
-						className="border-none mt-2 w-full text-gray-600 bg-white p-0 ql-editor ql-container"
+						className="ql-editor ql-container mt-2 w-full border-none bg-white p-0 text-gray-600"
 						modules={modules}
 						formats={formats}
 						theme="snow"
@@ -238,32 +238,32 @@ const PostDetails = ({
 								<div>
 									{!openEdit ? (
 										<div
-											className=" text-right text-md font-bold cursor-pointer mb-2 p-1"
+											className=" text-md mb-2 cursor-pointer p-1 text-right font-bold"
 											onClick={handleOpenEdit}
 										>
-											<span className="bg-[#339999] py-1 px-3 rounded-full">
+											<span className="rounded-full bg-[#339999] py-1 px-3">
 												Edit Post
 											</span>
 										</div>
 									) : (
-										<div className="flex-1 text-md font-body mb-2">
+										<div className="flex-1 text-md mb-2 font-body">
 											<i
-												className="fa-solid fa-file-pen ml-2 cursor-pointer text-white bg-[#339999] p-2 rounded-md bg-opacity-80"
+												className="fa-solid fa-file-pen ml-2 cursor-pointer rounded-md bg-[#339999] bg-opacity-80 p-2 text-white"
 												onClick={() => {
 													setUpdateInfo(true);
 													handleScroll();
 												}}
 											>
-												<span className="font-body ml-2">Update</span>
+												<span className="ml-2 font-body">Update</span>
 											</i>
 											<i
-												className="fa-solid fa-trash ml-2 cursor-pointer text-white bg-red-700 p-2 rounded-md bg-opacity-80 "
+												className="fa-solid fa-trash ml-2 cursor-pointer rounded-md bg-red-700 bg-opacity-80 p-2 text-white "
 												onClick={handleDelete}
 											>
-												<span className="font-body ml-2">Delete</span>
+												<span className="ml-2 font-body">Delete</span>
 											</i>
 											<i
-												className="fa-solid fa-xmark cursor-pointer ml-2 bg-gray-400 py-2 px-3 rounded-md "
+												className="fa-solid fa-xmark ml-2 cursor-pointer rounded-md bg-gray-400 py-2 px-3 "
 												onClick={() => setOpenEdit(false)}
 											></i>
 										</div>
@@ -273,22 +273,22 @@ const PostDetails = ({
 						</div>
 
 						<div
-							className="mb-10 blog-link text-lg details lg:text-xl"
+							className="blog-link details mb-10 text-lg lg:text-xl"
 							dangerouslySetInnerHTML={sanitizeData()}
 						/>
 					</>
 				)}
 				{updateInfo ? (
-					<div className="flex items-center justify-center mt-4 gap-6">
+					<div className="mt-4 flex items-center justify-center gap-6">
 						<button
-							className="accent text-white px-10 py-2 rounded-md cursor-pointer font-semibold"
+							className="accent cursor-pointer rounded-md px-10 py-2 font-semibold text-white"
 							onClick={handleUpdate}
 						>
 							Update
 						</button>
 						<div class>
 							<button
-								className="bg-gray-400 text-white px-10 py-2 rounded-md cursor-pointer font-semibold"
+								className="cursor-pointer rounded-md bg-gray-400 px-10 py-2 font-semibold text-white"
 								onClick={() => setUpdateInfo(false)}
 							>
 								Cancel

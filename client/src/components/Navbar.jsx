@@ -87,15 +87,15 @@ const Navbar = ({ posts, setSearchResult }) => {
 	};
 
 	return (
-		<div className=" w-full h-[70px] sticky top-0 z-10 flex items-center justify-between font-display bg-[#2a3d53] border-b-2 border-gray-100 border-opacity-30 ">
+		<div className=" sticky top-0 z-10 flex h-[70px] w-full items-center justify-between border-b-2 border-gray-100 border-opacity-30 bg-[#2a3d53] font-display ">
 			<div className="flex items-center">
 				<Link to="/">
-					<div className="flex items-center justify-center ml-6">
-						<div className="flex items-center gap-2 mr-6 sm:mr-6">
+					<div className="ml-6 flex items-center justify-center">
+						<div className="mr-6 flex items-center gap-2 sm:mr-6">
 							<img
 								src={guitarPick}
 								alt="logo of a guitar pick"
-								className="w-[40px] h-[40px]"
+								className="h-[40px] w-[40px]"
 							/>
 							<img
 								src={logo}
@@ -106,26 +106,26 @@ const Navbar = ({ posts, setSearchResult }) => {
 					</div>
 				</Link>
 				{location.pathname === '/' && user ? (
-					<li className="flex mr-0 ">
-						<div className="w-full relative">
+					<li className="mr-0 flex ">
+						<div className="relative w-full">
 							<input
-								className=" border-gray-400 border-2 py-1 rounded-full px-4 outline-none"
+								className=" rounded-full border-2 border-gray-400 py-1 px-4 outline-none"
 								type="text"
 								id="search"
 								placeholder="Search..."
 								autoFocus={true}
 								onChange={handleSearch}
 							/>
-							<i className="fa-solid fa-magnifying-glass text-lg text-gray-400 ml-8 absolute top-1 right-4"></i>
+							<i className="fa-solid fa-magnifying-glass absolute top-1 right-4 ml-8 text-lg text-gray-400"></i>
 						</div>
 					</li>
 				) : null}
 			</div>
 			<>
-				<div className="lg:flex lg: items-center">
+				<div className="lg: items-center lg:flex">
 					{/* Hamburger Menu for Mobile Nav */}
 					<div
-						className="items-center text-center text-gray-100 text-xl h-[40px] bg-[#339999] rounded-md mr-6 hidden lg:flex lg:cursor-pointer"
+						className="mr-6 hidden h-[40px] items-center rounded-md bg-[#339999] text-center text-xl text-gray-100 lg:flex lg:cursor-pointer"
 						onClick={handleOpenNav}
 					>
 						{openNav ? (
@@ -139,24 +139,24 @@ const Navbar = ({ posts, setSearchResult }) => {
 				{/* Nav Links */}
 				<ul
 					className={
-						'flex gap-8 mr-6 text-lg font-light cursor-pointer lg:pt-10 lg:fixed lg:top-[70px] lg:-right-[4%] lg:w-0 lg:overflow-x-hidden lg:flex-col lg:items-center lg:justify-start lg:gap-10 lg:bg-gray-400  lg:h-[90vh]  lg:text-center z-50 lg:transform lg:ease-in-out lg:duration-300 lg:bg-opacity-95 sm:-right-[7%]  ' +
+						'z-50 mr-6 flex cursor-pointer gap-8 text-lg font-light lg:fixed lg:top-[70px] lg:-right-[4%] lg:h-[90vh] lg:w-0 lg:transform lg:flex-col lg:items-center lg:justify-start lg:gap-10  lg:overflow-x-hidden  lg:bg-gray-400 lg:bg-opacity-95 lg:pt-10 lg:text-center lg:duration-300 lg:ease-in-out sm:-right-[7%]  ' +
 						(openNav ? 'lg:w-[300px] sm:w-full' : 'lg:w-0 sm:w-0 ')
 					}
 				>
 					<li>
 						<Link to="/" onClick={() => setOpenNav(false)}>
-							<i className="fa-solid fa-house text-gray-100 text-3xl lg:mr-8">
+							<i className="fa-solid fa-house text-3xl text-gray-100 lg:mr-8">
 								{openNav ? (
-									<span className=" font-title text-3xl ml-4">HOME</span>
+									<span className=" ml-4 font-title text-3xl">HOME</span>
 								) : null}
 							</i>
 						</Link>
 					</li>
 					<li>
 						<Link to="/compose" onClick={() => setOpenNav(false)}>
-							<i className="fa-solid fa-pen-to-square  text-gray-100 text-3xl lg:mr-8 ">
+							<i className="fa-solid fa-pen-to-square  text-3xl text-gray-100 lg:mr-8 ">
 								{openNav ? (
-									<span className=" font-title text-3xl ml-4">WRITE</span>
+									<span className=" ml-4 font-title text-3xl">WRITE</span>
 								) : null}
 							</i>
 						</Link>
@@ -167,8 +167,8 @@ const Navbar = ({ posts, setSearchResult }) => {
 								{openNav ? (
 									<>
 										<Link to="/profile" onClick={() => setOpenNav(false)}>
-											<i className="fa-solid fa-user text-gray-100 text-3xl">
-												<span className=" font-title text-3xl ml-4">
+											<i className="fa-solid fa-user text-3xl text-gray-100">
+												<span className=" ml-4 font-title text-3xl">
 													PROFILE
 												</span>
 											</i>
@@ -178,24 +178,24 @@ const Navbar = ({ posts, setSearchResult }) => {
 									<img
 										src={profileURL || null}
 										alt=""
-										className="w-[40px] h-[40px] rounded-full object-cover cursor-pointer relative z-20 lg:cursor-auto"
+										className="relative z-20 h-[40px] w-[40px] cursor-pointer rounded-full object-cover lg:cursor-auto"
 										onError={setDefault}
 										onClick={openNav ? null : handleOpenProfile}
 									/>
 								)}
 							</>
 						) : (
-							<ul className="flex gap-6 text-lg font-light text-gray-100 font-body cursor-pointer lg:flex-col lg:gap-10">
-								<li className="bg-[#339999] px-3 py-1 rounded-md lg:bg-transparent lg:text-3xl lg:font-title lg:font-semibold">
+							<ul className="flex cursor-pointer gap-6 font-body text-lg font-light text-gray-100 lg:flex-col lg:gap-10">
+								<li className="rounded-md bg-[#339999] px-3 py-1 lg:bg-transparent lg:font-title lg:text-3xl lg:font-semibold">
 									<Link to="/login" className="lg:flex">
 										<i className="fa-solid fa-right-to-bracket hidden lg:block"></i>
-										<span className="lg:uppercase lg:ml-4">Login</span>
+										<span className="lg:ml-4 lg:uppercase">Login</span>
 									</Link>
 								</li>
-								<li className="bg-[#339999] px-3 py-1 rounded-md lg:bg-transparent lg:text-3xl lg:font-title lg:font-semibold">
+								<li className="rounded-md bg-[#339999] px-3 py-1 lg:bg-transparent lg:font-title lg:text-3xl lg:font-semibold">
 									<Link to="/register" className="lg:flex">
 										<i className="fa-solid fa-address-card hidden lg:block"></i>
-										<span className="lg:uppercase lg:ml-4">Sign Up</span>
+										<span className="lg:ml-4 lg:uppercase">Sign Up</span>
 									</Link>
 								</li>
 							</ul>
@@ -203,12 +203,12 @@ const Navbar = ({ posts, setSearchResult }) => {
 					</li>
 					{user ? (
 						<li
-							className="text-3xl text-gray-100 hidden lg:block "
+							className="hidden text-3xl text-gray-100 lg:block "
 							onClick={handleLogout}
 						>
 							<Link to="/profile">
-								<i className="fa-solid fa-right-from-bracket text-gray-100 text-3xl">
-									<span className=" font-title text-3xl ml-4">LOGOUT</span>
+								<i className="fa-solid fa-right-from-bracket text-3xl text-gray-100">
+									<span className=" ml-4 font-title text-3xl">LOGOUT</span>
 								</i>
 							</Link>
 						</li>
@@ -218,7 +218,7 @@ const Navbar = ({ posts, setSearchResult }) => {
 					<>
 						<button
 							onClick={() => setOpenProfile(false)}
-							className=" bg-slate-600 w-full h-full fixed top-0 left-0 opacity-80 cursor-default"
+							className=" fixed top-0 left-0 h-full w-full cursor-default bg-slate-600 opacity-80"
 						></button>
 						<Dropdown user={user} setOpenProfile={setOpenProfile} />
 					</>

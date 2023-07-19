@@ -63,22 +63,22 @@ const Settings = () => {
 	};
 
 	return (
-		<div className="flex-9 profile font-body flex flex-col items-center justify-center">
+		<div className="profile flex flex-9 flex-col items-center justify-center font-body">
 			<form
-				className="flex flex-col justify-center items-center relative"
+				className="relative flex flex-col items-center justify-center"
 				onSubmit={handleUpdate}
 			>
-				<div className="flex items-center justify-center mb-2">
+				<div className="mb-2 flex items-center justify-center">
 					<img
-						className="w-40 h-40 object-cover rounded-full "
+						className="h-40 w-40 rounded-full object-cover "
 						src={img ? URL.createObjectURL(img) : profileURL}
 						alt="user upload profile pic"
 						onError={setDefault}
 					/>
 				</div>
 				<label htmlFor="imgInput" className="cursor-pointer">
-					<i className="fa-solid fa-camera text-white bg-gray-500 py-2 px-4 rounded-md mb-4">
-						<span className="font-body ml-2">Select Photo</span>
+					<i className="fa-solid fa-camera mb-4 rounded-md bg-gray-500 py-2 px-4 text-white">
+						<span className="ml-2 font-body">Select Photo</span>
 					</i>
 				</label>
 				<input
@@ -89,7 +89,7 @@ const Settings = () => {
 				/>
 				<label
 					htmlFor=""
-					className="blocktext text-gray-100 text-lg sm:blockmobile"
+					className="blocktext sm:blockmobile text-lg text-gray-100"
 				>
 					About You:
 				</label>
@@ -99,17 +99,17 @@ const Settings = () => {
 					placeholder="Tell us about you..."
 					ref={aboutRef}
 					defaultValue={user.about}
-					className="p-4 my-2 w-[24rem] sm:w-[20rem]"
+					className="my-2 w-[24rem] p-4 sm:w-[20rem]"
 					rows="4"
 					max="300"
 				/>
 				<button
 					type="submit"
-					className="w-40 bg-[#339999] text-white font-semibold py-2 rounded-md mt-2 cursor-pointer "
+					className="mt-2 w-40 cursor-pointer rounded-md bg-[#339999] py-2 font-semibold text-white "
 				>
 					Update Profile
 				</button>
-				<p className=" text-gray-100 mt-2">
+				<p className=" mt-2 text-gray-100">
 					{successMsg && 'Profile has successfully been updated'}
 				</p>
 			</form>
