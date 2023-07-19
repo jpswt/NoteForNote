@@ -74,8 +74,8 @@ const Login = () => {
 			</div>
 			<div style={{ background: 'lightgray', padding: '0 1rem' }}>
 				<p style={{ textAlign: 'center', fontWeight: 'bold' }}>Demo</p>
-				<p>email: testuser@gmail.com</p>
-				<p>password: D3m0PwD@2! </p>
+				<p>email: testuser1@gmail.com</p>
+				<p>password: D3m0PwD@5! </p>
 			</div>
 		</div>
 	);
