@@ -72,11 +72,11 @@ const Login = () => {
 					<p className="rounded-md py-1 px-2 text-gray-300 ">{error}</p>
 				) : null}
 			</div>
-			<div style={{ background: 'lightgray', padding: '0 1rem' }}>
+			{/* <div style={{ background: 'lightgray', padding: '0 1rem' }}>
 				<p style={{ textAlign: 'center', fontWeight: 'bold' }}>Demo</p>
 				<p>email: testuser@gmail.com</p>
 				<p>password: D3m0PwD@2! </p>
-			</div>
+			</div> */}
 		</div>
 	);
 };
