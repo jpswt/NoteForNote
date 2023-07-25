@@ -1,7 +1,9 @@
 {
-	"name": "client",
+	"name": "Note for Note Client Application",
 	"private": true,
-	"version": "0.0.0",
+	"version": "1.0.0",
+	"description": "React Application for Note for Note, a blog application for musicians",
+	"repository": "https://github.com/jpswt/NoteForNote",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
