@@ -1,5 +1,5 @@
 {
-	"name": "Note for Note Backend",
+	"name": "notefornotebackend",
 	"version": "1.0.0",
 	"description": "Express api for Note for Note Client",
 	"repository": "https://github.com/jpswt/NoteForNote",
